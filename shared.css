@@ -666,3 +666,12 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vh-label strong{display:block;color:#fff;font-weight:700;font-size:.98rem;letter-spacing:-.01em;line-height:1.12;}
 .vh-label span{color:var(--gray-300);font-size:.8rem;}
 @media(max-width:860px){ .vh-callouts{display:none;} }
+
+/* ===== v10 — CTA-Box im Look der "Energie & Photovoltaik"-Section (.pv2) ===== */
+.cta-band.cta-pv2{background:radial-gradient(120% 120% at 78% 30%,#16201c 0%,var(--ink) 46%,#0b0f12 100%);}
+.cta-band.cta-pv2::after{display:none!important;}                 /* gpat-/Verlaufs-Overlay killen */
+.cta-band.cta-pv2 .cta-gridbg{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:46px 46px;-webkit-mask:radial-gradient(ellipse at 78% 50%,#000,transparent 78%);mask:radial-gradient(ellipse at 78% 50%,#000,transparent 78%);animation:pv2drift 34s linear infinite;}
+.cta-band.cta-pv2 .cta-orb{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(60px);background:radial-gradient(circle,rgba(31,174,116,.34),transparent 70%);}
+.cta-band.cta-pv2 .cta-orb-a{width:420px;height:420px;right:-130px;top:-160px;animation:pvFloat 11s ease-in-out infinite;}
+.cta-band.cta-pv2 .cta-orb-b{width:320px;height:320px;left:-120px;bottom:-150px;background:radial-gradient(circle,rgba(31,174,116,.2),transparent 70%);animation:pvFloat 14s ease-in-out infinite reverse;}
+@media(prefers-reduced-motion:reduce){.cta-band.cta-pv2 .cta-gridbg,.cta-band.cta-pv2 .cta-orb{animation:none!important;}}
