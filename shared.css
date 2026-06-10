@@ -675,3 +675,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .cta-band.cta-pv2 .cta-orb-a{width:420px;height:420px;right:-130px;top:-160px;animation:pvFloat 11s ease-in-out infinite;}
 .cta-band.cta-pv2 .cta-orb-b{width:320px;height:320px;left:-120px;bottom:-150px;background:radial-gradient(circle,rgba(31,174,116,.2),transparent 70%);animation:pvFloat 14s ease-in-out infinite reverse;}
 @media(prefers-reduced-motion:reduce){.cta-band.cta-pv2 .cta-gridbg,.cta-band.cta-pv2 .cta-orb{animation:none!important;}}
+
+/* ===== v11 — Section-Trenner (Statement / Leistungen) ===== */
+.sec-divider{border:0;height:1px;width:100%;margin:0;background:linear-gradient(90deg,transparent 0%,var(--gray-300) 16%,var(--gray-300) 84%,transparent 100%);}
+.statement-sec{padding-bottom:3.5rem;}
