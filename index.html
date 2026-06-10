@@ -34,6 +34,7 @@
   </script>
   <style>
     /* Callout-Variante: kein Verlauf, Headline schwarz */
+    .vhero .vh-copy{transform:translateY(-6%);}
     .vhero .vh-copy h1{color:#000;}
     .vhero .vh-sub{color:#0a0c0d;text-shadow:0 1px 16px rgba(248,249,247,.9);}
     .vhero .st-rating{color:#0a0c0d;text-shadow:0 1px 14px rgba(248,249,247,.9);}
@@ -78,16 +79,16 @@
       </div>
       <div class="vh-callouts" aria-hidden="true">
         <svg class="vh-leads" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <line class="vl" data-cap="1" x1="63" y1="21" x2="65" y2="40"/>
-          <line class="vl" data-cap="3" x1="50" y1="52" x2="65" y2="62"/>
-          <line class="vl" data-cap="2" x1="49" y1="83" x2="49" y2="60"/>
+          <line class="vl" data-cap="1" data-key="pv"/>
+          <line class="vl" data-cap="3" data-key="wb"/>
+          <line class="vl" data-cap="2" data-key="sp"/>
         </svg>
-        <span class="vh-dot" data-cap="1" style="left:65%;top:40%"></span>
-        <span class="vh-dot" data-cap="3" style="left:65%;top:62%"></span>
-        <span class="vh-dot" data-cap="2" style="left:49%;top:60%"></span>
-        <div class="vh-label lab-c" data-cap="1" style="left:63%;top:11%"><strong>Photovoltaik</strong><span>Eigenen Strom erzeugen</span></div>
-        <div class="vh-label" data-cap="3" style="left:40%;top:46%"><strong>Wallbox &amp; E-Mobilit&auml;t</strong><span>E-Auto g&uuml;nstig zuhause laden</span></div>
-        <div class="vh-label lab-c" data-cap="2" style="left:49%;top:85%"><strong>Stromspeicher</strong><span>Tags&uuml;ber speichern, abends nutzen</span></div>
+        <span class="vh-dot" data-cap="1" data-key="pv"></span>
+        <span class="vh-dot" data-cap="3" data-key="wb"></span>
+        <span class="vh-dot" data-cap="2" data-key="sp"></span>
+        <div class="vh-label lab-c" data-cap="1" data-key="pv"><strong>Photovoltaik</strong><span>Eigenen Strom erzeugen</span></div>
+        <div class="vh-label lab-c" data-cap="3" data-key="wb"><strong>Wallbox &amp; E-Mobilit&auml;t</strong><span>E-Auto g&uuml;nstig zuhause laden</span></div>
+        <div class="vh-label" data-cap="2" data-key="sp"><strong>Stromspeicher</strong><span>Tags&uuml;ber speichern, abends nutzen</span></div>
       </div>
       <div class="st-hint"><span>Scrollen</span><span class="ar"></span></div>
     </div>
@@ -392,23 +393,52 @@
     const sec=document.querySelector('.vhero'); if(!sec)return;
     const vid=sec.querySelector('.vh-video');
     // passende Video-Auflösung je Desktop-Breite/Pixeldichte wählen
-    const wide = (innerWidth * (window.devicePixelRatio||1)) >= 1900 || innerWidth >= 1600;
+    const wide = (innerWidth * (window.devicePixelRatio||1)) >= 2400 || innerWidth >= 1800;
     vid.src = wide ? vid.dataset.srcL : vid.dataset.srcM;
     const calls=[...sec.querySelectorAll('.vh-callouts [data-cap]')];
+    const sticky=sec.querySelector('.vh-sticky');
+    const VAR=16/9; // Video-Seitenverhältnis (Bildpunkte sind als Anteil des Videoframes definiert)
+    const TARGET={pv:[0.667,0.40], wb:[0.722,0.735], sp:[0.564,0.655]};
+    const dotEl={}, labEl={}, lnEl={}; const P={};
+    sec.querySelectorAll('.vh-dot').forEach(d=>dotEl[d.dataset.key]=d);
+    sec.querySelectorAll('.vh-label').forEach(l=>labEl[l.dataset.key]=l);
+    sec.querySelectorAll('.vl').forEach(l=>lnEl[l.dataset.key]=l);
+    function mapPt(fx,fy){ const Cw=sticky.clientWidth,Ch=sticky.clientHeight; if(Cw/Ch>=VAR){const vh=Cw/VAR,oY=(Ch-vh)/2;return [fx*100,(oY+fy*vh)/Ch*100];} const vw=Ch*VAR,oX=(Cw-vw)/2; return [(oX+fx*vw)/Cw*100, fy*100]; }
+    function layout(){
+      for(const k in TARGET){ const m=mapPt(TARGET[k][0],TARGET[k][1]); P[k]=m; dotEl[k].style.left=m[0]+'%'; dotEl[k].style.top=m[1]+'%'; }
+      labEl.pv.style.left=P.pv[0]+'%'; labEl.pv.style.top='11%';
+      labEl.wb.style.left=P.wb[0]+'%'; labEl.wb.style.top='85%';
+      labEl.sp.style.left='34%'; labEl.sp.style.top='75%';
+      const sr=sticky.getBoundingClientRect();
+      function line(key,edge){ const lr=labEl[key].getBoundingClientRect();
+        const ln=lnEl[key]; let x1,y1;
+        if(edge==='bottom'){ x1=P[key][0]; y1=(lr.bottom-sr.top)/sr.height*100; }   // vertikal
+        else if(edge==='top'){ x1=P[key][0]; y1=(lr.top-sr.top)/sr.height*100; }    // vertikal
+        else { x1=(lr.right-sr.left)/sr.width*100; y1=((lr.top+lr.bottom)/2-sr.top)/sr.height*100; }
+        ln.setAttribute('x1',x1.toFixed(2)); ln.setAttribute('y1',y1.toFixed(2)); ln.setAttribute('x2',P[key][0].toFixed(2)); ln.setAttribute('y2',P[key][1].toFixed(2)); }
+      line('pv','bottom'); line('wb','top'); line('sp','right');
+    }
     let dur=0, ticking=false, cur=-1;
     function setStep(s){ if(s===cur)return; cur=s; sec.dataset.step=s; calls.forEach(c=>c.classList.toggle('on',+c.dataset.cap<=s)); }
     if(matchMedia('(max-width:860px)').matches){ vid.loop=true; vid.muted=true; vid.setAttribute('autoplay',''); vid.play().catch(()=>{}); calls.forEach(c=>c.classList.add('on')); return; }
+    // Scroll→Video-Zeit als Anteil der Dauer, mit Halte-Pausen nach jedem Element
+    // schnelle Element-Aufbauten (kurze Strecke), lange Halte-Pausen dazwischen
+    const KF=[[0,0],[0.09,0.27],[0.37,0.27],[0.45,0.54],[0.71,0.54],[0.79,0.92],[1,1]];
+    function frac(p){ for(let i=1;i<KF.length;i++){ if(p<=KF[i][0]){ const a=KF[i-1],b=KF[i]; const f=(p-a[0])/((b[0]-a[0])||1); return a[1]+f*(b[1]-a[1]); } } return 1; }
+    // Boxen erst NACH dem jeweiligen Aufbau (Ende der Bau-Strecke)
+    function stepAt(p){ return p>=0.88?3 : p>=0.69?2 : p>=0.26?1 : 0; }
     function calc(){
       const total=sec.offsetHeight-innerHeight;
       const p=total>0?Math.min(Math.max(-sec.getBoundingClientRect().top/total,0),1):0;
-      if(dur){ const t=p*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.015){ try{vid.currentTime=t;}catch(e){} } }
-      setStep(Math.max(0,Math.min(3,Math.floor(p*4*0.999))));
+      if(dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
+      setStep(stepAt(p));
       ticking=false;
     }
-    function ready(){ dur=vid.duration||5; calc(); }
+    function ready(){ dur=vid.duration||5; layout(); calc(); }
     if(vid.readyState>=1) ready(); else vid.addEventListener('loadedmetadata',ready);
+    layout(); addEventListener('load',layout);
     addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
-    addEventListener('resize',calc,{passive:true});
+    addEventListener('resize',()=>{layout();calc();},{passive:true});
   })();
 </script>
 </body>
