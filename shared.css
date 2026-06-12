@@ -801,3 +801,34 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vhero-light .st-foot{margin-top:1.6rem;}
 .vhero-light .st-rating{color:var(--gray-700);font-size:.95rem;} .vhero-light .st-rating strong{color:var(--ink);} .vhero-light .st-rating .stars{color:#f5a623;letter-spacing:1px;}
 @media(max-width:860px){ .vhero-light .vh-copy h1{color:#fff;} .vhero-light .vh-sub{color:var(--gray-200);} .vhero-light .breadcrumb,.vhero-light .breadcrumb a,.vhero-light .st-rating{color:var(--gray-300);} .vhero-light .st-rating strong{color:#fff;} }
+
+/* ===== v15 — Elektroinstallation: Intro-Lead, Bauherr-Versprechen (dunkel, animiert), Trust-Panel ===== */
+/* Intro-Lead (statt Box) */
+.intro-lead{font-size:clamp(1.3rem,2.3vw,1.8rem);font-weight:500;letter-spacing:-.02em;line-height:1.45;color:var(--ink);margin-top:.3rem;}
+.intro-lead .hl{color:var(--brand-primary);font-weight:600;}
+/* Bauherr-Versprechen — dunkle Section im pv2-Look + Animationen */
+.promise{position:relative;overflow:hidden;background:radial-gradient(120% 130% at 75% 15%,#16201c 0%,var(--ink) 46%,#0b0f12 100%);color:#fff;}
+.promise > .container{position:relative;z-index:2;}
+.promise .section-label{color:var(--gray-300);} .promise .section-label::before{background:var(--brand-glow);}
+.promise h2{color:#fff;} .promise .lead{color:var(--gray-300);max-width:60ch;margin-top:.6rem;}
+.promise-grid{position:absolute;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:46px 46px;-webkit-mask:radial-gradient(ellipse at 70% 40%,#000,transparent 80%);mask:radial-gradient(ellipse at 70% 40%,#000,transparent 80%);animation:pv2drift 34s linear infinite;}
+.promise-orb{position:absolute;z-index:0;border-radius:50%;filter:blur(60px);pointer-events:none;background:radial-gradient(circle,rgba(31,174,116,.30),transparent 70%);}
+.promise-orb.a{width:440px;height:440px;right:-130px;top:-160px;animation:pvFloat 12s ease-in-out infinite;}
+.promise-orb.b{width:340px;height:340px;left:-120px;bottom:-150px;background:radial-gradient(circle,rgba(31,174,116,.18),transparent 70%);animation:pvFloat 15s ease-in-out infinite reverse;}
+.promise-pts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.6rem;}
+.promise-pt{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:1.6rem;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+.promise-pt .pic{width:48px;height:48px;border-radius:var(--r-md);background:rgba(31,174,116,.16);color:var(--brand-glow);display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;animation:pulseRing2 2.8s infinite;}
+.promise-pt:nth-child(2) .pic{animation-delay:.5s;} .promise-pt:nth-child(3) .pic{animation-delay:1s;}
+.promise-pt .pic svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.7;}
+.promise-pt h3{color:#fff;font-size:1.06rem;margin-bottom:.3rem;}
+.promise-pt p{color:var(--gray-400);font-size:.92rem;line-height:1.5;}
+/* Verlässlich — Trust-Panel (Split) */
+.trust-panel{background:#fff;border:var(--hair);border-radius:var(--r-xl);padding:1.4rem 1.8rem;box-shadow:var(--sh-md);}
+.tp-row{display:flex;gap:.95rem;align-items:flex-start;padding:1rem 0;border-bottom:var(--hair);}
+.tp-row:last-child{border-bottom:0;}
+.tp-row .tp-ic{flex:none;width:32px;height:32px;border-radius:50%;background:var(--brand-primary-light);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;}
+.tp-row .tp-ic svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.2;}
+.tp-row strong{display:block;color:var(--ink);font-size:1rem;margin-bottom:.1rem;}
+.tp-row span{color:var(--gray-500);font-size:.9rem;line-height:1.45;}
+@media(max-width:760px){.promise-pts{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){.promise-grid,.promise-orb,.promise-pt .pic{animation:none!important;}}

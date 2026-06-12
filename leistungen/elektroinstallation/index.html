@@ -30,7 +30,11 @@
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"Übernehmen Sie auch Altbausanierungen?","acceptedAnswer":{"@type":"Answer","text":"Ja, wir modernisieren veraltete Elektroanlagen sicher und normgerecht – inklusive FI-Schutz, neuer Verteilung und Verkabelung."}},
     {"@type":"Question","name":"Wann muss der Zählerschrank getauscht werden?","acceptedAnswer":{"@type":"Answer","text":"Bei veralteten Anlagen, fehlendem FI-Schutz oder im Zuge von Photovoltaik und Wallbox. Wir prüfen Ihre Anlage und beraten Sie, ob ein Tausch nötig ist."}},
+    {"@type":"Question","name":"Was kostet eine Elektroinstallation?","acceptedAnswer":{"@type":"Answer","text":"Das hängt vom Umfang ab – deshalb arbeiten wir mit transparenten Festpreisen. Für viele Standardleistungen nennen wir schon am Telefon einen Richtwert, ansonsten erhalten Sie vorab einen verbindlichen Kostenvoranschlag."}},
+    {"@type":"Question","name":"Wie lange dauert die Elektroinstallation im Neubau?","acceptedAnswer":{"@type":"Answer","text":"Das richtet sich nach Größe und Ausstattung des Objekts. Wir planen unsere Arbeitsschritte fest in den Bauzeitplan ein und stimmen uns mit den anderen Gewerken ab."}},
     {"@type":"Question","name":"Arbeiten Sie auch im laufenden Betrieb (Gewerbe)?","acceptedAnswer":{"@type":"Answer","text":"Ja, wir planen die Umsetzung so, dass Ihr Betrieb weiterläuft und Ausfallzeiten minimal bleiben."}},
+    {"@type":"Question","name":"Verlegen Sie auch Leerrohre für späteres Smart Home oder PV?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir legen auf Wunsch Leerrohre und Reserven für Photovoltaik, Wallbox, Netzwerk und Smart Home – so bleiben spätere Erweiterungen einfach und sauber."}},
+    {"@type":"Question","name":"Kümmern Sie sich um die Anmeldung beim Netzbetreiber?","acceptedAnswer":{"@type":"Answer","text":"Ja. Als eingetragener Elektrofachbetrieb übernehmen wir die nötigen Anmeldungen und die Inbetriebsetzung beim zuständigen Netzbetreiber."}},
     {"@type":"Question","name":"Bekomme ich vorab einen Festpreis?","acceptedAnswer":{"@type":"Answer","text":"Sie erhalten einen transparenten Kostenvoranschlag ohne versteckte Kosten – Sie wissen vor Auftragsbeginn, woran Sie sind."}}
   ]}
   </script>
@@ -61,11 +65,6 @@
       <div class="vh-scrim"></div>
       <div class="vh-grid">
         <div class="vh-copy vh-copy-min">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Start</a><span class="sep">›</span>
-            <a href="/#leistungen">Leistungen</a><span class="sep">›</span>
-            <span class="cur">Elektroinstallation</span>
-          </nav>
           <span class="st-eyebrow"><span class="dot"></span>Leistung · Elektroinstallation</span>
           <h1>Elektroinstallation für Neubau, Altbau &amp; <span class="hl">Sanierung</span></h1>
           <p class="vh-sub">Sauber geplant, termintreu umgesetzt – damit bei Ihnen alles läuft. Privat und gewerblich in Stuttgart, Reutlingen, Tübingen und der Region.</p>
@@ -79,54 +78,63 @@
     </div>
   </section>
 
-  <!-- ANSWER-FIRST -->
+  <!-- INTRO -->
   <section class="section" style="padding-bottom:0;">
-    <div class="container" style="max-width:880px;">
-      <div class="answer-box reveal">
-        <span class="ab-tag">Kurz gesagt</span>
-        <p>DÜRR Elektrotechnik übernimmt Ihre komplette Elektroinstallation – im Neubau, bei der Altbausanierung oder der Erweiterung im Bestand. Von der Planung über Zählerschrank, Verteilung und Verkabelung bis zur Übergabe arbeiten wir termintreu und nach aktuellen Normen.</p>
-      </div>
+    <div class="container" style="max-width:920px;">
+      <span class="section-label reveal">Kurz gesagt</span>
+      <p class="intro-lead reveal" style="transition-delay:.05s;">DÜRR Elektrotechnik übernimmt Ihre komplette Elektroinstallation – im Neubau, bei der Altbausanierung oder der Erweiterung im Bestand. Von Planung über Zählerschrank, Verteilung und Verkabelung bis zur Übergabe arbeiten wir <span class="hl">termintreu und nach aktuellen Normen</span>.</p>
     </div>
   </section>
 
-  <!-- LEISTUNGSUMFANG -->
+  <!-- LEISTUNGSUMFANG — Karten-Slider -->
   <section class="section has-dots">
     <div class="dotbg" data-parallax="14"></div>
     <div class="container">
-      <span class="section-label reveal">Leistungsumfang</span>
-      <h2 class="reveal" style="transition-delay:.05s;">Was wir für Sie installieren</h2>
-      <div class="feature-grid stagger">
-        <div class="feature">
-          <div class="fic"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 10v9h12v-9"/></svg></div>
-          <h3>Neubau</h3><p>Komplette Elektroinstallation nach Plan – von der Rohinstallation bis zur schlüsselfertigen Übergabe.</p>
+      <div class="carousel-head">
+        <div>
+          <span class="section-label reveal">Leistungsumfang</span>
+          <h2 class="reveal" style="transition-delay:.05s;">Was wir für Sie installieren</h2>
         </div>
-        <div class="feature">
-          <div class="fic"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5"/></svg></div>
-          <h3>Altbau &amp; Sanierung</h3><p>Veraltete Anlagen sicher modernisieren – inklusive FI-Schutz, neuer Verteilung und Verkabelung.</p>
+      </div>
+      <div class="dcar-wrap">
+        <div class="dcar" data-carousel>
+          <button class="dcar-arrow prev" id="cprev" aria-label="Vorherige Leistung">‹</button>
+          <button class="dcar-arrow next" id="cnext" aria-label="Nächste Leistung">›</button>
+          <div class="dcar-stage">
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7M6 10v9h12v-9"/></svg></span></div><h3>Neubau</h3><p>Komplette Elektroinstallation nach Plan – von der Rohinstallation bis zur schlüsselfertigen Übergabe.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5"/></svg></span></div><h3>Altbau &amp; Sanierung</h3><p>Veraltete Anlagen sicher modernisieren – inklusive FI-Schutz, neuer Verteilung und Verkabelung.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></span></div><h3>Zählerschrank tauschen</h3><p>Zählerschrank normgerecht erneuern – die Basis für Photovoltaik, Wallbox und moderne Haustechnik.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><path d="M12 3v6M5 9h14v3a7 7 0 0 1-14 0z"/><path d="M9 21h6M12 19v2"/></svg></span></div><h3>Unterverteilung &amp; Hausanschluss</h3><p>Sauber dimensionierte Verteilungen und Anschlüsse nach aktuellem Stand der Technik.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></span></div><h3>Erweiterungen</h3><p>Zusätzliche Steckdosen, Leitungen und Anschlüsse – flexibel und sauber nachgerüstet.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+          </div>
         </div>
-        <div class="feature">
-          <div class="fic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
-          <h3>Zählerschrank tauschen</h3><p>Zählerschrank normgerecht erneuern – die Basis für Photovoltaik, Wallbox und moderne Haustechnik.</p>
-        </div>
-        <div class="feature">
-          <div class="fic"><svg viewBox="0 0 24 24"><path d="M12 3v6M5 9h14v3a7 7 0 0 1-14 0z"/><path d="M9 21h6M12 19v2"/></svg></div>
-          <h3>Unterverteilung &amp; Hausanschluss</h3><p>Sauber dimensionierte Verteilungen und Anschlüsse nach aktuellem Stand der Technik.</p>
-        </div>
-        <div class="feature">
-          <div class="fic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg></div>
-          <h3>Erweiterungen</h3><p>Zusätzliche Steckdosen, Leitungen und Anschlüsse – flexibel und sauber nachgerüstet.</p>
-        </div>
+        <div class="dcar-dots" data-carousel-dots></div>
       </div>
     </div>
   </section>
 
-  <!-- TERMINTREUE (Accent-Band) -->
-  <section class="section" style="padding-top:0;">
+  <!-- BAUHERR-VERSPRECHEN (dunkel, animiert) -->
+  <section class="section promise">
+    <div class="promise-grid"></div>
+    <span class="promise-orb a"></span>
+    <span class="promise-orb b"></span>
     <div class="container">
-      <div class="accent-band reveal">
-        <span class="section-label">Bauherr-Versprechen</span>
-        <h2>Pünktlich zum Bauzeitplan</h2>
-        <p>Verzögerungen beim Elektriker bringen den ganzen Bau ins Wanken. Wir stimmen uns mit den anderen Gewerken ab, halten Termine ein und sind erreichbar, wenn Fragen aufkommen – damit Ihr Projekt im Zeitplan bleibt.</p>
+      <span class="section-label reveal">Bauherr-Versprechen</span>
+      <h2 class="reveal" style="transition-delay:.05s;">Pünktlich zum Bauzeitplan</h2>
+      <p class="lead reveal" style="transition-delay:.1s;">Verzögerungen beim Elektriker bringen den ganzen Bau ins Wanken. Wir arbeiten so, dass Ihr Projekt im Zeitplan bleibt:</p>
+      <div class="promise-pts stagger">
+        <div class="promise-pt">
+          <div class="pic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Mit allen Gewerken abgestimmt</h3><p>Wir koordinieren uns mit Rohbau, Heizung & Co. – damit nichts aufeinander warten muss.</p>
+        </div>
+        <div class="promise-pt">
+          <div class="pic"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg></div>
+          <h3>Feste, eingehaltene Termine</h3><p>Zugesagte Termine stehen. Sie wissen verlässlich, wann wir kommen und fertig sind.</p>
+        </div>
+        <div class="promise-pt">
+          <div class="pic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z"/></svg></div>
+          <h3>Erreichbar bei Rückfragen</h3><p>Ein fester Ansprechpartner, der ans Telefon geht, wenn auf der Baustelle Fragen aufkommen.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -145,35 +153,50 @@
     </div>
   </section>
 
-  <!-- TRUST -->
-  <section class="section has-dots" style="padding-top:0;">
+  <!-- VERLÄSSLICH (Split + Trust-Panel) -->
+  <section class="section has-dots">
     <div class="dotbg" data-parallax="12"></div>
-    <div class="container" style="max-width:820px;">
-      <span class="section-label reveal">Verlässlich</span>
-      <h2 class="reveal" style="transition-delay:.05s;">Verlässlich – privat wie gewerblich</h2>
-      <p class="lead reveal" style="transition-delay:.1s;margin-top:.5rem;">Erfahrenes Team, echte Referenzen, faire Abrechnung. Ob Einfamilienhaus oder Gewerbeobjekt – Sie haben einen festen Ansprechpartner, der Ihr Projekt von Anfang bis Übergabe begleitet.</p>
-      <ul class="trustpts reveal" style="transition-delay:.15s;">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Eingetragener Elektrofachbetrieb</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Transparente Festpreise</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Ein fester Ansprechpartner</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Termintreu &amp; nach VDE-Norm</li>
-      </ul>
+    <div class="container split">
+      <div class="reveal">
+        <span class="section-label">Verlässlich</span>
+        <h2>Verlässlich – privat wie gewerblich</h2>
+        <p class="lead" style="margin-top:.6rem;">Erfahrenes Team, echte Referenzen, faire Abrechnung. Ob Einfamilienhaus oder Gewerbeobjekt – Sie haben einen festen Ansprechpartner, der Ihr Projekt von Anfang bis Übergabe begleitet.</p>
+        <a href="/#anfrage" class="btn btn-primary" style="margin-top:1.6rem;">Termin anfragen</a>
+      </div>
+      <div class="trust-panel stagger reveal">
+        <div class="tp-row"><span class="tp-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Eingetragener Elektrofachbetrieb</strong><span>Arbeiten nach VDE-Norm, eingetragen beim Netzbetreiber.</span></div></div>
+        <div class="tp-row"><span class="tp-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Transparente Festpreise</strong><span>Verbindlicher Kostenvoranschlag – keine versteckten Kosten.</span></div></div>
+        <div class="tp-row"><span class="tp-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Ein fester Ansprechpartner</strong><span>Von der Beratung bis zur Übergabe begleitet Sie dieselbe Person.</span></div></div>
+        <div class="tp-row"><span class="tp-ic"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><div><strong>Termintreu &amp; sauber</strong><span>Wir halten Zusagen ein und übergeben dokumentiert nach Norm.</span></div></div>
+      </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" id="anfrage-cta" style="padding-top:0;">
+  <!-- CTA / ANFRAGE (wie Startseite: Portrait + Formular) -->
+  <section class="section" id="anfrage" style="padding-top:0;">
     <div class="container">
-      <div class="cta-band cta-pv2 cta-simple reveal">
+      <div class="cta-band has-img cta-pv2 reveal">
         <div class="cta-gridbg"></div>
         <span class="cta-orb cta-orb-a"></span>
         <span class="cta-orb cta-orb-b"></span>
-        <span class="section-label">Kostenloses Erstgespräch</span>
-        <h2>Planen Sie Ihre Elektroinstallation mit uns</h2>
-        <p style="color:var(--gray-300);max-width:52ch;margin:.85rem auto 0;">Schildern Sie uns kurz Ihr Vorhaben – wir melden uns innerhalb von 24&nbsp;Stunden mit einem Festpreis-Vorschlag.</p>
-        <div class="btns">
-          <a href="/#anfrage" class="btn btn-on-dark pulse">Termin anfragen</a>
-          <a href="tel:+4974739512840" class="btn btn-on-dark sec">Lieber anrufen · 07473 9512840</a>
+        <div class="cta-portrait"><img src="/images/team-portrait.jpg" alt="Elektrofachbetrieb DÜRR Elektrotechnik – Ihr Elektriker für Stuttgart & Region" loading="lazy"></div>
+        <div class="cta-body">
+          <span class="section-label" style="color:var(--gray-300);">Kostenloses Erstgespräch</span>
+          <h2>Planen Sie Ihre Elektroinstallation mit uns</h2>
+          <p>Schildern Sie uns kurz Ihr Vorhaben – Neubau, Sanierung oder Zählerschrank. Wir melden uns innerhalb von 24&nbsp;Stunden mit einem Festpreis-Vorschlag.</p>
+          <!-- Hinweis: action vor Launch auf echtes Formspree-/Formular-Backend setzen -->
+          <form class="cta-form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+            <div class="ff-row">
+              <input type="text" name="name" placeholder="Ihr Name" required aria-label="Ihr Name">
+              <input type="text" name="kontakt" placeholder="Telefon oder E-Mail" required aria-label="Telefon oder E-Mail">
+            </div>
+            <textarea name="anliegen" rows="2" placeholder="Worum geht es? (z. B. Neubau, Altbausanierung, Zählerschrank)" aria-label="Ihr Anliegen"></textarea>
+            <div class="ff-actions">
+              <button type="submit" class="btn btn-on-dark pulse">Anfrage senden</button>
+              <a href="tel:+4974739512840" class="btn btn-on-dark sec">Lieber anrufen · 07473 9512840</a>
+            </div>
+            <p class="ff-note">Oder direkt per Mail: <a href="mailto:info@duerr-elektrotechnik.de">info@duerr-elektrotechnik.de</a> · Antwort in 24&nbsp;h · unverbindlich &amp; kostenlos</p>
+          </form>
         </div>
       </div>
     </div>
@@ -187,7 +210,11 @@
       <div style="margin-top:1.5rem;" class="reveal">
         <details class="faq-item" open><summary>Übernehmen Sie auch Altbausanierungen?</summary><p>Ja, wir modernisieren veraltete Elektroanlagen sicher und normgerecht – inklusive FI-Schutz, neuer Verteilung und Verkabelung.</p></details>
         <details class="faq-item"><summary>Wann muss der Zählerschrank getauscht werden?</summary><p>Bei veralteten Anlagen, fehlendem FI-Schutz oder im Zuge von Photovoltaik und Wallbox. Wir prüfen Ihre Anlage und beraten Sie, ob ein Tausch nötig ist.</p></details>
+        <details class="faq-item"><summary>Was kostet eine Elektroinstallation?</summary><p>Das hängt vom Umfang ab – deshalb arbeiten wir mit transparenten Festpreisen statt grober Stundenschätzungen. Für viele Standardleistungen (z. B. Steckdose, Zählerschrank) nennen wir Ihnen schon am Telefon einen Richtwert, ansonsten erhalten Sie vorab einen verbindlichen Kostenvoranschlag.</p></details>
+        <details class="faq-item"><summary>Wie lange dauert die Elektroinstallation im Neubau?</summary><p>Das richtet sich nach Größe und Ausstattung des Objekts. Wir planen unsere Arbeitsschritte (Rohinstallation, Verdrahtung, Endmontage) fest in den Bauzeitplan ein und stimmen uns mit den anderen Gewerken ab.</p></details>
         <details class="faq-item"><summary>Arbeiten Sie auch im laufenden Betrieb (Gewerbe)?</summary><p>Ja, wir planen die Umsetzung so, dass Ihr Betrieb weiterläuft und Ausfallzeiten minimal bleiben.</p></details>
+        <details class="faq-item"><summary>Verlegen Sie auch Leerrohre für späteres Smart Home oder PV?</summary><p>Ja. Wir denken vorausschauend mit und legen auf Wunsch Leerrohre und Reserven für Photovoltaik, Wallbox, Netzwerk und Smart Home – so bleiben spätere Erweiterungen einfach und sauber.</p></details>
+        <details class="faq-item"><summary>Kümmern Sie sich um die Anmeldung beim Netzbetreiber?</summary><p>Ja. Als eingetragener Elektrofachbetrieb übernehmen wir die nötigen Anmeldungen und die Inbetriebsetzung beim zuständigen Netzbetreiber.</p></details>
         <details class="faq-item"><summary>Bekomme ich vorab einen Festpreis?</summary><p>Sie erhalten einen transparenten Kostenvoranschlag ohne versteckte Kosten – Sie wissen vor Auftragsbeginn, woran Sie sind.</p></details>
       </div>
     </div>
@@ -271,6 +298,35 @@
     if(vid.readyState>=1) ready(); else vid.addEventListener('loadedmetadata',ready);
     addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
     addEventListener('resize',calc,{passive:true});
+  })();
+  // Coverflow-Karussell (eigene Mechanik, wie Startseite)
+  (function(){
+    const root=document.querySelector('[data-carousel]');if(!root)return;
+    const cards=[...root.querySelectorAll('.dcar-card')];
+    const dotsWrap=document.querySelector('[data-carousel-dots]');
+    const total=cards.length;let active=0,timer=null;
+    cards.forEach((_,i)=>{const b=document.createElement('button');b.className='dcar-dot';b.setAttribute('aria-label','Slide '+(i+1));b.addEventListener('click',()=>{go(i);restart();});dotsWrap.appendChild(b);});
+    const dots=[...dotsWrap.children];
+    function update(){
+      cards.forEach((c,i)=>{
+        const diff=((i-active)%total+total)%total;
+        let st='hidden';
+        if(diff===0)st='active';else if(diff===1)st='next';else if(diff===total-1)st='prev';
+        else if(diff===2)st='next-2';else if(diff===total-2)st='prev-2';
+        c.dataset.state=st;
+      });
+      dots.forEach((d,i)=>d.classList.toggle('active',i===active));
+    }
+    function go(i){active=((i%total)+total)%total;update();}
+    function next(){go(active+1);} function prev(){go(active-1);}
+    cards.forEach((c,i)=>c.addEventListener('click',(e)=>{if(c.dataset.state!=='active'){e.preventDefault();go(i);restart();}}));
+    root.querySelector('.dcar-arrow.next').addEventListener('click',()=>{next();restart();});
+    root.querySelector('.dcar-arrow.prev').addEventListener('click',()=>{prev();restart();});
+    function start(){timer=setInterval(next,6000);} function stop(){clearInterval(timer);} function restart(){stop();start();}
+    root.addEventListener('mouseenter',stop);root.addEventListener('mouseleave',start);
+    addEventListener('keydown',(e)=>{if(!root.matches(':hover'))return;if(e.key==='ArrowRight'){next();restart();}if(e.key==='ArrowLeft'){prev();restart();}});
+    const vio=new IntersectionObserver((es)=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.2});vio.observe(root);
+    update();
   })();
 </script>
 </body>
