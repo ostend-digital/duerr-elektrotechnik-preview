@@ -872,3 +872,27 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 @media(max-width:860px){.steps{grid-template-columns:1fr 1fr;gap:1.6rem 1.3rem;}}
 @media(max-width:520px){.steps{grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:reduce){.steps.in .step .step-badge::before{animation:none!important;--ring:360deg;}}
+
+/* ===== v18 — Ablauf vertikal mit Durchlauf-Animation ===== */
+.vsteps{position:relative;margin-top:2.4rem;max-width:720px;opacity:1;transform:none;}
+.vstep{position:relative;display:grid;grid-template-columns:66px 1fr;gap:1.4rem;align-items:start;padding-bottom:2.4rem;}
+.vstep:last-child{padding-bottom:0;}
+.vstep .step-badge{position:relative;z-index:2;margin-bottom:0;}
+.vstep-body{padding-top:.5rem;}
+.vstep-body h3{font-size:1.12rem;margin-bottom:.3rem;color:var(--ink);}
+.vstep-body p{font-size:.95rem;color:var(--gray-500);line-height:1.55;max-width:56ch;}
+/* Verbindungslinie: Track + animierter Fill (Durchlauf) je Schritt zum nächsten */
+.vstep:not(:last-child)::after{content:"";position:absolute;left:32px;top:33px;height:100%;width:2px;background:var(--gray-200);z-index:0;}
+.vstep:not(:last-child)::before{content:"";position:absolute;left:32px;top:33px;height:100%;width:2px;background:linear-gradient(180deg,var(--brand-glow),var(--brand-primary));transform:scaleY(0);transform-origin:top;z-index:1;}
+.vsteps.in .vstep:not(:last-child)::before{animation:vlineGrow .55s linear both;}
+.vsteps.in .vstep:nth-child(1)::before{animation-delay:.15s;}
+.vsteps.in .vstep:nth-child(2)::before{animation-delay:.7s;}
+.vsteps.in .vstep:nth-child(3)::before{animation-delay:1.25s;}
+@keyframes vlineGrow{from{transform:scaleY(0);}to{transform:scaleY(1);}}
+/* Badge-Ring zeichnet sich, sobald die Linie ankommt */
+.vsteps.in .vstep .step-badge::before{animation:ringDraw .8s cubic-bezier(.4,0,.2,1) both;}
+.vsteps.in .vstep:nth-child(1) .step-badge::before{animation-delay:.15s;}
+.vsteps.in .vstep:nth-child(2) .step-badge::before{animation-delay:.7s;}
+.vsteps.in .vstep:nth-child(3) .step-badge::before{animation-delay:1.25s;}
+.vsteps.in .vstep:nth-child(4) .step-badge::before{animation-delay:1.8s;}
+@media(prefers-reduced-motion:reduce){.vsteps.in .vstep::before{animation:none!important;transform:scaleY(1)!important;}.vsteps.in .vstep .step-badge::before{animation:none!important;--ring:360deg;}}
