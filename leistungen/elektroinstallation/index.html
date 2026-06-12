@@ -54,24 +54,28 @@
 
 <main>
 
-  <!-- SUBHERO -->
-  <section class="subhero">
-    <div class="sh-grid"></div>
-    <span class="sh-orb"></span>
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Start</a><span class="sep">›</span>
-        <a href="/#leistungen">Leistungen</a><span class="sep">›</span>
-        <span class="cur">Elektroinstallation</span>
-      </nav>
-      <span class="section-label reveal in">Leistung</span>
-      <h1 class="reveal in">Elektroinstallation für Neubau, Altbau &amp; <span class="hl">Sanierung</span></h1>
-      <p class="sh-sub reveal in">Sauber geplant, termintreu umgesetzt – damit bei Ihnen alles läuft. Privat und gewerblich in Stuttgart, Reutlingen, Tübingen und der Region.</p>
-      <div class="btns reveal in">
-        <a href="/#anfrage" class="btn btn-on-dark pulse">Termin anfragen</a>
-        <a href="tel:+4974739512840" class="btn btn-on-dark sec"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="margin-right:-.1rem"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z" fill="currentColor" stroke="none"/></svg>07473 9512840</a>
+  <!-- HERO — Scroll-Video (Installation baut sich beim Scrollen auf) -->
+  <section class="vhero vhero-light" id="hero">
+    <div class="vh-sticky">
+      <video class="vh-video" muted playsinline preload="auto" poster="/images/hero-ei-start.webp" data-src-l="/images/hero-ei-2560.mp4" data-src-m="/images/hero-ei-1600.mp4"></video>
+      <div class="vh-scrim"></div>
+      <div class="vh-grid">
+        <div class="vh-copy vh-copy-min">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Start</a><span class="sep">›</span>
+            <a href="/#leistungen">Leistungen</a><span class="sep">›</span>
+            <span class="cur">Elektroinstallation</span>
+          </nav>
+          <span class="st-eyebrow"><span class="dot"></span>Leistung · Elektroinstallation</span>
+          <h1>Elektroinstallation für Neubau, Altbau &amp; <span class="hl">Sanierung</span></h1>
+          <p class="vh-sub">Sauber geplant, termintreu umgesetzt – damit bei Ihnen alles läuft. Privat und gewerblich in Stuttgart, Reutlingen, Tübingen und der Region.</p>
+          <div class="btns">
+            <a href="/#anfrage" class="btn btn-primary pulse">Termin anfragen</a>
+            <a href="tel:+4974739512840" class="btn btn-secondary"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="margin-right:-.1rem"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z" fill="currentColor" stroke="none"/></svg>07473 9512840</a>
+          </div>
+          <div class="st-foot"><span class="st-rating"><span class="stars">★★★★★</span> <strong>5,0</strong> bei Google</span></div>
+        </div>
       </div>
-      <div class="st-foot reveal in"><span class="st-rating"><span class="stars">★★★★★</span> <strong>5,0</strong> bei Google</span></div>
     </div>
   </section>
 
@@ -246,6 +250,28 @@
   document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
   addEventListener('mousemove',(e)=>{const mx=(e.clientX/innerWidth-.5),my=(e.clientY/innerHeight-.5);
     document.querySelectorAll('.dotbg').forEach(el=>{const f=+(el.dataset.parallax||12);el.style.transform=`translate(${mx*f}px,${my*f}px)`;});},{passive:true});
+  // Scroll-Video-Hero: Scroll scrubbt das Video (Installation baut sich auf)
+  (function(){
+    const sec=document.querySelector('.vhero'); if(!sec)return;
+    const vid=sec.querySelector('.vh-video');
+    const wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
+    vid.src=wide?vid.dataset.srcL:vid.dataset.srcM;
+    if(matchMedia('(max-width:860px)').matches){ vid.loop=true;vid.muted=true;vid.setAttribute('autoplay','');vid.play().catch(()=>{}); return; }
+    // sanfte Halte-Pause am Anfang/Ende, sonst linear
+    const KF=[[0,0],[0.08,0.05],[0.92,0.95],[1,1]];
+    function frac(p){ for(let i=1;i<KF.length;i++){ if(p<=KF[i][0]){ const a=KF[i-1],b=KF[i]; const f=(p-a[0])/((b[0]-a[0])||1); return a[1]+f*(b[1]-a[1]); } } return 1; }
+    let dur=0,ticking=false;
+    function calc(){
+      const total=sec.offsetHeight-innerHeight;
+      const p=total>0?Math.min(Math.max(-sec.getBoundingClientRect().top/total,0),1):0;
+      if(dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
+      ticking=false;
+    }
+    function ready(){ dur=vid.duration||5; calc(); }
+    if(vid.readyState>=1) ready(); else vid.addEventListener('loadedmetadata',ready);
+    addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
+    addEventListener('resize',calc,{passive:true});
+  })();
 </script>
 </body>
 </html>
