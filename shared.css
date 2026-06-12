@@ -679,3 +679,53 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 /* ===== v11 — Section-Trenner (Statement / Leistungen) ===== */
 .sec-divider{border:0;height:1px;width:100%;margin:0;background:linear-gradient(90deg,transparent 0%,var(--gray-300) 16%,var(--gray-300) 84%,transparent 100%);}
 .statement-sec{padding-bottom:3.5rem;}
+
+/* ===== v12 — Animationen: Warum DÜRR + Region ===== */
+/* Section-Headline: Emerald-Unterstrich zieht beim Reveal ein (scoped auf beide Sections) */
+.has-dots h2.reveal::after,#region h2.reveal::after{content:"";display:block;height:3px;width:0;margin-top:.55rem;background:var(--brand-primary);border-radius:2px;transition:width .85s cubic-bezier(.22,1,.36,1) .15s;}
+.has-dots h2.reveal.in::after,#region h2.reveal.in::after{width:64px;}
+
+/* Warum DÜRR — Emerald-Linie zeichnet sich oben in jede Karte */
+.value{position:relative;border-top-color:var(--gray-200);}
+.value::before{content:"";position:absolute;top:-2px;left:0;height:2px;width:100%;background:var(--brand-primary);transform:scaleX(0);transform-origin:left;transition:transform .75s cubic-bezier(.22,1,.36,1),box-shadow .3s;}
+.values.in .value::before{transform:scaleX(1);}
+.values.in .value:nth-child(2)::before{transition-delay:.10s;}
+.values.in .value:nth-child(3)::before{transition-delay:.18s;}
+.values.in .value:nth-child(4)::before{transition-delay:.26s;}
+.value .vn{transition:transform .3s ease;}
+.value h3{transition:color .25s ease;}
+.value:hover .vn{transform:translateX(4px);}
+.value:hover h3{color:var(--brand-primary-dark);}
+.value:hover::before{box-shadow:0 0 12px rgba(31,174,116,.6);}
+
+/* Region — Pin-Drop, Big-Letter steigt, Hover-Shine + Pin-Pop */
+.citycard .pin{transition:transform .4s cubic-bezier(.34,1.56,.64,1),background .3s,color .3s;}
+.region-grid.in .citycard .pin{animation:pinDrop .6s cubic-bezier(.34,1.56,.64,1) backwards;}
+.region-grid.in .citycard:nth-child(2) .pin{animation-delay:.12s;}
+.region-grid.in .citycard:nth-child(3) .pin{animation-delay:.22s;}
+@keyframes pinDrop{0%{transform:translateY(-16px) scale(.8);}60%{transform:translateY(2px) scale(1.06);}100%{transform:none;}}
+.citycard:hover .pin{transform:scale(1.12) rotate(-6deg);background:var(--brand-primary);color:#fff;}
+.citycard .big{transition:transform .5s cubic-bezier(.22,1,.36,1),color .3s;}
+.region-grid.in .citycard .big{animation:bigRise .7s cubic-bezier(.22,1,.36,1) backwards;}
+.region-grid.in .citycard:nth-child(2) .big{animation-delay:.1s;}
+.region-grid.in .citycard:nth-child(3) .big{animation-delay:.2s;}
+@keyframes bigRise{0%{transform:translateY(40px);}100%{transform:none;}}
+.citycard:hover .big{transform:translateY(-4px) scale(1.06);color:var(--brand-primary-light);}
+.citycard::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(31,174,116,.12) 50%,transparent 62%);transform:translateX(-130%);transition:transform .75s ease;}
+.citycard:hover::after{transform:translateX(130%);}
+
+/* Region — Einzugsgebiet-Chips poppen gestaffelt */
+.region-more.in .chip{animation:chipPop .55s cubic-bezier(.34,1.56,.64,1) backwards;}
+.region-more.in .chip:nth-child(2){animation-delay:.04s;}
+.region-more.in .chip:nth-child(3){animation-delay:.10s;}
+.region-more.in .chip:nth-child(4){animation-delay:.16s;}
+.region-more.in .chip:nth-child(5){animation-delay:.22s;}
+.region-more.in .chip:nth-child(6){animation-delay:.28s;}
+@keyframes chipPop{0%{transform:translateY(10px) scale(.9);}60%{transform:translateY(-2px) scale(1.03);}100%{transform:none;}}
+
+@media(prefers-reduced-motion:reduce){
+  .has-dots h2.reveal::after,#region h2.reveal::after{transition:none!important;width:64px!important;}
+  .value::before{transform:scaleX(1)!important;transition:none!important;}
+  .region-grid.in .citycard .pin,.region-grid.in .citycard .big,.region-more.in .chip{animation:none!important;}
+  .citycard::after{display:none!important;}
+}
