@@ -896,3 +896,11 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vsteps.in .vstep:nth-child(3) .step-badge::before{animation-delay:1.25s;}
 .vsteps.in .vstep:nth-child(4) .step-badge::before{animation-delay:1.8s;}
 @media(prefers-reduced-motion:reduce){.vsteps.in .vstep::before{animation:none!important;transform:scaleY(1)!important;}.vsteps.in .vstep .step-badge::before{animation:none!important;--ring:360deg;}}
+
+/* ===== v19 — Ablauf 2-spaltig: Schritte + Visualisierung (volle Breite) ===== */
+.ablauf-split{display:grid;grid-template-columns:1fr .8fr;gap:3.4rem;align-items:stretch;margin-top:2.4rem;}
+.ablauf-split .vsteps{margin-top:0;max-width:none;align-self:center;width:100%;}
+.ablauf-media{position:relative;border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-lg);min-height:100%;}
+.ablauf-media img{display:block;width:100%;height:100%;object-fit:cover;}
+.ablauf-media .badge{position:absolute;left:1.2rem;bottom:1.2rem;background:rgba(17,22,26,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;border-radius:var(--pill);padding:.55rem 1.05rem;font-size:.85rem;font-weight:600;}
+@media(max-width:900px){.ablauf-split{grid-template-columns:1fr;gap:2rem;}.ablauf-media{min-height:0;max-height:440px;order:-1;}.ablauf-split .vsteps{align-self:start;}}
