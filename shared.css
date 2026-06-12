@@ -852,3 +852,23 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 @keyframes promiseFlow{0%{left:0;opacity:0;}8%{opacity:1;}92%{opacity:1;}100%{left:100%;opacity:0;}}
 @media(max-width:760px){.promise-timeline{display:none;}}
 @media(prefers-reduced-motion:reduce){.promise-timeline .pt-pulse,.promise-timeline .pt-node{animation:none!important;}}
+
+/* ===== v17 — Ablauf als Schritt-Karten mit sich zeichnendem Fortschritts-Ring ===== */
+@property --ring{syntax:'<angle>';inherits:false;initial-value:0deg;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;margin-top:2.6rem;}
+.step{position:relative;}
+.step-badge{position:relative;width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:1.15rem;background:var(--brand-primary-light);}
+.step-badge span{position:relative;z-index:1;font-weight:800;color:var(--brand-primary-dark);font-size:1.15rem;letter-spacing:.02em;}
+.step-badge::before{content:"";position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(var(--brand-glow) var(--ring,360deg),rgba(31,174,116,.16) 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));mask:radial-gradient(farthest-side,transparent calc(100% - 4px),#000 calc(100% - 3px));}
+.steps.in .step .step-badge::before{animation:ringDraw 1s cubic-bezier(.4,0,.2,1) both;}
+.steps.in .step:nth-child(2) .step-badge::before{animation-delay:.16s;}
+.steps.in .step:nth-child(3) .step-badge::before{animation-delay:.32s;}
+.steps.in .step:nth-child(4) .step-badge::before{animation-delay:.48s;}
+@keyframes ringDraw{from{--ring:0deg;}to{--ring:360deg;}}
+.step:hover .step-badge{background:var(--brand-primary);} .step:hover .step-badge span{color:#fff;}
+.step-badge,.step-badge span{transition:background .3s,color .3s;}
+.step h3{font-size:1.1rem;margin-bottom:.35rem;color:var(--ink);}
+.step p{font-size:.93rem;color:var(--gray-500);line-height:1.55;}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr;gap:1.6rem 1.3rem;}}
+@media(max-width:520px){.steps{grid-template-columns:1fr;}}
+@media(prefers-reduced-motion:reduce){.steps.in .step .step-badge::before{animation:none!important;--ring:360deg;}}
