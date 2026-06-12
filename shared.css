@@ -832,3 +832,23 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .tp-row span{color:var(--gray-500);font-size:.9rem;line-height:1.45;}
 @media(max-width:760px){.promise-pts{grid-template-columns:1fr;}}
 @media(prefers-reduced-motion:reduce){.promise-grid,.promise-orb,.promise-pt .pic{animation:none!important;}}
+
+/* ===== v16 — Kurz-gesagt 2-Spalten + Bauherr-Versprechen Timeline-Animation ===== */
+.intro2{display:grid;grid-template-columns:1.55fr .8fr;gap:3rem;align-items:center;}
+.intro2 .intro-lead{margin-top:.3rem;}
+.intro2-facts{display:flex;flex-direction:column;}
+.ifact{padding:.95rem 0;border-top:var(--hair);}
+.ifact:first-child{border-top:0;padding-top:0;}
+.ifact strong{display:block;font-size:1.5rem;font-weight:700;color:var(--brand-primary);letter-spacing:-.02em;line-height:1.05;}
+.ifact span{color:var(--gray-500);font-size:.92rem;}
+@media(max-width:860px){.intro2{grid-template-columns:1fr;gap:1.4rem;} .intro2-facts{flex-direction:row;flex-wrap:wrap;gap:1.2rem;} .ifact{border-top:0;padding:0;flex:1;min-width:120px;}}
+/* Bauherr-Versprechen: animierte Bauzeitplan-Timeline mit fließenden Pulsen + pulsenden Knoten */
+.promise-timeline{position:relative;height:16px;margin:2.6rem 0 1.4rem;}
+.promise-timeline .pt-line{position:absolute;left:0;right:0;top:50%;height:2px;transform:translateY(-50%);border-radius:2px;background:linear-gradient(90deg,transparent,rgba(31,174,116,.5) 10%,rgba(31,174,116,.5) 90%,transparent);}
+.promise-timeline .pt-pulse{position:absolute;top:50%;left:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 16px 5px rgba(31,174,116,.6);animation:promiseFlow 3.6s linear infinite;}
+.promise-timeline .pt-pulse.d2{animation-delay:1.8s;}
+.promise-timeline .pt-node{position:absolute;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:#0e1417;border:2px solid var(--brand-glow);animation:pulseRing2 2.8s infinite;}
+.promise-timeline .pt-node:nth-of-type(4){animation-delay:.5s;} .promise-timeline .pt-node:nth-of-type(5){animation-delay:1s;}
+@keyframes promiseFlow{0%{left:0;opacity:0;}8%{opacity:1;}92%{opacity:1;}100%{left:100%;opacity:0;}}
+@media(max-width:760px){.promise-timeline{display:none;}}
+@media(prefers-reduced-motion:reduce){.promise-timeline .pt-pulse,.promise-timeline .pt-node{animation:none!important;}}
