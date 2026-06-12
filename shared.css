@@ -730,20 +730,13 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
   .citycard::after{display:none!important;}
 }
 
-/* ===== v12b — Warum DÜRR: Lichtpuls läuft durch die Linien (Strom-Fluss) ===== */
-.value::after{content:"";position:absolute;top:-3px;left:0;width:42%;height:4px;border-radius:4px;pointer-events:none;opacity:0;
-  background:linear-gradient(90deg,transparent,var(--brand-glow) 30%,#eafff5 50%,var(--brand-glow) 70%,transparent);
-  box-shadow:0 0 10px rgba(31,174,116,.7);}
-.values.in .value::after{animation:lineRun 3.2s linear infinite;}
-.values.in .value:nth-child(1)::after{animation-delay:.6s;}
-.values.in .value:nth-child(2)::after{animation-delay:1.4s;}
-.values.in .value:nth-child(3)::after{animation-delay:2.2s;}
-.values.in .value:nth-child(4)::after{animation-delay:3.0s;}
-@keyframes lineRun{
-  0%{transform:translateX(-100%);opacity:0;}
-  2%{opacity:1;}
-  23%{opacity:1;}
-  25%{transform:translateX(260%);opacity:0;}
-  100%{transform:translateX(260%);opacity:0;}
-}
+/* ===== v12b — Warum DÜRR: Leucht-Punkt fließt durch die Linien (wie pv2-Fluss) ===== */
+.value::after{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;margin-left:-4.5px;border-radius:50%;pointer-events:none;opacity:0;
+  background:var(--brand-glow);box-shadow:0 0 16px 5px rgba(31,174,116,.6);}
+.values.in .value::after{animation:lineFlow 3.6s linear infinite;}
+.values.in .value:nth-child(1)::after{animation-delay:0s;}
+.values.in .value:nth-child(2)::after{animation-delay:.9s;}
+.values.in .value:nth-child(3)::after{animation-delay:1.8s;}
+.values.in .value:nth-child(4)::after{animation-delay:2.7s;}
+@keyframes lineFlow{0%{left:-2%;opacity:0;}12%{opacity:1;}88%{opacity:1;}100%{left:102%;opacity:0;}}
 @media(prefers-reduced-motion:reduce){ .value::after{display:none!important;} }
