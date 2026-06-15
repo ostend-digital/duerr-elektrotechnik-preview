@@ -1065,3 +1065,12 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
   .vhero .btns .btn-secondary:hover,
   .vhero .vh-copy .btn-on-dark.sec:hover{background:rgba(255,255,255,.2);border-color:#fff;}
 }
+
+/* ===== v27 — PV-Seite: 2-Spalten-Modifier + klickbare Cross-Link-Karten ===== */
+.feature-grid.cols-2{grid-template-columns:repeat(2,1fr);}
+@media(max-width:600px){ .feature-grid.cols-2{grid-template-columns:1fr;} }
+.promise-pts.cols-2{grid-template-columns:repeat(2,1fr);max-width:760px;}
+@media(max-width:680px){ .promise-pts.cols-2{grid-template-columns:1fr;} }
+a.promise-pt{display:block;text-decoration:none;color:inherit;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,background .35s;}
+a.promise-pt:hover{transform:translateY(-4px);border-color:rgba(31,174,116,.5);background:rgba(31,174,116,.08);}
+a.promise-pt .pt-go{display:inline-block;margin-top:.7rem;color:var(--brand-glow);font-weight:600;font-size:.92rem;}
