@@ -1085,3 +1085,8 @@ a.promise-pt .pt-go{display:inline-block;margin-top:.7rem;color:var(--brand-glow
    linksbündigen Bild-CTA wirkte der Absatz eingerückt. Desktop linksbündig, mobil zentriert. */
 .cta-band.has-img .cta-body p{margin-left:0;margin-right:auto;}
 @media(max-width:768px){ .cta-band.has-img .cta-body p{margin-left:auto;margin-right:auto;} }
+
+/* ===== v30 — klickbare Feature-Cards (Cross-Link, hell) ===== */
+a.feature{display:block;text-decoration:none;color:inherit;}
+a.feature .f-go{display:inline-block;margin-top:.85rem;color:var(--brand-primary);font-weight:600;font-size:.92rem;}
+a.feature:hover .f-go{color:var(--brand-primary-dark);}
