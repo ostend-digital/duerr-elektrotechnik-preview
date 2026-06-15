@@ -1055,3 +1055,13 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 }
 @keyframes valuesFlowV{0%{top:-1%;opacity:0;}4%{opacity:1;}96%{opacity:1;}100%{top:101%;opacity:0;}}
 @media(prefers-reduced-motion:reduce){ .values::before{transform:scaleY(1)!important;transition:none!important;} }
+
+/* ===== v26 — Hero-Sekundaerbutton (Telefon) auf Mobil lesbar machen =====
+   .btn-secondary (EI) und .vh-copy .btn-on-dark.sec (Startseite/Notdienst) sind fuer
+   helle Flaechen dunkel gestylt -> auf dem dunklen Mobil-Hero unleserlich. Hier hell. */
+@media(max-width:860px){
+  .vhero .btns .btn-secondary,
+  .vhero .vh-copy .btn-on-dark.sec{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.55);}
+  .vhero .btns .btn-secondary:hover,
+  .vhero .vh-copy .btn-on-dark.sec:hover{background:rgba(255,255,255,.2);border-color:#fff;}
+}
