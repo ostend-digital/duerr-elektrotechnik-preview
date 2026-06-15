@@ -101,17 +101,28 @@
     </div>
   </section>
 
-  <!-- NUTZEN — Warum sich PV lohnt (Feature-Grid 2x2) -->
+  <!-- NUTZEN — Warum sich PV lohnt (Karten-Slider) -->
   <section class="section has-dots">
     <div class="dotbg" data-parallax="14"></div>
     <div class="container">
-      <span class="section-label reveal">Warum sich Photovoltaik lohnt</span>
-      <h2 class="reveal" style="transition-delay:.05s;">Ihre Vorteile auf einen Blick</h2>
-      <div class="feature-grid cols-2 stagger">
-        <div class="feature"><div class="fic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></svg></div><h3>Strom selbst erzeugen</h3><p>Eigenen Sonnenstrom nutzen statt ihn teuer einzukaufen – jeden Tag, viele Jahre lang.</p></div>
-        <div class="feature"><div class="fic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7M21 8v4h-4"/></svg></div><h3>Unabhängiger werden</h3><p>Weniger abhängig von steigenden Strompreisen und mehr Planbarkeit für die Zukunft.</p></div>
-        <div class="feature"><div class="fic"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="11" rx="1.6"/><path d="M18 10.5h2.2v4H18M8 9.6 6.4 13h2.8l-1.6 3.2"/></svg></div><h3>Speicher &amp; Wallbox</h3><p>Tagsüber speichern, abends nutzen und das E-Auto mit eigenem Sonnenstrom laden.</p></div>
-        <div class="feature"><div class="fic"><svg viewBox="0 0 24 24"><path d="M3 21V10l6 4V10l6 4V6l6 3v12z"/><path d="M3 21h18"/></svg></div><h3>Für Gewerbe</h3><p>Planbare Energiekosten und ein Nachhaltigkeits-Plus für Ihren Betrieb.</p></div>
+      <div class="carousel-head">
+        <div>
+          <span class="section-label reveal">Warum sich Photovoltaik lohnt</span>
+          <h2 class="reveal" style="transition-delay:.05s;">Ihre Vorteile auf einen Blick</h2>
+        </div>
+      </div>
+      <div class="dcar-wrap">
+        <div class="dcar" data-carousel>
+          <button class="dcar-arrow prev" id="cprev" aria-label="Vorheriger Vorteil">‹</button>
+          <button class="dcar-arrow next" id="cnext" aria-label="Nächster Vorteil">›</button>
+          <div class="dcar-stage">
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></svg></span></div><h3>Strom selbst erzeugen</h3><p>Eigenen Sonnenstrom nutzen statt ihn teuer einzukaufen – jeden Tag, viele Jahre lang.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7M21 8v4h-4"/></svg></span></div><h3>Unabhängiger werden</h3><p>Weniger abhängig von steigenden Strompreisen und mehr Planbarkeit für die Zukunft.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="11" rx="1.6"/><path d="M18 10.5h2.2v4H18M8 9.6 6.4 13h2.8l-1.6 3.2"/></svg></span></div><h3>Speicher &amp; Wallbox</h3><p>Tagsüber speichern, abends nutzen und das E-Auto mit eigenem Sonnenstrom laden.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+            <div class="dcar-card scard"><div class="bg"><span class="blob1"></span><span class="blob2"></span><span class="shine"></span></div><div class="content"><div class="ic-wrap"><span class="ic-ring"></span><span class="ic-core"><svg viewBox="0 0 24 24"><path d="M3 21V10l6 4V10l6 4V6l6 3v12z"/><path d="M3 21h18"/></svg></span></div><h3>Für Gewerbe</h3><p>Planbare Energiekosten und ein Nachhaltigkeits-Plus für Ihren Betrieb.</p><div class="uline"></div><div class="dots"><i></i><i></i><i></i></div></div></div>
+          </div>
+        </div>
+        <div class="dcar-dots" data-carousel-dots></div>
       </div>
     </div>
   </section>
@@ -137,20 +148,45 @@
     <span class="promise-orb a"></span>
     <span class="promise-orb b"></span>
     <div class="container">
-      <span class="section-label reveal">Mehr aus Ihrem Solarstrom</span>
-      <h2 class="reveal" style="transition-delay:.05s;">Solarstrom rund um die Uhr nutzen</h2>
-      <p class="lead reveal" style="transition-delay:.1s;">Mit Speicher und Wallbox holen Sie das Maximum aus Ihrer Anlage – alles vom selben Fachbetrieb:</p>
-      <div class="promise-pts cols-2 stagger">
-        <a class="promise-pt" href="/leistungen/stromspeicher/">
-          <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="11" rx="1.6"/><path d="M18 10.5h2.2v4H18M8 9.6 6.4 13h2.8l-1.6 3.2"/></svg></div>
-          <h3>Stromspeicher</h3><p>Tagsüber erzeugten Solarstrom speichern und abends nutzen – statt ihn günstig einzuspeisen.</p>
-          <span class="pt-go">Zum Stromspeicher →</span>
-        </a>
-        <a class="promise-pt" href="/leistungen/wallbox/">
-          <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="2"/><path d="M8 8h3M8 12h3M19 9v5.5a2 2 0 0 1-2 2M19 9l-1.6-1.6M19 9h-2.1"/></svg></div>
-          <h3>Wallbox &amp; E-Mobilität</h3><p>Das E-Auto günstig zuhause mit dem eigenen Sonnenstrom laden – fachgerecht installiert.</p>
-          <span class="pt-go">Zur Wallbox →</span>
-        </a>
+      <div class="pv-solar-split">
+        <div>
+          <span class="section-label reveal">Mehr aus Ihrem Solarstrom</span>
+          <h2 class="reveal" style="transition-delay:.05s;">Solarstrom rund um die Uhr nutzen</h2>
+          <p class="lead reveal" style="transition-delay:.1s;">Mit Speicher und Wallbox holen Sie das Maximum aus Ihrer Anlage – alles vom selben Fachbetrieb:</p>
+          <div class="pv-solar-links stagger">
+            <a class="promise-pt" href="/leistungen/stromspeicher/">
+              <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="11" rx="1.6"/><path d="M18 10.5h2.2v4H18M8 9.6 6.4 13h2.8l-1.6 3.2"/></svg></div>
+              <h3>Stromspeicher</h3><p>Tagsüber erzeugten Solarstrom speichern und abends nutzen – statt ihn günstig einzuspeisen.</p>
+              <span class="pt-go">Zum Stromspeicher →</span>
+            </a>
+            <a class="promise-pt" href="/leistungen/wallbox/">
+              <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="2"/><path d="M8 8h3M8 12h3M19 9v5.5a2 2 0 0 1-2 2M19 9l-1.6-1.6M19 9h-2.1"/></svg></div>
+              <h3>Wallbox &amp; E-Mobilität</h3><p>Das E-Auto günstig zuhause mit dem eigenen Sonnenstrom laden – fachgerecht installiert.</p>
+              <span class="pt-go">Zur Wallbox →</span>
+            </a>
+          </div>
+        </div>
+        <div class="pv2-flow reveal" aria-hidden="true" style="transition-delay:.15s;">
+          <div class="pv2-rail"><span class="pv2-pulse"></span><span class="pv2-pulse d2"></span><span class="pv2-pulse d3"></span></div>
+          <div class="pv2-steps stagger">
+            <div class="pv2-step">
+              <span class="pv2-badge pv2-sun"><span class="pv2-rays"></span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></svg></span>
+              <div class="pv2-step-b"><strong>Sonne</strong><span>Kostenlose Energie ernten</span></div>
+            </div>
+            <div class="pv2-step">
+              <span class="pv2-badge"><svg viewBox="0 0 24 24"><path d="M3 14h18l-2.2-8.5a1.5 1.5 0 0 0-1.45-1.1H6.65A1.5 1.5 0 0 0 5.2 5.5L3 14z"/><path d="M12 4.4V14M7.6 9h8.8M3 14h18v1.6a1.4 1.4 0 0 1-1.4 1.4H4.4A1.4 1.4 0 0 1 3 15.6V14zM10 20h4M12 17v3"/></svg></span>
+              <div class="pv2-step-b"><strong>Photovoltaik-Anlage</strong><span>Eigenen Strom erzeugen</span></div>
+            </div>
+            <div class="pv2-step">
+              <span class="pv2-badge pv2-batt"><span class="pv2-batt-fill"></span><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="11" rx="1.6"/><path d="M18 10.5h2.2v4H18M9.2 9.8 7.6 13h2.8l-1.6 3.2"/></svg></span>
+              <div class="pv2-step-b"><strong>Stromspeicher</strong><span>Tagsüber speichern, abends nutzen</span></div>
+            </div>
+            <div class="pv2-step">
+              <span class="pv2-badge"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="2"/><path d="M8 8h3M8 12h3M19 9v5.5a2 2 0 0 1-2 2M19 9l-1.6-1.6M19 9h-2.1"/></svg></span>
+              <div class="pv2-step-b"><strong>Wallbox</strong><span>E-Auto günstig zuhause laden</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -298,6 +334,35 @@
     if(vid.readyState>=1) ready(); else vid.addEventListener('loadedmetadata',ready);
     addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
     addEventListener('resize',calc,{passive:true});
+  })();
+  // Coverflow-Karussell (eigene Mechanik, wie Startseite)
+  (function(){
+    const root=document.querySelector('[data-carousel]');if(!root)return;
+    const cards=[...root.querySelectorAll('.dcar-card')];
+    const dotsWrap=document.querySelector('[data-carousel-dots]');
+    const total=cards.length;let active=0,timer=null;
+    cards.forEach((_,i)=>{const b=document.createElement('button');b.className='dcar-dot';b.setAttribute('aria-label','Slide '+(i+1));b.addEventListener('click',()=>{go(i);restart();});dotsWrap.appendChild(b);});
+    const dots=[...dotsWrap.children];
+    function update(){
+      cards.forEach((c,i)=>{
+        const diff=((i-active)%total+total)%total;
+        let st='hidden';
+        if(diff===0)st='active';else if(diff===1)st='next';else if(diff===total-1)st='prev';
+        else if(diff===2)st='next-2';else if(diff===total-2)st='prev-2';
+        c.dataset.state=st;
+      });
+      dots.forEach((d,i)=>d.classList.toggle('active',i===active));
+    }
+    function go(i){active=((i%total)+total)%total;update();}
+    function next(){go(active+1);} function prev(){go(active-1);}
+    cards.forEach((c,i)=>c.addEventListener('click',(e)=>{if(c.dataset.state!=='active'){e.preventDefault();go(i);restart();}}));
+    root.querySelector('.dcar-arrow.next').addEventListener('click',()=>{next();restart();});
+    root.querySelector('.dcar-arrow.prev').addEventListener('click',()=>{prev();restart();});
+    function start(){timer=setInterval(next,6000);} function stop(){clearInterval(timer);} function restart(){stop();start();}
+    root.addEventListener('mouseenter',stop);root.addEventListener('mouseleave',start);
+    addEventListener('keydown',(e)=>{if(!root.matches(':hover'))return;if(e.key==='ArrowRight'){next();restart();}if(e.key==='ArrowLeft'){prev();restart();}});
+    const vio=new IntersectionObserver((es)=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.2});vio.observe(root);
+    update();
   })();
 </script>
 </body>

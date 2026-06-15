@@ -1074,3 +1074,8 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 a.promise-pt{display:block;text-decoration:none;color:inherit;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,background .35s;}
 a.promise-pt:hover{transform:translateY(-4px);border-color:rgba(31,174,116,.5);background:rgba(31,174,116,.08);}
 a.promise-pt .pt-go{display:inline-block;margin-top:.7rem;color:var(--brand-glow);font-weight:600;font-size:.92rem;}
+
+/* ===== v28 — PV „Mehr aus Solarstrom": 2-Spalten (Text+Karten links, Energiefluss-Animation rechts) ===== */
+.pv-solar-split{display:grid;grid-template-columns:1.05fr .9fr;gap:3.5rem;align-items:center;margin-top:1.8rem;}
+.pv-solar-links{display:flex;flex-direction:column;gap:1rem;margin-top:1.7rem;}
+@media(max-width:900px){ .pv-solar-split{grid-template-columns:1fr;gap:2.4rem;} .pv-solar-split .pv2-flow{max-width:430px;margin:0 auto;} }
