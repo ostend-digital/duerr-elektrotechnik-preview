@@ -1124,3 +1124,23 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 @keyframes bsCycle{0%{height:30%;}45%{height:90%;}55%{height:90%;}100%{height:30%;}}
 @media(prefers-reduced-motion:reduce){.bs-fill{animation:none;height:72%;}}
 @media(max-width:900px){.bs-cycle{min-height:0;margin-top:.5rem;}}
+
+/* ===== v33 — Smart Home: vernetzter Hub (Signal-Wellen + Geräte-Nodes) =====
+   Neuer Animationstyp: zentrale Steuerung mit ausstrahlenden Wellen, Geräte-Nodes
+   leuchten sequenziell auf (alles vernetzt). */
+.sh-hub{position:relative;width:100%;max-width:360px;aspect-ratio:1;margin:0 auto;}
+.sh-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--brand-glow);background:radial-gradient(circle at 50% 40%,rgba(31,174,116,.22),rgba(8,12,11,.9));border:1px solid rgba(31,174,116,.5);box-shadow:0 0 30px rgba(31,174,116,.4);z-index:3;animation:pulseRing2 2.8s ease-out infinite;}
+.sh-core svg{width:38px;height:38px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.sh-wave{position:absolute;top:50%;left:50%;width:90px;height:90px;margin:-45px 0 0 -45px;border-radius:50%;border:1px solid rgba(31,174,116,.45);z-index:1;animation:shWave 3.6s ease-out infinite;}
+.sh-wave.d2{animation-delay:1.2s;} .sh-wave.d3{animation-delay:2.4s;}
+@keyframes shWave{0%{transform:scale(.5);opacity:.7;}100%{transform:scale(3.4);opacity:0;}}
+.sh-node{position:absolute;width:54px;height:54px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);z-index:2;transform:translate(-50%,-50%);color:var(--gray-300);animation:shNode 3.6s ease-in-out infinite;}
+.sh-node svg{width:25px;height:25px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+@keyframes shNode{0%,100%{border-color:rgba(255,255,255,.14);box-shadow:none;color:var(--gray-300);}50%{border-color:rgba(31,174,116,.6);box-shadow:0 0 18px rgba(31,174,116,.4);color:#fff;}}
+.sh-node.n1{top:7%;left:50%;animation-delay:0s;}
+.sh-node.n2{top:31%;left:90%;animation-delay:.55s;}
+.sh-node.n3{top:74%;left:83%;animation-delay:1.1s;}
+.sh-node.n4{top:90%;left:32%;animation-delay:1.65s;}
+.sh-node.n5{top:43%;left:9%;animation-delay:2.2s;}
+@media(prefers-reduced-motion:reduce){.sh-wave,.sh-core,.sh-node{animation:none!important;}}
+@media(max-width:900px){.sh-hub{max-width:300px;margin-top:1rem;}}
