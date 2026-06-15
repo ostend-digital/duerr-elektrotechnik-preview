@@ -16,6 +16,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared.css">
+  <style>
+    /* PV-Hero: H1 auf Desktop sauber zweizeilig */
+    @media(min-width:861px){
+      .vhero-light .vh-copy{max-width:680px;}
+      .vhero-light .vh-copy h1{font-size:clamp(2rem,3.4vw,2.95rem);}
+    }
+  </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Service","name":"Photovoltaik &amp; Stromspeicher","serviceType":"Photovoltaik-Planung, -Installation und -Anmeldung","provider":{"@type":"Electrician","name":"DÜRR Elektrotechnik (GREENOX Dürr Elektrotechnik GmbH & Co. KG)","telephone":"+4974739512840","url":"https://duerr-elektrotechnik.de/","address":{"@type":"PostalAddress","streetAddress":"Brunnenstraße 10","postalCode":"72131","addressLocality":"Ofterdingen","addressRegion":"Baden-Württemberg","addressCountry":"DE"}},"areaServed":[{"@type":"City","name":"Stuttgart"},{"@type":"City","name":"Reutlingen"},{"@type":"City","name":"Tübingen"}],"url":"https://duerr-elektrotechnik.de/leistungen/photovoltaik/","description":"Photovoltaik vom regionalen Elektrofachbetrieb – Planung, Installation und Anmeldung für Privat und Gewerbe, inklusive Stromspeicher, Wallbox-Anbindung und Netzbetreiber-Anmeldung nach §14a EnWG."}
   </script>
@@ -74,7 +81,7 @@
       <div class="vh-grid">
         <div class="vh-copy vh-copy-min">
           <span class="st-eyebrow"><span class="dot"></span>Leistung · Photovoltaik &amp; Speicher</span>
-          <h1>Photovoltaik vom <span class="hl">regionalen Fachbetrieb</span></h1>
+          <h1>Photovoltaik vom<br><span class="hl">regionalen Fachbetrieb</span></h1>
           <p class="vh-sub">Eigenen Strom erzeugen, Energiekosten senken – Planung, Installation und Anmeldung aus einer Hand, in Stuttgart, Reutlingen, Tübingen und der Region.</p>
           <div class="btns">
             <a href="#anfrage" class="btn btn-primary pulse">PV-Potenzial prüfen lassen</a>
@@ -142,31 +149,29 @@
     </div>
   </section>
 
-  <!-- SPEICHER & WALLBOX — Cross-Link (dunkel) -->
-  <section class="section promise">
-    <div class="promise-grid"></div>
-    <span class="promise-orb a"></span>
-    <span class="promise-orb b"></span>
+  <!-- SPEICHER & WALLBOX — Cross-Link (pv2-Stil wie Startseite) -->
+  <section class="section pv2">
+    <div class="pv2-gridbg"></div>
+    <span class="pv2-orb pv2-orb-a"></span>
+    <span class="pv2-orb pv2-orb-b"></span>
     <div class="container">
-      <div class="pv-solar-split">
-        <div>
-          <span class="section-label reveal">Mehr aus Ihrem Solarstrom</span>
-          <h2 class="reveal" style="transition-delay:.05s;">Solarstrom rund um die Uhr nutzen</h2>
-          <p class="lead reveal" style="transition-delay:.1s;">Mit Speicher und Wallbox holen Sie das Maximum aus Ihrer Anlage – alles vom selben Fachbetrieb:</p>
-          <div class="pv-solar-links stagger">
-            <a class="promise-pt" href="/leistungen/stromspeicher/">
-              <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="14" height="11" rx="1.6"/><path d="M18 10.5h2.2v4H18M8 9.6 6.4 13h2.8l-1.6 3.2"/></svg></div>
-              <h3>Stromspeicher</h3><p>Tagsüber erzeugten Solarstrom speichern und abends nutzen – statt ihn günstig einzuspeisen.</p>
-              <span class="pt-go">Zum Stromspeicher →</span>
-            </a>
-            <a class="promise-pt" href="/leistungen/wallbox/">
-              <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="11" height="18" rx="2"/><path d="M8 8h3M8 12h3M19 9v5.5a2 2 0 0 1-2 2M19 9l-1.6-1.6M19 9h-2.1"/></svg></div>
-              <h3>Wallbox &amp; E-Mobilität</h3><p>Das E-Auto günstig zuhause mit dem eigenen Sonnenstrom laden – fachgerecht installiert.</p>
-              <span class="pt-go">Zur Wallbox →</span>
-            </a>
+      <div class="pv2-inner">
+        <div class="pv2-text stagger">
+          <span class="section-label">Mehr aus Ihrem Solarstrom</span>
+          <h2>Solarstrom rund um<br>die Uhr nutzen</h2>
+          <p>Mit Speicher und Wallbox holen Sie das Maximum aus Ihrer Anlage – aufeinander abgestimmt, alles vom selben Fachbetrieb.</p>
+          <ul class="checklist pv2-check">
+            <li>Stromspeicher: tagsüber speichern, abends nutzen</li>
+            <li>Wallbox: das E-Auto mit eigenem Sonnenstrom laden</li>
+            <li>Kompatibel kombiniert – ein Ansprechpartner</li>
+          </ul>
+          <div class="btns" style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem;">
+            <a href="/leistungen/stromspeicher/" class="btn btn-on-dark">Zum Stromspeicher</a>
+            <a href="/leistungen/wallbox/" class="btn btn-on-dark sec">Zur Wallbox</a>
           </div>
         </div>
-        <div class="pv2-flow reveal" aria-hidden="true" style="transition-delay:.15s;">
+
+        <div class="pv2-flow" aria-hidden="true">
           <div class="pv2-rail"><span class="pv2-pulse"></span><span class="pv2-pulse d2"></span><span class="pv2-pulse d3"></span></div>
           <div class="pv2-steps stagger">
             <div class="pv2-step">
