@@ -1040,3 +1040,18 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 @keyframes ndSweep{0%{left:-60%;}55%,100%{left:130%;}}
 @media(max-width:680px){ .nd-compare{grid-template-columns:1fr;} }
 @media(prefers-reduced-motion:reduce){.nd-case-alert,.nd-flow-pulse,.nd-flow-steps.in .nd-fbadge,.nd-col.good::after{animation:none!important;}}
+
+/* ===== v25 — "Warum DÜRR" Linienanimation auf Mobil VERTIKAL =====
+   Desktop: horizontale Top-Linien je Karte + Punkt läuft horizontal.
+   Mobil (≤768, 1-spaltig): durchgehende vertikale Rail links + Punkt läuft top→bottom. */
+@media(max-width:768px){
+  .values{position:relative;padding-left:1.6rem;}
+  .value{border-top:none;padding-top:0;}
+  .value::before{display:none;}                 /* horizontale per-Karte-Linien aus */
+  .values::before{content:"";position:absolute;left:.5rem;top:0;bottom:0;width:2px;border-radius:2px;background:var(--gray-200);transform:scaleY(0);transform-origin:top;transition:transform .9s cubic-bezier(.22,1,.36,1);}
+  .values.in::before{transform:scaleY(1);}
+  .values::after{top:-1%;left:.5rem;margin-left:-3.5px;}   /* Punkt auf die Rail, vertikal */
+  .values.in::after{animation:valuesFlowV 5s linear infinite;}
+}
+@keyframes valuesFlowV{0%{top:-1%;opacity:0;}4%{opacity:1;}96%{opacity:1;}100%{top:101%;opacity:0;}}
+@media(prefers-reduced-motion:reduce){ .values::before{transform:scaleY(1)!important;transition:none!important;} }
