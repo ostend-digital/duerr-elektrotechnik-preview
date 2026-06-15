@@ -964,3 +964,62 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vhero-dark .st-foot{margin-top:1.6rem;}
 .vhero-dark .st-rating{color:var(--gray-300);font-size:.95rem;} .vhero-dark .st-rating strong{color:#fff;} .vhero-dark .st-rating .stars{color:#ffce5a;letter-spacing:1px;}
 @media(max-width:860px){ .vhero-dark .vh-scrim{background:linear-gradient(0deg,rgba(8,11,13,.95) 6%,rgba(8,11,13,.45) 34%,transparent 64%);} }
+
+/* ===== v24 — Notdienst-eigene Designs (Variation ggü. Elektroinstallation) =====
+   (1) .nd-cases  — Notfall-Grid mit Alert-Puls (statt Coverflow-Slider)
+   (2) .nd-flow   — horizontaler Einsatz-Flow mit wanderndem Puls (pv2-Sprache)
+   (3) .nd-compare— Gegenüberstellung seriös/unseriös auf dunkler Section        */
+
+/* (1) Notfall-Grid */
+.nd-cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:1.1rem;margin-top:2.4rem;}
+.nd-case{position:relative;background:#fff;border:1px solid var(--gray-200);border-radius:18px;padding:1.55rem 1.4rem 1.4rem;overflow:hidden;}
+.stagger.in > .nd-case{transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1),box-shadow .4s,border-color .4s;}
+.nd-case:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(17,22,26,.45);border-color:var(--gray-300);}
+.nd-case-ic{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 35%,rgba(31,174,116,.15),rgba(31,174,116,.05));color:var(--brand-primary);margin-bottom:1rem;}
+.nd-case-ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.nd-case h3{font-size:1.08rem;letter-spacing:-.01em;margin:0 0 .4rem;}
+.nd-case p{font-size:.94rem;color:var(--gray-600);line-height:1.5;margin:0;}
+.nd-case-alert{position:absolute;top:15px;right:15px;width:9px;height:9px;border-radius:50%;background:#f5a623;animation:ndAlert 2.6s ease-out infinite;}
+.nd-case:nth-child(2) .nd-case-alert{animation-delay:.5s;} .nd-case:nth-child(3) .nd-case-alert{animation-delay:1s;}
+.nd-case:nth-child(4) .nd-case-alert{animation-delay:1.5s;} .nd-case:nth-child(5) .nd-case-alert{animation-delay:2s;}
+@keyframes ndAlert{0%{box-shadow:0 0 0 0 rgba(245,166,35,.55);}70%{box-shadow:0 0 0 11px rgba(245,166,35,0);}100%{box-shadow:0 0 0 0 rgba(245,166,35,0);}}
+
+/* (2) Horizontaler Einsatz-Flow */
+.nd-flow{position:relative;margin-top:3rem;padding:0 1%;}
+.nd-flow-rail{position:absolute;left:9%;right:9%;top:38px;height:3px;border-radius:3px;z-index:0;background:linear-gradient(90deg,rgba(31,174,116,.1),rgba(31,174,116,.5) 50%,rgba(31,174,116,.1));}
+.nd-flow-pulse{position:absolute;top:38px;width:11px;height:11px;margin-top:-4px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 16px 5px rgba(31,174,116,.6);z-index:1;animation:ndflow 3.6s linear infinite;}
+.nd-flow-pulse.d2{animation-delay:1.8s;}
+@keyframes ndflow{0%{left:9%;opacity:0;}10%{opacity:1;}90%{opacity:1;}100%{left:91%;opacity:0;}}
+.nd-flow-steps{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.nd-fstep{text-align:center;padding:0 .4rem;}
+.nd-fbadge{position:relative;width:76px;height:76px;margin:0 auto 1.05rem;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--brand-primary);background:#fff;border:2px solid rgba(31,174,116,.38);box-shadow:0 8px 26px -14px rgba(17,22,26,.5);}
+.nd-fbadge svg{width:30px;height:30px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.nd-fbadge .num{position:absolute;top:-7px;right:-7px;width:25px;height:25px;border-radius:50%;background:var(--brand-primary);color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--ivory);}
+.nd-flow-steps.in .nd-fbadge{animation:pv2ring 2.8s ease-out infinite;}
+.nd-flow-steps.in .nd-fstep:nth-child(2) .nd-fbadge{animation-delay:.5s;} .nd-flow-steps.in .nd-fstep:nth-child(3) .nd-fbadge{animation-delay:1s;} .nd-flow-steps.in .nd-fstep:nth-child(4) .nd-fbadge{animation-delay:1.5s;}
+.nd-fstep h3{font-size:1.04rem;margin:0 0 .35rem;letter-spacing:-.01em;}
+.nd-fstep p{font-size:.9rem;color:var(--gray-600);line-height:1.45;margin:0;}
+@media(max-width:760px){
+  .nd-flow-rail,.nd-flow-pulse{display:none;}
+  .nd-flow-steps{grid-template-columns:1fr;gap:1.4rem;}
+  .nd-fstep{display:flex;gap:1rem;align-items:flex-start;text-align:left;padding:0;}
+  .nd-fbadge{margin:0;width:58px;height:58px;flex:0 0 auto;}
+  .nd-fbadge svg{width:24px;height:24px;}
+}
+
+/* (3) Gegenüberstellung auf dunkler Section */
+.nd-compare{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.5rem;}
+.nd-col{position:relative;border-radius:18px;padding:1.7rem 1.6rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);overflow:hidden;}
+.nd-col h3{display:flex;align-items:center;gap:.55rem;font-size:1.1rem;margin:0 0 1.15rem;color:#fff;letter-spacing:-.01em;}
+.nd-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.85rem;}
+.nd-col li{display:flex;gap:.65rem;align-items:flex-start;font-size:.96rem;line-height:1.45;color:var(--gray-300);}
+.nd-col li svg{flex:0 0 auto;width:19px;height:19px;margin-top:2px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.nd-col.bad{background:rgba(227,121,107,.05);border-color:rgba(227,121,107,.22);}
+.nd-col.bad li svg{stroke:#e3796b;} .nd-col.bad h3{color:var(--gray-300);}
+.nd-col.good{border-color:rgba(31,174,116,.45);background:linear-gradient(180deg,rgba(31,174,116,.13),rgba(255,255,255,.03));box-shadow:0 0 0 1px rgba(31,174,116,.14),0 30px 60px -30px rgba(31,174,116,.45);}
+.nd-col.good li svg{stroke:var(--brand-glow);} .nd-col.good li{color:#eef3f0;}
+.nd-col.good::after{content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(31,174,116,.14),transparent);transform:skewX(-18deg);animation:ndSweep 5.5s ease-in-out infinite;pointer-events:none;}
+.nd-tag{margin-left:auto;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--brand-glow);background:rgba(31,174,116,.16);border:1px solid rgba(31,174,116,.4);padding:.2rem .55rem;border-radius:999px;}
+@keyframes ndSweep{0%{left:-60%;}55%,100%{left:130%;}}
+@media(max-width:680px){ .nd-compare{grid-template-columns:1fr;} }
+@media(prefers-reduced-motion:reduce){.nd-case-alert,.nd-flow-pulse,.nd-flow-steps.in .nd-fbadge,.nd-col.good::after{animation:none!important;}}
