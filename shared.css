@@ -948,3 +948,19 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
   .mega::before{display:none;}
   .mega-item{padding:.6rem .3rem;}
 }
+
+/* ===== v23 — Hero-Variante DUNKEL (.vhero-dark): weiße Schrift + dunkler Links-Scrim,
+   für moody Motive wie den Notdienst-Hero (Stromausfall → Licht). ===== */
+.vhero-dark .vh-scrim{background:
+  linear-gradient(90deg,rgba(8,11,13,.92) 0%,rgba(8,11,13,.78) 22%,rgba(8,11,13,.46) 44%,rgba(8,11,13,.14) 62%,transparent 76%),
+  linear-gradient(0deg,rgba(8,11,13,.6),transparent 32%);}
+.vhero-dark .vh-copy{max-width:540px;}
+.vhero-dark .vh-copy h1{color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.55);font-size:clamp(2.1rem,4.4vw,3.55rem);line-height:1.05;margin:.55rem 0 0;}
+.vhero-dark .vh-copy h1 .hl{color:var(--brand-glow);}
+.vhero-dark .vh-sub{color:var(--gray-200);max-width:39ch;text-shadow:0 1px 16px rgba(0,0,0,.5);}
+.vhero-dark .st-eyebrow{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:var(--gray-200);}
+.vhero-dark .st-eyebrow .dot{background:var(--brand-glow);}
+.vhero-dark .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem;}
+.vhero-dark .st-foot{margin-top:1.6rem;}
+.vhero-dark .st-rating{color:var(--gray-300);font-size:.95rem;} .vhero-dark .st-rating strong{color:#fff;} .vhero-dark .st-rating .stars{color:#ffce5a;letter-spacing:1px;}
+@media(max-width:860px){ .vhero-dark .vh-scrim{background:linear-gradient(0deg,rgba(8,11,13,.95) 6%,rgba(8,11,13,.45) 34%,transparent 64%);} }
