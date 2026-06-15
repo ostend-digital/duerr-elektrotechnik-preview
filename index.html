@@ -33,12 +33,15 @@
   ]}
   </script>
   <style>
-    /* Callout-Variante: kein Verlauf, Headline schwarz */
-    .vhero .vh-copy{transform:translateY(-6%);}
-    .vhero .vh-copy h1{color:#000;}
-    .vhero .vh-sub{color:#0a0c0d;text-shadow:0 1px 16px rgba(248,249,247,.9);}
-    .vhero .st-rating{color:#0a0c0d;text-shadow:0 1px 14px rgba(248,249,247,.9);}
-    .vhero .st-rating strong{color:#000;}
+    /* Callout-Variante: kein Verlauf, Headline schwarz — nur Desktop (Mobil: helles Standbild-Layout aus shared.css) */
+    @media(min-width:861px){
+      .vhero .vh-scrim{display:none;}
+      .vhero .vh-copy{transform:translateY(-6%);}
+      .vhero .vh-copy h1{color:#000;}
+      .vhero .vh-sub{color:#0a0c0d;text-shadow:0 1px 16px rgba(248,249,247,.9);}
+      .vhero .st-rating{color:#0a0c0d;text-shadow:0 1px 14px rgba(248,249,247,.9);}
+      .vhero .st-rating strong{color:#000;}
+    }
   </style>
 </head>
 <body>
@@ -74,6 +77,8 @@
   <section class="vhero" id="hero" data-step="0">
     <div class="vh-sticky">
       <video class="vh-video" muted playsinline preload="auto" poster="images/hero2-start.webp" data-src-l="images/hero2-2560.mp4" data-src-m="images/hero2-1600.mp4"></video>
+      <img class="vh-poster-m" src="images/hero2-end.webp" alt="" aria-hidden="true">
+      <div class="vh-scrim"></div>
       <div class="vh-grid">
         <div class="vh-copy vh-copy-min">
           <span class="st-eyebrow"><span class="dot"></span>Elektrofachbetrieb &middot; Stuttgart &amp; Region</span>
@@ -380,6 +385,8 @@
   (function(){
     const sec=document.querySelector('.vhero'); if(!sec)return;
     const vid=sec.querySelector('.vh-video');
+    // Mobil/Tablet: statischer Standbild-Hero (kein Video laden, kein Scrub)
+    if(matchMedia('(max-width:860px)').matches) return;
     // passende Video-Auflösung je Desktop-Breite/Pixeldichte wählen
     const wide = (innerWidth * (window.devicePixelRatio||1)) >= 2400 || innerWidth >= 1800;
     vid.src = wide ? vid.dataset.srcL : vid.dataset.srcM;
@@ -408,7 +415,6 @@
     }
     let dur=0, ticking=false, cur=-1;
     function setStep(s){ if(s===cur)return; cur=s; sec.dataset.step=s; calls.forEach(c=>c.classList.toggle('on',+c.dataset.cap<=s)); }
-    if(matchMedia('(max-width:860px)').matches){ vid.loop=true; vid.muted=true; vid.setAttribute('autoplay',''); vid.play().catch(()=>{}); calls.forEach(c=>c.classList.add('on')); return; }
     // Scroll→Video-Zeit als Anteil der Dauer, mit Halte-Pausen nach jedem Element
     // schnelle Element-Aufbauten (kurze Strecke), lange Halte-Pausen dazwischen
     const KF=[[0,0],[0.09,0.27],[0.37,0.27],[0.45,0.54],[0.71,0.54],[0.79,0.92],[1,1]];
