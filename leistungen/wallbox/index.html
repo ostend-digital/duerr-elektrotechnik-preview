@@ -136,33 +136,31 @@
     </div>
   </section>
 
-  <!-- VERGLEICH (dunkel) — Steckdose vs. Wallbox -->
-  <section class="section promise">
-    <div class="promise-grid"></div>
-    <span class="promise-orb a"></span>
-    <span class="promise-orb b"></span>
+  <!-- LADEN (dunkel) — animierte Lade-Visualisierung (Charge-Ring) -->
+  <section class="section pv2">
+    <div class="pv2-gridbg"></div>
+    <span class="pv2-orb pv2-orb-a"></span>
+    <span class="pv2-orb pv2-orb-b"></span>
     <div class="container">
-      <span class="section-label reveal">Zuhause laden</span>
-      <h2 class="reveal" style="transition-delay:.05s;">Warum eine Wallbox statt Steckdose</h2>
-      <p class="lead reveal" style="transition-delay:.1s;">Die Haushaltssteckdose ist zum Laden weder gemacht noch sicher. Eine fachgerecht installierte Wallbox spielt ihre Vorteile aus:</p>
-      <div class="nd-compare stagger">
-        <div class="nd-col bad">
-          <h3><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg> Haushaltssteckdose</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Sehr langsam – oft viele Stunden bis voll</li>
-            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Dauerlast über Stunden – Überhitzungsgefahr</li>
-            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Kein eigenes Lade- und Schutzkonzept</li>
-            <li><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>Nicht förderfähig, nicht angemeldet</li>
+      <div class="pv2-inner">
+        <div class="pv2-text stagger">
+          <span class="section-label">Zuhause laden</span>
+          <h2>Schnell, sicher und<br>günstig laden</h2>
+          <p>Eine fachgerecht installierte Wallbox lädt um ein Vielfaches schneller als die Haushaltssteckdose – und ist dabei sicher abgesichert statt zur Dauerlast zu werden.</p>
+          <ul class="checklist pv2-check">
+            <li>Bis zu 22 kW Ladeleistung</li>
+            <li>Eigene Absicherung &amp; FI-Schutz – kein Steckdosen-Risiko</li>
+            <li>Förderfähig, angemeldet &amp; steuerbar nach §14a EnWG</li>
+            <li>Mit eigenem Solarstrom besonders günstig</li>
           </ul>
         </div>
-        <div class="nd-col good">
-          <h3><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="11" height="18" rx="2"/><path d="M9 8h3M9 12h3M19 9v5a2 2 0 0 1-2 2"/></svg> Wallbox vom Fachbetrieb <span class="nd-tag">Empfohlen</span></h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Um ein Vielfaches schneller laden</li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Eigene Absicherung &amp; FI-Schutz</li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Förderfähig &amp; beim Netzbetreiber angemeldet</li>
-            <li><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Steuerbar nach §14a EnWG</li>
-          </ul>
+        <div class="wb-charge" aria-hidden="true">
+          <div class="wb-ring">
+            <div class="wb-ring-core">
+              <span class="wb-bolt"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
+              <span class="wb-kw">bis 22 kW<span>Ladeleistung</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

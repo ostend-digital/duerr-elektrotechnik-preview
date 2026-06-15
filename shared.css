@@ -1090,3 +1090,21 @@ a.promise-pt .pt-go{display:inline-block;margin-top:.7rem;color:var(--brand-glow
 a.feature{display:block;text-decoration:none;color:inherit;}
 a.feature .f-go{display:inline-block;margin-top:.85rem;color:var(--brand-primary);font-weight:600;font-size:.92rem;}
 a.feature:hover .f-go{color:var(--brand-primary-dark);}
+
+/* ===== v31 — Wallbox: animierte Lade-Visualisierung (Charge-Ring) =====
+   Neuer Animationstyp (statt Linien-/Flow-Puls): ein conic-gradient-Ring füllt sich
+   wie ein Ladevorgang, mit pulsierendem Blitz im Zentrum. */
+@property --wbp{syntax:'<number>';inherits:false;initial-value:0;}
+.wb-charge{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px;}
+.wb-ring{position:relative;width:clamp(220px,26vw,300px);aspect-ratio:1;border-radius:50%;
+  background:conic-gradient(from -90deg,var(--brand-glow) calc(var(--wbp)*360deg),rgba(255,255,255,.07) 0deg);
+  animation:wbFill 5s cubic-bezier(.45,0,.2,1) infinite;filter:drop-shadow(0 0 26px rgba(31,174,116,.35));}
+.wb-ring::after{content:"";position:absolute;inset:15px;border-radius:50%;background:radial-gradient(circle at 50% 42%,#15201c,#0a0f12 82%);}
+.wb-ring-core{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;}
+.wb-bolt{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--brand-glow);background:radial-gradient(circle at 50% 40%,rgba(31,174,116,.2),rgba(8,12,11,.55));animation:pulseRing2 2.6s ease-out infinite;}
+.wb-bolt svg{width:30px;height:30px;stroke:currentColor;fill:var(--brand-glow);stroke-width:1.4;stroke-linejoin:round;}
+.wb-kw{font-family:var(--font);font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:-.01em;text-align:center;line-height:1.15;}
+.wb-kw span{display:block;font-weight:400;font-size:.8rem;color:var(--gray-400);letter-spacing:.02em;}
+@keyframes wbFill{0%{--wbp:0;}12%{--wbp:0;}60%{--wbp:.88;}92%{--wbp:.88;}100%{--wbp:0;}}
+@media(prefers-reduced-motion:reduce){.wb-ring{animation:none;--wbp:.88;}.wb-bolt{animation:none;}}
+@media(max-width:900px){.wb-charge{min-height:0;margin-top:.5rem;}}
