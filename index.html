@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="shared.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Electrician","@id":"https://duerr-elektrotechnik.de/#business","name":"DÜRR Elektrotechnik (GREENOX Dürr Elektrotechnik GmbH & Co. KG)","image":"https://duerr-elektrotechnik.de/images/hero.webp","telephone":"+4974739512840","email":"info@duerr-elektrotechnik.de","url":"https://duerr-elektrotechnik.de/","priceRange":"€€","foundingDate":"2010","address":{"@type":"PostalAddress","streetAddress":"Brunnenstraße 10","postalCode":"72131","addressLocality":"Ofterdingen","addressRegion":"Baden-Württemberg","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":48.4006,"longitude":9.0386},"areaServed":[{"@type":"City","name":"Stuttgart"},{"@type":"City","name":"Reutlingen"},{"@type":"City","name":"Tübingen"},{"@type":"City","name":"Esslingen"},{"@type":"City","name":"Nürtingen"},{"@type":"City","name":"Metzingen"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],"founder":{"@type":"Person","name":"Maximilian Seifert","jobTitle":"Geschäftsführer"},"parentOrganization":{"@type":"Organization","name":"GREENOX Group"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Leistungen","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Elektroinstallation","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Photovoltaik & Stromspeicher","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wallbox & E-Mobilität","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Elektro-Notdienst","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Smart Home & Sicherheit","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Industrie & Gewerbe","areaServed":"Stuttgart"}}]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"7"}}
+  {"@context":"https://schema.org","@type":"Electrician","@id":"https://duerr-elektrotechnik.de/#business","name":"DÜRR Elektrotechnik (GREENOX Dürr Elektrotechnik GmbH & Co. KG)","image":"https://duerr-elektrotechnik.de/images/hero.webp","telephone":"+4974739512840","email":"info@duerr-elektrotechnik.de","url":"https://duerr-elektrotechnik.de/","priceRange":"€€","foundingDate":"2010","address":{"@type":"PostalAddress","streetAddress":"Brunnenstraße 10","postalCode":"72131","addressLocality":"Ofterdingen","addressRegion":"Baden-Württemberg","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":48.4006,"longitude":9.0386},"areaServed":[{"@type":"City","name":"Stuttgart"},{"@type":"City","name":"Reutlingen"},{"@type":"City","name":"Tübingen"},{"@type":"City","name":"Esslingen"},{"@type":"City","name":"Nürtingen"},{"@type":"City","name":"Metzingen"}],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:00"}],"founder":{"@type":"Person","name":"Maximilian Seifert","jobTitle":"Geschäftsführer"},"parentOrganization":{"@type":"Organization","name":"GREENOX Group"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Leistungen","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Elektroinstallation","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Photovoltaik & Stromspeicher","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wallbox & E-Mobilität","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Elektro-Notdienst","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Smart Home & Sicherheit","areaServed":"Stuttgart"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Industrie & Gewerbe","areaServed":"Stuttgart"}}]}}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -344,11 +344,6 @@
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.16});
   document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
   addEventListener('load',()=>document.querySelectorAll('.hero .reveal').forEach(el=>el.classList.add('in')));
-  // Counter
-  const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){anim(e.target);cio.unobserve(e.target);}}),{threshold:.4});
-  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
-  function anim(el){const end=+el.dataset.count,dec=el.dataset.dec?1:0,dur=1300,t0=performance.now();
-    function s(t){let p=Math.min((t-t0)/dur,1);p=1-Math.pow(1-p,3);el.textContent=(end*p).toFixed(dec).replace('.',',');if(p<1)requestAnimationFrame(s);}requestAnimationFrame(s);}
   // Coverflow-Karussell (eigene Mechanik)
   (function(){
     const root=document.querySelector('[data-carousel]');if(!root)return;
@@ -381,29 +376,6 @@
   // Pattern-Parallax (Maus)
   addEventListener('mousemove',(e)=>{const mx=(e.clientX/innerWidth-.5),my=(e.clientY/innerHeight-.5);
     document.querySelectorAll('.dotbg').forEach(el=>{const f=+(el.dataset.parallax||12);el.style.transform=`translate(${mx*f}px,${my*f}px)`;});},{passive:true});
-  // Scrollytelling-Hero: Scroll-Fortschritt → Schritt
-  (function(){
-    const sc=document.querySelector('.scrolly'); if(!sc)return;
-    const layers=[...sc.querySelectorAll('.st-layer')];
-    const caps=[...sc.querySelectorAll('.st-cap')];
-    const dots=[...sc.querySelectorAll('.st-dots i')];
-    const STEPS=4; let cur=-1, ticking=false;
-    function apply(step){
-      if(step===cur)return; cur=step; sc.dataset.step=step;
-      layers.forEach(l=>l.classList.toggle('on',+l.dataset.layer<=step));
-      caps.forEach(c=>c.classList.toggle('on',+c.dataset.cap===step));
-      dots.forEach((d,i)=>d.classList.toggle('on',i===step));
-    }
-    function calc(){
-      const total=sc.offsetHeight-innerHeight;
-      const prog=total>0?Math.min(Math.max(-sc.getBoundingClientRect().top/total,0),1):0;
-      apply(Math.max(0,Math.min(STEPS-1,Math.floor(prog*STEPS*0.999))));
-      ticking=false;
-    }
-    addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
-    addEventListener('resize',calc,{passive:true});
-    calc();
-  })();
   // Video-Hero (Variante 2): Scroll scrubbt das Video + schaltet Captions
   (function(){
     const sec=document.querySelector('.vhero'); if(!sec)return;
