@@ -1207,3 +1207,38 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 @media(prefers-reduced-motion:reduce){
   .ig-fix{background:#eafff8;box-shadow:0 0 14px rgba(200,255,236,.9);animation:none;}
   .ig-beam,.ig-pool{opacity:1;animation:none;}}
+
+/* ===== v38 — Startseite: Leistungs-Orbit (6 Leistungen kreisen um zentralen DÜRR-Hub) =====
+   Neue Animationsmechanik (Orbit): Strahler kreisen langsam um die Mitte, Icons bleiben durch
+   gegenläufige Rotation aufrecht. Reinforct „ein Partner für alles" + verlinkt alle 6 Leistungsseiten. */
+.hub-orbit{position:relative;width:100%;max-width:420px;aspect-ratio:1/1;margin:0 auto;}
+.ho-rings{position:absolute;inset:9%;border-radius:50%;border:1px dashed rgba(255,255,255,.10);}
+.ho-rings::before{content:"";position:absolute;inset:17%;border-radius:50%;border:1px dashed rgba(255,255,255,.07);}
+.ho-core{position:absolute;top:50%;left:50%;width:104px;height:104px;transform:translate(-50%,-50%);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:radial-gradient(circle at 50% 36%,rgba(31,174,116,.32),rgba(10,18,15,.92) 72%);
+  border:1px solid rgba(255,255,255,.16);box-shadow:0 0 38px rgba(31,174,116,.34);}
+.ho-core b{color:#fff;font-weight:700;letter-spacing:.02em;font-size:.86rem;line-height:1.15;}
+.ho-core b span{display:block;font-weight:400;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:.18rem;}
+.ho-pulse{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(31,174,116,.55);animation:hoPulse 3.6s ease-out infinite;}
+.ho-pulse.d2{animation-delay:1.8s;}
+@keyframes hoPulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(2.05);opacity:0;}}
+.ho-spin{position:absolute;inset:0;animation:hoSpin 46s linear infinite;}
+@keyframes hoSpin{to{transform:rotate(360deg);}}
+.ho-node{position:absolute;transform:translate(-50%,-50%);text-decoration:none;}
+.ho-node:nth-child(1){top:11%;left:50%;} .ho-node:nth-child(2){top:30%;left:83%;}
+.ho-node:nth-child(3){top:70%;left:83%;} .ho-node:nth-child(4){top:89%;left:50%;}
+.ho-node:nth-child(5){top:70%;left:17%;} .ho-node:nth-child(6){top:30%;left:17%;}
+.ho-chip{display:flex;flex-direction:column;align-items:center;gap:.34rem;width:76px;
+  animation:hoSpinRev 46s linear infinite;}
+@keyframes hoSpinRev{to{transform:rotate(-360deg);}}
+.ho-ic{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
+  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease;}
+.ho-ic svg{width:23px;height:23px;fill:none;stroke:#bfe9d5;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ho-lbl{font-size:.66rem;line-height:1.12;text-align:center;color:rgba(255,255,255,.74);}
+.ho-node:hover .ho-ic,.ho-node:focus-visible .ho-ic{background:rgba(31,174,116,.22);border-color:var(--brand-primary);box-shadow:0 0 16px rgba(31,174,116,.5);}
+.ho-node:hover .ho-ic svg,.ho-node:focus-visible .ho-ic svg{stroke:#eafff7;}
+.ho-node:hover .ho-lbl,.ho-node:focus-visible .ho-lbl{color:#fff;}
+@media(max-width:860px){.hub-orbit{max-width:330px;}.ho-core{width:88px;height:88px;}.ho-chip{width:64px;}.ho-ic{width:44px;height:44px;}.ho-ic svg{width:20px;height:20px;}.ho-lbl{font-size:.6rem;}}
+@media(prefers-reduced-motion:reduce){.ho-spin{animation:none;}.ho-chip{animation:none;}.ho-pulse{animation:none;opacity:.4;}}
