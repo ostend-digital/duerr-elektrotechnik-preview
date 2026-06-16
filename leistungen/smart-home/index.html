@@ -11,7 +11,7 @@
   <meta property="og:description" content="Licht, Beschattung, Heizung &amp; Sicherheitstechnik vernetzt steuern – komfortabel und sicher, vom regionalen Fachbetrieb.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://duerr-elektrotechnik.de/leistungen/smart-home/">
-  <meta property="og:image" content="https://duerr-elektrotechnik.de/images/hero-sh-start.webp">
+  <meta property="og:image" content="https://duerr-elektrotechnik.de/images/hero-sh-end.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -22,12 +22,11 @@
       .vhero-dark .vh-copy{max-width:680px;}
       .vhero-dark .vh-copy h1{font-size:clamp(2rem,3.4vw,2.95rem);}
     }
-    /* INTERIM: statischer Bild-Hero, bis Scroll-Video + 9:16-Mobilbild fertig sind
-       (Bilddienst war bei Erstellung nicht erreichbar). Später entfernen. */
+    /* INTERIM: statischer Bild-Hero, bis das Scroll-Video fertig ist (Video-Dienst
+       war bei Erstellung nicht erreichbar). Desktop = 16:9-Posterbild, Mobil = 9:16.
+       Später (mit Video) diesen Block entfernen. */
     .vhero#hero{height:auto;}
     .vhero#hero .vh-sticky{position:relative;height:auto;min-height:clamp(540px,84vh,720px);}
-    .vhero#hero .vh-video{display:none;}
-    @media(min-width:861px){ .vhero#hero .vh-poster-m{display:block;} }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Service","name":"Smart Home &amp; Sicherheit","serviceType":"Smart-Home- und Sicherheitstechnik-Planung und -Installation","provider":{"@type":"Electrician","name":"DÜRR Elektrotechnik (GREENOX Dürr Elektrotechnik GmbH & Co. KG)","telephone":"+4974739512840","url":"https://duerr-elektrotechnik.de/","address":{"@type":"PostalAddress","streetAddress":"Brunnenstraße 10","postalCode":"72131","addressLocality":"Ofterdingen","addressRegion":"Baden-Württemberg","addressCountry":"DE"}},"areaServed":[{"@type":"City","name":"Stuttgart"},{"@type":"City","name":"Reutlingen"},{"@type":"City","name":"Tübingen"}],"url":"https://duerr-elektrotechnik.de/leistungen/smart-home/","description":"Smart Home und Sicherheitstechnik vom regionalen Elektrofachbetrieb – Lichtsteuerung, Beschattung, Heizung, KNX-Gebäudeautomation sowie Alarm- und Videotechnik, herstellerübergreifend geplant und installiert."}
@@ -80,8 +79,8 @@
   <!-- HERO — Scroll-Video (Smart-Home-Szene aktiviert sich) -->
   <section class="vhero vhero-dark" id="hero">
     <div class="vh-sticky">
-      <video class="vh-video" muted playsinline preload="auto" poster="/images/hero-sh-start.webp" data-src-l="/images/hero-sh-2560.mp4" data-src-m="/images/hero-sh-1600.mp4"></video>
-      <img class="vh-poster-m" src="/images/hero-sh-start.webp" alt="" aria-hidden="true">
+      <video class="vh-video" muted playsinline preload="auto" poster="/images/hero-sh-end.webp" data-src-l="/images/hero-sh-2560.mp4" data-src-m="/images/hero-sh-1600.mp4"></video>
+      <img class="vh-poster-m" src="/images/hero-sh-mobile.webp" alt="" aria-hidden="true">
       <div class="vh-scrim"></div>
       <div class="vh-grid">
         <div class="vh-copy vh-copy-min">

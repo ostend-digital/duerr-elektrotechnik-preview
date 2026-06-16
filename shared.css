@@ -1144,3 +1144,9 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 .sh-node.n5{top:43%;left:9%;animation-delay:2.2s;}
 @media(prefers-reduced-motion:reduce){.sh-wave,.sh-core,.sh-node{animation:none!important;}}
 @media(max-width:900px){.sh-hub{max-width:300px;margin-top:1rem;}}
+
+/* ===== v34 — vhero-dark: Sekundaer-Button auch auf DESKTOP hell =====
+   .vh-copy .btn-on-dark.sec ist (fuer den hellen Callout-Hero) dunkel gestylt ->
+   auf dunklen Heroes (ND, Wallbox, Smart Home) war er dunkel-auf-dunkel. Hier hell. */
+.vhero-dark .vh-copy .btn-on-dark.sec{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.5);}
+.vhero-dark .vh-copy .btn-on-dark.sec:hover{background:rgba(255,255,255,.18);border-color:#fff;}
