@@ -1167,3 +1167,12 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
   32%,100%{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.05);box-shadow:none;transform:none;}
 }
 @media(prefers-reduced-motion:reduce){.sh-scene{animation:none;}}
+
+/* ===== v36 — Industrie & Gewerbe: Hallen-Lichtreihen (LED-Bänder gehen nacheinander an) =====
+   Neuer Animationstyp: gestaffelte Leuchtbänder, die wie eine Hallenbeleuchtung aufleuchten. */
+.ig-hall{position:relative;display:flex;flex-direction:column;gap:.9rem;max-width:380px;margin:0 auto;padding:1.7rem;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);}
+.ig-bar{height:15px;border-radius:9px;background:rgba(255,255,255,.07);animation:igBar 4.5s ease-in-out infinite;}
+.ig-bar:nth-child(1){animation-delay:0s;} .ig-bar:nth-child(2){animation-delay:.4s;} .ig-bar:nth-child(3){animation-delay:.8s;}
+.ig-bar:nth-child(4){animation-delay:1.2s;} .ig-bar:nth-child(5){animation-delay:1.6s;} .ig-bar:nth-child(6){animation-delay:2s;}
+@keyframes igBar{0%,7%{background:rgba(255,255,255,.07);box-shadow:none;}20%,72%{background:linear-gradient(90deg,var(--brand-glow),#cdf5de);box-shadow:0 0 22px rgba(31,174,116,.55);}90%,100%{background:rgba(255,255,255,.07);box-shadow:none;}}
+@media(prefers-reduced-motion:reduce){.ig-bar{animation:none;background:linear-gradient(90deg,var(--brand-glow),#cdf5de);}}
