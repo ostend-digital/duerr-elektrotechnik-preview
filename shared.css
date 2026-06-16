@@ -1168,11 +1168,42 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 }
 @media(prefers-reduced-motion:reduce){.sh-scene{animation:none;}}
 
-/* ===== v36 — Industrie & Gewerbe: Hallen-Lichtreihen (LED-Bänder gehen nacheinander an) =====
-   Neuer Animationstyp: gestaffelte Leuchtbänder, die wie eine Hallenbeleuchtung aufleuchten. */
-.ig-hall{position:relative;display:flex;flex-direction:column;gap:.9rem;width:100%;max-width:380px;margin:0 auto;padding:1.7rem;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);}
-.ig-bar{height:15px;border-radius:9px;background-color:rgba(255,255,255,.07);animation:igBar 4.5s ease-in-out infinite;}
-.ig-bar:nth-child(1){animation-delay:0s;} .ig-bar:nth-child(2){animation-delay:.4s;} .ig-bar:nth-child(3){animation-delay:.8s;}
-.ig-bar:nth-child(4){animation-delay:1.2s;} .ig-bar:nth-child(5){animation-delay:1.6s;} .ig-bar:nth-child(6){animation-delay:2s;}
-@keyframes igBar{0%,7%{background-color:rgba(255,255,255,.07);box-shadow:none;}20%,72%{background-color:var(--brand-glow);box-shadow:0 0 24px rgba(31,174,116,.6);}90%,100%{background-color:rgba(255,255,255,.07);box-shadow:none;}}
-@media(prefers-reduced-motion:reduce){.ig-bar{animation:none;background-color:var(--brand-glow);}}
+/* ===== v37 — Industrie & Gewerbe: Hallen-Beleuchtung NEU (Halle mit LED-Strahlern, Lichtkegel + Boden-Pools) =====
+   Ersetzt die simple Balken-Animation (v36): Hochregal-Halle, in der LED-Strahler nacheinander angehen,
+   einen Lichtkegel werfen und einen Lichtpool auf den Boden projizieren. */
+.ig-hall{position:relative;width:100%;max-width:440px;height:300px;margin:0 auto;border-radius:18px;overflow:hidden;
+  background:linear-gradient(180deg,#0c1411 0%,#0a1210 58%,#070d0b 100%);
+  border:1px solid rgba(255,255,255,.09);}
+/* Deckenträger */
+.ig-ceiling{position:absolute;top:0;left:0;right:0;height:22px;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border-bottom:1px solid rgba(255,255,255,.09);}
+/* Boden + angedeutete Regale/Maschinen */
+.ig-floor{position:absolute;left:0;right:0;bottom:0;height:44px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.05));
+  border-top:1px solid rgba(255,255,255,.08);}
+.ig-floor::before,.ig-floor::after{content:"";position:absolute;bottom:44px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.06);border-bottom:none;border-radius:2px 2px 0 0;}
+.ig-floor::before{left:9%;width:24%;height:30px;}
+.ig-floor::after{right:9%;width:24%;height:38px;}
+/* Strahlerreihe */
+.ig-lamps{position:absolute;top:14px;left:0;right:0;display:flex;justify-content:space-around;}
+.ig-lamp{position:relative;width:18%;display:flex;justify-content:center;--d:0s;}
+.ig-lamp:nth-child(2){--d:.42s;} .ig-lamp:nth-child(3){--d:.84s;}
+.ig-lamp:nth-child(4){--d:1.26s;} .ig-lamp:nth-child(5){--d:1.68s;}
+.ig-fix{width:34px;height:7px;border-radius:3px;background:rgba(255,255,255,.12);
+  animation:igFix 5s ease-in-out infinite;animation-delay:var(--d);}
+.ig-beam{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:78px;height:236px;
+  clip-path:polygon(38% 0,62% 0,100% 100%,0 100%);
+  background:linear-gradient(180deg,rgba(200,255,236,.40),rgba(200,255,236,.11) 46%,transparent 92%);
+  opacity:0;animation:igGlow 5s ease-in-out infinite;animation-delay:var(--d);}
+.ig-pool{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);width:88px;height:24px;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(200,255,236,.34),transparent 70%);
+  opacity:0;animation:igGlow 5s ease-in-out infinite;animation-delay:var(--d);}
+@keyframes igFix{0%,8%{background:rgba(255,255,255,.12);box-shadow:none;}
+  16%,72%{background:#eafff8;box-shadow:0 0 14px rgba(200,255,236,.9),0 0 4px #fff;}
+  88%,100%{background:rgba(255,255,255,.12);box-shadow:none;}}
+@keyframes igGlow{0%,8%{opacity:0;}18%,72%{opacity:1;}88%,100%{opacity:0;}}
+@media(prefers-reduced-motion:reduce){
+  .ig-fix{background:#eafff8;box-shadow:0 0 14px rgba(200,255,236,.9);animation:none;}
+  .ig-beam,.ig-pool{opacity:1;animation:none;}}
