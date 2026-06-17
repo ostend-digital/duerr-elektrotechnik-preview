@@ -1242,3 +1242,69 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 .ho-node:hover .ho-lbl,.ho-node:focus-visible .ho-lbl{color:#fff;}
 @media(max-width:860px){.hub-orbit{max-width:330px;}.ho-core{width:88px;height:88px;}.ho-chip{width:64px;}.ho-ic{width:44px;height:44px;}.ho-ic svg{width:20px;height:20px;}.ho-lbl{font-size:.6rem;}}
 @media(prefers-reduced-motion:reduce){.ho-spin{animation:none;}.ho-chip{animation:none;}.ho-pulse{animation:none;opacity:.4;}}
+
+/* ===== v39 — Standort Stuttgart: Karten-Hero (animierte Region-Karte) =====
+   Dunkler Hero mit zweispaltigem Layout: Copy links, animierte Karte rechts.
+   Karte zeigt Stuttgart-Pin mit Radar-Radius (Einsatzgebiet), Stadtteil-Punkte (leuchten
+   nacheinander), Neckar-Verlauf, Anfahrt-Route aus der Region (bewegter Punkt). */
+.geo-hero{position:relative;overflow:hidden;background:linear-gradient(162deg,#0c1411,#0a1210 56%,#070d0b);padding:3.4rem 0 4.6rem;}
+.geo-hero .container{position:relative;z-index:2;}
+.geo-hero-inner{display:grid;grid-template-columns:1.04fr .96fr;gap:3rem;align-items:center;}
+.geo-copy .breadcrumb{margin-bottom:.9rem;}
+.geo-copy h1{color:#fff;font-size:clamp(2rem,3.5vw,3rem);line-height:1.07;letter-spacing:-.02em;margin:.25rem 0 .9rem;}
+.geo-copy h1 .hl{color:var(--brand-primary);}
+.geo-copy .geo-sub{color:var(--gray-200);font-size:1.06rem;line-height:1.6;max-width:52ch;}
+.geo-copy .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.7rem;}
+.geo-copy .st-foot{margin-top:1.3rem;}
+.geo-copy .st-rating{color:var(--gray-300);} .geo-copy .st-rating strong{color:#fff;}
+.geo-copy .st-eyebrow{color:var(--gray-300);}
+
+/* Karte */
+.geo-map{position:relative;width:100%;max-width:480px;aspect-ratio:1/.9;margin:0 auto;border-radius:20px;overflow:hidden;
+  background:radial-gradient(120% 120% at 56% 26%,#11241d,#0a1512 58%,#06100c);
+  border:1px solid rgba(255,255,255,.10);box-shadow:inset 0 0 70px rgba(0,0,0,.45),0 24px 60px -30px rgba(0,0,0,.7);}
+.geo-streets{position:absolute;inset:0;opacity:.55;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse 86% 86% at 50% 40%,#000 52%,transparent 88%);
+  mask-image:radial-gradient(ellipse 86% 86% at 50% 40%,#000 52%,transparent 88%);}
+.geo-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.geo-lines path{vector-effect:non-scaling-stroke;}
+.geo-lines .river{fill:none;stroke:rgba(96,178,206,.42);stroke-width:3;stroke-linecap:round;}
+.geo-lines .spoke{fill:none;stroke:rgba(31,174,116,.42);stroke-width:1.2;stroke-dasharray:2.5 4;}
+.geo-lines .route{fill:none;stroke:rgba(31,174,116,.6);stroke-width:1.8;stroke-dasharray:5 5;animation:geoDash 1.3s linear infinite;}
+@keyframes geoDash{to{stroke-dashoffset:-20;}}
+/* Radar-Ringe um Stuttgart (Einsatzgebiet) */
+.geo-rings{position:absolute;left:50%;top:30%;width:0;height:0;pointer-events:none;}
+.geo-rings span{position:absolute;left:0;top:0;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(31,174,116,.5);width:36px;height:36px;animation:geoRing 3.9s ease-out infinite;}
+.geo-rings span:nth-child(2){animation-delay:1.3s;} .geo-rings span:nth-child(3){animation-delay:2.6s;}
+@keyframes geoRing{0%{width:36px;height:36px;opacity:.65;}100%{width:248px;height:248px;opacity:0;}}
+/* Stuttgart-Hauptpin */
+.geo-pin{position:absolute;transform:translate(-50%,-100%);text-align:center;z-index:3;}
+.geo-pin .pin-ic{display:block;width:28px;height:28px;margin:0 auto;animation:geoBob 3.2s ease-in-out infinite;}
+.geo-pin .pin-ic svg{width:100%;height:100%;display:block;fill:var(--brand-primary);stroke:#06100c;stroke-width:1.1;filter:drop-shadow(0 4px 7px rgba(0,0,0,.55));}
+.geo-pin .pin-lbl{display:block;margin-top:0;font-weight:700;font-size:.82rem;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.7);}
+@keyframes geoBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+/* Stadtteil-Punkte */
+.geo-dot{position:absolute;transform:translate(-50%,-50%);text-align:center;z-index:2;}
+.geo-dot i{display:block;width:9px;height:9px;border-radius:50%;margin:0 auto 3px;background:rgba(255,255,255,.32);animation:geoDot 5s ease-in-out infinite;}
+.geo-dot span{font-size:.62rem;color:rgba(255,255,255,.6);white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.7);}
+@keyframes geoDot{0%,72%,100%{background:rgba(255,255,255,.32);box-shadow:0 0 0 0 transparent;}10%,42%{background:var(--brand-glow);box-shadow:0 0 12px rgba(31,174,116,.75);}}
+/* HQ-Marker (Sitz) + Region-Punkte + Anfahrt-Reisepunkt */
+.geo-hq{position:absolute;transform:translate(-50%,-50%);text-align:center;z-index:2;}
+.geo-hq i{display:block;width:11px;height:11px;border-radius:3px;margin:0 auto 3px;background:rgba(255,255,255,.5);border:1.5px solid var(--brand-primary);}
+.geo-hq span{font-size:.62rem;color:rgba(255,255,255,.7);white-space:nowrap;text-shadow:0 1px 3px rgba(0,0,0,.7);}
+.geo-travel{position:absolute;left:50%;top:84%;width:8px;height:8px;border-radius:50%;background:#eafff7;box-shadow:0 0 12px rgba(31,174,116,.95);transform:translate(-50%,-50%);z-index:3;animation:geoTravel 3.4s ease-in-out infinite;}
+@keyframes geoTravel{0%{top:84%;opacity:0;}12%{opacity:1;}88%{opacity:1;}100%{top:30%;opacity:0;}}
+.geo-legend{position:absolute;left:14px;bottom:12px;z-index:3;display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .6rem;border-radius:100px;background:rgba(8,14,11,.7);border:1px solid rgba(255,255,255,.12);font-size:.62rem;color:rgba(255,255,255,.78);}
+.geo-legend b{width:7px;height:7px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 8px rgba(31,174,116,.8);}
+@media(max-width:860px){
+  .geo-hero-inner{grid-template-columns:1fr;gap:2rem;}
+  .geo-copy{order:1;} .geo-map{order:2;max-width:420px;}
+  .geo-copy h1{font-size:clamp(1.6rem,5.9vw,2.3rem);}
+}
+@media(prefers-reduced-motion:reduce){
+  .geo-lines .route{animation:none;}.geo-rings span{animation:none;opacity:.3;}
+  .geo-pin .pin-ic,.geo-dot i,.geo-travel{animation:none;}
+  .geo-dot i{background:var(--brand-glow);}.geo-travel{opacity:0;}
+}
