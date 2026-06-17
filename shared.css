@@ -1236,7 +1236,7 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
   background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);
   transition:background .25s ease,border-color .25s ease,box-shadow .25s ease;}
 .ho-ic svg{width:23px;height:23px;fill:none;stroke:#bfe9d5;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
-.ho-lbl{font-size:.66rem;line-height:1.12;text-align:center;color:rgba(255,255,255,.74);}
+.ho-lbl{font-size:.66rem;line-height:1.12;text-align:center;color:rgba(255,255,255,.74);overflow-wrap:break-word;hyphens:auto;}
 .ho-node:hover .ho-ic,.ho-node:focus-visible .ho-ic{background:rgba(31,174,116,.22);border-color:var(--brand-primary);box-shadow:0 0 16px rgba(31,174,116,.5);}
 .ho-node:hover .ho-ic svg,.ho-node:focus-visible .ho-ic svg{stroke:#eafff7;}
 .ho-node:hover .ho-lbl,.ho-node:focus-visible .ho-lbl{color:#fff;}
