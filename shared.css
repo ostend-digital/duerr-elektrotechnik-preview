@@ -1247,15 +1247,15 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
    Dunkler Hero mit zweispaltigem Layout: Copy links, animierte Karte rechts.
    Karte zeigt Stuttgart-Pin mit Radar-Radius (Einsatzgebiet), Stadtteil-Punkte (leuchten
    nacheinander), Neckar-Verlauf, Anfahrt-Route aus der Region (bewegter Punkt). */
-.geo-hero{position:relative;overflow:hidden;background:linear-gradient(162deg,#0c1411,#0a1210 56%,#070d0b);padding:3.4rem 0 4.6rem;}
+.geo-hero{position:relative;overflow:hidden;background:linear-gradient(162deg,#0c1411,#0a1210 56%,#070d0b);padding:5.2rem 0 6rem;}
 .geo-hero .container{position:relative;z-index:2;}
-.geo-hero-inner{display:grid;grid-template-columns:1.04fr .96fr;gap:3rem;align-items:center;}
-.geo-copy .breadcrumb{margin-bottom:.9rem;}
-.geo-copy h1{color:#fff;font-size:clamp(2rem,3.5vw,3rem);line-height:1.07;letter-spacing:-.02em;margin:.25rem 0 .9rem;}
+.geo-hero-inner{display:grid;grid-template-columns:1.04fr .96fr;gap:3.6rem;align-items:center;}
+.geo-copy .st-eyebrow{margin-bottom:.5rem;}
+.geo-copy h1{color:#fff;font-size:clamp(2rem,3.5vw,3rem);line-height:1.08;letter-spacing:-.02em;margin:.5rem 0 1.1rem;}
 .geo-copy h1 .hl{color:var(--brand-primary);}
-.geo-copy .geo-sub{color:var(--gray-200);font-size:1.06rem;line-height:1.6;max-width:52ch;}
-.geo-copy .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.7rem;}
-.geo-copy .st-foot{margin-top:1.3rem;}
+.geo-copy .geo-sub{color:var(--gray-200);font-size:1.06rem;line-height:1.65;max-width:52ch;}
+.geo-copy .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem;}
+.geo-copy .st-foot{margin-top:1.5rem;}
 .geo-copy .st-rating{color:var(--gray-300);} .geo-copy .st-rating strong{color:#fff;}
 .geo-copy .st-eyebrow{color:var(--gray-300);}
 
