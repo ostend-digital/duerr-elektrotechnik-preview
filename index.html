@@ -459,7 +459,7 @@
     function calc(){
       const total=sec.offsetHeight-innerHeight;
       const p=total>0?Math.min(Math.max(-sec.getBoundingClientRect().top/total,0),1):0;
-      if(dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
+      if(dur){ let t=frac(p)*(dur-0.05); t=Math.round(t*25)/25; /* aufs 25fps-Frameraster einrasten -> keine sinnlosen Sub-Frame-Seeks */ if(Math.abs((vid.currentTime||0)-t)>=0.02){ try{vid.currentTime=t;}catch(e){} } }
       setStep(stepAt(p));
       ticking=false;
     }
