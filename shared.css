@@ -1357,8 +1357,8 @@ a.ref-card{text-decoration:none;color:inherit;}
 
 /* ===== v44 — Kontakt-Section Redesign: Team-Banner oben + Info-Spalte + Formular-Karte ===== */
 .cta-band.cta-contact{display:block;text-align:left;}
-.cta-band.cta-contact .cta-banner{position:relative;z-index:1;width:100%;aspect-ratio:24/7;border-radius:var(--r-xl);overflow:hidden;margin-bottom:2.4rem;box-shadow:var(--sh-lg);}
-.cta-band.cta-contact .cta-banner img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.cta-band.cta-contact .cta-banner{position:relative;z-index:1;width:100%;max-width:660px;margin:0 auto 2.6rem;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);}
+.cta-band.cta-contact .cta-banner img{width:100%;height:auto;display:block;}
 .cta-contact-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
 @media(max-width:860px){.cta-contact-grid{grid-template-columns:1fr;gap:2.2rem;}.cta-band.cta-contact .cta-banner{aspect-ratio:16/9;}}
 .cta-contact .cta-info{position:relative;z-index:1;}
