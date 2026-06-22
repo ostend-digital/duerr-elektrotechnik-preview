@@ -275,6 +275,28 @@
     </div>
   </section>
 
+  <!-- ÜBER UNS — persönlicher Team-Einblick -->
+  <section class="section" id="ueber-uns">
+    <div class="container">
+      <div class="split-img">
+        <div class="si-media reveal">
+          <img src="/images/team/team-group.webp" alt="Das Team von DÜRR Elektrotechnik vor den Firmenfahrzeugen in Ofterdingen" loading="lazy" width="1600" height="1066">
+        </div>
+        <div class="reveal" style="transition-delay:.1s;">
+          <span class="section-label">Über uns</span>
+          <h2 style="margin:.3rem 0 .8rem;">Echte Menschen aus der Region</h2>
+          <p style="color:var(--gray-600);line-height:1.65;">DÜRR Elektrotechnik ist ein inhabergeführter Familienbetrieb aus Ofterdingen – seit über 15 Jahren persönlich für Sie da. Bei uns sprechen Sie nicht mit einer Hotline, sondern mit einem festen Ansprechpartner, der Ihr Projekt von der Beratung bis zur Übergabe begleitet.</p>
+          <ul class="checklist" style="margin-top:1.1rem;">
+            <li>Inhabergeführt &amp; regional verwurzelt</li>
+            <li>Eingespieltes Team aus erfahrenen Fachkräften</li>
+            <li>Persönlich, ehrlich und termintreu</li>
+          </ul>
+          <a href="/ueber-uns/" class="btn btn-secondary" style="margin-top:1.5rem;">Mehr über uns</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA / ANFRAGE -->
   <section class="section" id="anfrage" style="padding-top:0;">
     <div class="container">
@@ -282,7 +304,7 @@
         <div class="cta-gridbg"></div>
         <span class="cta-orb cta-orb-a"></span>
         <span class="cta-orb cta-orb-b"></span>
-        <div class="cta-portrait"><img src="images/team-portrait.jpg" alt="Elektrofachbetrieb DÜRR Elektrotechnik – Ihr Elektriker für Stuttgart & Region" loading="lazy"></div>
+        <div class="cta-portrait"><img src="images/cta-portrait.webp" alt="Ihr persönlicher Ansprechpartner bei DÜRR Elektrotechnik in Ofterdingen" loading="lazy" style="object-position:center 22%;"></div>
         <div class="cta-body">
           <span class="section-label" style="color:var(--gray-300);">Kostenloses Erstgespräch</span>
           <h2>Lassen Sie uns über Ihr Projekt sprechen</h2>
@@ -424,7 +446,9 @@
     if(matchMedia('(max-width:860px)').matches) return;
     // passende Video-Auflösung je Desktop-Breite/Pixeldichte wählen
     const wide = (innerWidth * (window.devicePixelRatio||1)) >= 2400 || innerWidth >= 1800;
+    vid.preload='auto';
     vid.src = wide ? vid.dataset.srcL : vid.dataset.srcM;
+    try{ vid.load(); }catch(e){}   // erzwingt zuverlässigen Ladestart (sonst lädt der dynamische src nicht immer von selbst)
     const calls=[...sec.querySelectorAll('.vh-callouts [data-cap]')];
     const sticky=sec.querySelector('.vh-sticky');
     const VAR=16/9; // Video-Seitenverhältnis (Bildpunkte sind als Anteil des Videoframes definiert)
@@ -463,8 +487,17 @@
       setStep(stepAt(p));
       ticking=false;
     }
-    function ready(){ dur=vid.duration||5; layout(); calc(); }
-    if(vid.readyState>=1) ready(); else vid.addEventListener('loadedmetadata',ready);
+    let inited=false;
+    function ready(){
+      dur=vid.duration||5; layout();
+      try{ vid.currentTime=0.001; }catch(e){}   // ersten Frame dekodieren -> kein Poster-Hänger beim ersten Scrollen
+      calc();
+    }
+    function tryInit(){ if(inited)return; if(vid.readyState>=1 && vid.duration){ inited=true; ready(); } }
+    ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(ev=>vid.addEventListener(ev,tryInit));
+    tryInit();
+    // Sicherheitsnetz: falls ein Ready-Event verpasst wurde (Race/Cache), kurz nachpollen
+    let _t=0; const _iv=setInterval(()=>{ tryInit(); if(inited||++_t>25) clearInterval(_iv); },240);
     layout(); addEventListener('load',layout);
     addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
     addEventListener('resize',()=>{layout();calc();},{passive:true});
