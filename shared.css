@@ -1421,3 +1421,14 @@ a.ci-row:hover strong{color:var(--brand-glow);}
   .cta-band.cta-bg p{margin-left:auto;margin-right:auto;}
   .cta-band.cta-bg .ff-actions{justify-content:center;}
 }
+
+/* ===== v47 — GEO Answer-Box (KI-zitierfähige Kurzantwort unter dem Hero) ===== */
+.geo-answer{position:relative;background:var(--brand-primary-light);border:1px solid rgba(15,122,82,.16);border-radius:var(--r-xl);padding:1.5rem 1.75rem;margin-bottom:2.75rem;}
+.geo-answer .ga-label{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-primary-dark);margin-bottom:.6rem;}
+.geo-answer .ga-label::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 0 3px rgba(31,174,116,.22);}
+.geo-answer p{font-size:1.0625rem;line-height:1.6;color:var(--gray-800);margin:0;max-width:68ch;}
+.geo-answer p strong{color:var(--brand-primary-dark);}
+@media(max-width:768px){
+  .geo-answer{padding:1.25rem 1.25rem;margin-bottom:2rem;}
+  .geo-answer p{font-size:1rem;}
+}
