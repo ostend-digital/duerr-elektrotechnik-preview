@@ -1341,11 +1341,12 @@ a.ref-card{text-decoration:none;color:inherit;}
 .split-img .si-media img{width:100%;height:100%;object-fit:cover;display:block;}
 @media(max-width:860px){.split-img{grid-template-columns:1fr;gap:1.6rem;}}
 
-/* ===== v42 — CTA-Portrait 'full': ganzes Bild zeigen (kein Crop), zentriert ===== */
-.cta-band.cta-img-full{grid-template-columns:1fr 1.18fr;align-items:center;}
-.cta-portrait.full{align-self:center;min-height:0;box-shadow:none;background:transparent;border-radius:0;overflow:visible;}
-.cta-portrait.full img{height:auto;object-fit:contain;object-position:center;border-radius:var(--r-xl);box-shadow:var(--sh-lg);}
-@media(max-width:768px){.cta-band.cta-img-full{grid-template-columns:1fr;}.cta-portrait.full{min-height:0;}.cta-portrait.full img{max-width:520px;margin:0 auto;}}
+/* ===== v42 — CTA-Portrait 'full': ganzes Bild (kein Crop), Box auf Formularhöhe gestreckt ===== */
+.cta-band.cta-img-full{grid-template-columns:1fr 1.18fr;align-items:stretch;}
+.cta-portrait.full{align-self:stretch;min-height:0;position:relative;overflow:hidden;border-radius:var(--r-xl);box-shadow:var(--sh-lg);background:#0b1310;}
+.cta-portrait.full .cp-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.5);transform:scale(1.15);}
+.cta-portrait.full img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;}
+@media(max-width:768px){.cta-band.cta-img-full{grid-template-columns:1fr;}.cta-portrait.full{align-self:auto;aspect-ratio:16/10;}}
 
 /* ===== v43 — sichtbarer Link-Hinweis auf Leistungs-Slider-Karten (Startseite) ===== */
 .scard .card-go{margin-top:1.1rem;font-size:.9rem;font-weight:600;color:var(--brand-glow);letter-spacing:.01em;display:inline-flex;align-items:center;gap:.35rem;transition:gap .3s ease;}
