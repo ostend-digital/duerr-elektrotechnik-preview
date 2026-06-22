@@ -1346,3 +1346,7 @@ a.ref-card{text-decoration:none;color:inherit;}
 .cta-portrait.full{align-self:center;min-height:0;box-shadow:none;background:transparent;border-radius:0;overflow:visible;}
 .cta-portrait.full img{height:auto;object-fit:contain;object-position:center;border-radius:var(--r-xl);box-shadow:var(--sh-lg);}
 @media(max-width:768px){.cta-band.cta-img-full{grid-template-columns:1fr;}.cta-portrait.full{min-height:0;}.cta-portrait.full img{max-width:520px;margin:0 auto;}}
+
+/* ===== v43 — sichtbarer Link-Hinweis auf Leistungs-Slider-Karten (Startseite) ===== */
+.scard .card-go{margin-top:1.1rem;font-size:.9rem;font-weight:600;color:var(--brand-glow);letter-spacing:.01em;display:inline-flex;align-items:center;gap:.35rem;transition:gap .3s ease;}
+.dcar-card.scard[data-state="active"] .card-go,.dcar-card.scard:hover .card-go{gap:.6rem;}
