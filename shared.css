@@ -1407,7 +1407,7 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .cta-band.cta-bg{position:relative;overflow:hidden;border-radius:var(--r-2xl);padding:3.6rem;color:#fff;text-align:left;background:linear-gradient(110deg,#0a1310 0%,#0d1b15 55%,#12231c 100%);}
 .cta-band.cta-bg::after{display:none;}
 /* Foto rechts; Verlauf zieht durch -> ganze Section dunkel, über den Personen (rechts) nur schwächer */
-.cta-band.cta-bg .cta-bgimg{position:absolute;inset:0;z-index:0;background-size:contain;background-repeat:no-repeat;background-position:right center;}
+.cta-band.cta-bg .cta-bgimg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center 50%;}
 .cta-band.cta-bg .cta-bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,11,.93) 0%,rgba(8,13,11,.8) 24%,rgba(8,13,11,.4) 46%,rgba(8,13,11,.22) 100%),linear-gradient(0deg,rgba(8,13,11,.3),transparent 72%);}
 .cta-band.cta-bg .cta-bg-inner{position:relative;z-index:1;max-width:430px;}
 .cta-band.cta-bg h2{color:#fff;}
