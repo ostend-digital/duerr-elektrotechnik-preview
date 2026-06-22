@@ -1402,3 +1402,21 @@ a.ci-row:hover strong{color:var(--brand-glow);}
   .contact-split .cs-card p{margin-left:auto;margin-right:auto;}
   .contact-split .cs-card .ff-actions{justify-content:center;}
 }
+
+/* ===== v46 — Kontaktbox: Teamfoto als Hintergrund + Formular darüber ===== */
+.cta-band.cta-bg{position:relative;overflow:hidden;border-radius:var(--r-2xl);padding:3.6rem;color:#fff;text-align:left;}
+.cta-band.cta-bg::after{display:none;}
+.cta-band.cta-bg .cta-bgimg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center 26%;}
+.cta-band.cta-bg .cta-bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,11,.95) 0%,rgba(8,13,11,.86) 44%,rgba(8,13,11,.5) 100%),linear-gradient(0deg,rgba(8,13,11,.45),transparent 55%);}
+.cta-band.cta-bg .cta-bg-inner{position:relative;z-index:1;max-width:560px;}
+.cta-band.cta-bg h2{color:#fff;}
+.cta-band.cta-bg p{color:var(--gray-200);max-width:48ch;margin:.6rem 0 1.6rem;}
+.cta-band.cta-bg .ff-actions{justify-content:flex-start;}
+@media(max-width:768px){
+  .cta-band.cta-bg{padding:2.2rem 1.5rem;text-align:center;}
+  .cta-band.cta-bg .cta-bg-inner{max-width:none;}
+  .cta-band.cta-bg .cta-bgimg{background-position:center 20%;}
+  .cta-band.cta-bg .cta-bgimg::after{background:linear-gradient(0deg,rgba(8,13,11,.96),rgba(8,13,11,.82));}
+  .cta-band.cta-bg p{margin-left:auto;margin-right:auto;}
+  .cta-band.cta-bg .ff-actions{justify-content:center;}
+}
