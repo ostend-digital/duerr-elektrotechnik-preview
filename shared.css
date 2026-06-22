@@ -1344,8 +1344,8 @@ a.ref-card{text-decoration:none;color:inherit;}
 
 /* ===== v42 — CTA gestapelt: Teamfoto als Banner oben, Formular darunter ===== */
 .cta-band.cta-stacked{display:block;grid-template-columns:none;text-align:left;}
-.cta-band.cta-stacked .cta-banner{position:relative;z-index:1;width:100%;aspect-ratio:5/2;border-radius:var(--r-xl);overflow:hidden;margin-bottom:2.2rem;box-shadow:var(--sh-lg);}
-.cta-band.cta-stacked .cta-banner img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;}
+.cta-band.cta-stacked .cta-banner{position:relative;z-index:1;width:100%;aspect-ratio:16/9;border-radius:var(--r-xl);overflow:hidden;margin-bottom:2.2rem;box-shadow:var(--sh-lg);}
+.cta-band.cta-stacked .cta-banner img{width:100%;height:100%;object-fit:cover;object-position:center 8%;display:block;}
 .cta-band.cta-stacked .cta-body{max-width:none;}
 .cta-band.cta-stacked .cta-body .section-label,.cta-band.cta-stacked .cta-body .btns{justify-content:flex-start;}
 @media(max-width:768px){.cta-band.cta-stacked{text-align:center;}.cta-band.cta-stacked .cta-banner{aspect-ratio:16/10;}.cta-band.cta-stacked .cta-body .section-label,.cta-band.cta-stacked .cta-body .btns{justify-content:center;}}
