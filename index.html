@@ -267,49 +267,28 @@
   <!-- CTA / ANFRAGE -->
   <section class="section" id="anfrage">
     <div class="container">
-      <div class="cta-band has-img cta-pv2 cta-contact reveal">
-        <div class="cta-gridbg"></div>
-        <span class="cta-orb cta-orb-a"></span>
-        <span class="cta-orb cta-orb-b"></span>
-        <div class="cta-banner"><img src="/images/team/team-group.webp" alt="Das Team von DÜRR Elektrotechnik – Ihr Elektriker für Reutlingen & Region" loading="lazy"></div>
-        <div class="cta-contact-grid">
-          <div class="cta-info">
-            <span class="section-label" style="color:var(--gray-300);">Kostenloses Erstgespräch</span>
-            <h2>Lassen Sie uns über Ihr Projekt sprechen</h2>
-            <p>Ob Elektroinstallation, Photovoltaik oder ein dringender Notfall – sprechen Sie direkt mit Ihrem Elektriker vor Ort. Wir melden uns innerhalb von 24&nbsp;Stunden mit dem nächsten Schritt.</p>
-            <div class="ci-rows">
-              <a class="ci-row" href="tel:+4974739512840">
-                <span class="ci-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z"/></svg></span>
-                <span class="ci-tx"><strong>07473 9512840</strong><small>Mo–Fr 8–17 Uhr · schnell erreichbar</small></span>
-              </a>
-              <a class="ci-row" href="mailto:info@duerr-elektrotechnik.de">
-                <span class="ci-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-                <span class="ci-tx"><strong>info@duerr-elektrotechnik.de</strong><small>Antwort innerhalb von 24&nbsp;h</small></span>
-              </a>
-              <div class="ci-row">
-                <span class="ci-ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-                <span class="ci-tx"><strong>Brunnenstraße 10, 72131 Ofterdingen</strong><small>vor Ort in Reutlingen, Tübingen &amp; der Region</small></span>
-              </div>
+      <div class="contact-split reveal">
+        <div class="cs-photo"><img src="/images/team/team-group.webp" alt="Das Team von DÜRR Elektrotechnik – Ihr Elektriker für Reutlingen & Region" loading="lazy" width="1600" height="1066"></div>
+        <div class="cta-band cta-pv2 cs-card">
+          <div class="cta-gridbg"></div>
+          <span class="cta-orb cta-orb-a"></span>
+          <span class="cta-orb cta-orb-b"></span>
+          <span class="section-label" style="color:var(--gray-300);">Kostenloses Erstgespräch</span>
+          <h2>Lassen Sie uns über Ihr Projekt sprechen</h2>
+          <p>Ob Elektroinstallation, Photovoltaik oder ein dringender Notfall – schreiben Sie uns kurz Ihr Anliegen. Wir melden uns innerhalb von 24&nbsp;Stunden mit dem nächsten Schritt.</p>
+          <!-- Hinweis: action vor Launch auf echtes Formspree-/Formular-Backend setzen -->
+          <form class="cta-form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+            <div class="ff-row">
+              <input type="text" name="name" placeholder="Ihr Name" required aria-label="Ihr Name">
+              <input type="text" name="kontakt" placeholder="Telefon oder E-Mail" required aria-label="Telefon oder E-Mail">
             </div>
-            <div class="ci-meta">
-              <span class="ci-rating"><span class="stars">★★★★★</span> <strong>5,0</strong> bei Google</span>
+            <textarea name="anliegen" rows="3" placeholder="Worum geht es? (z. B. Wallbox, PV, Sanierung, Notdienst)" aria-label="Ihr Anliegen"></textarea>
+            <div class="ff-actions">
+              <button type="submit" class="btn btn-on-dark pulse">Anfrage senden</button>
+              <a href="tel:+4974739512840" class="btn btn-on-dark sec">Anrufen · 07473 9512840</a>
             </div>
-          </div>
-          <div class="cta-formwrap">
-            <span class="fw-label">Schnell-Anfrage</span>
-            <!-- Hinweis: action vor Launch auf echtes Formspree-/Formular-Backend setzen -->
-            <form class="cta-form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
-              <div class="ff-row">
-                <input type="text" name="name" placeholder="Ihr Name" required aria-label="Ihr Name">
-                <input type="text" name="kontakt" placeholder="Telefon oder E-Mail" required aria-label="Telefon oder E-Mail">
-              </div>
-              <textarea name="anliegen" rows="3" placeholder="Worum geht es? (z. B. Wallbox, PV, Sanierung, Notdienst)" aria-label="Ihr Anliegen"></textarea>
-              <div class="ff-actions">
-                <button type="submit" class="btn btn-on-dark pulse">Anfrage senden</button>
-              </div>
-              <p class="ff-note">Unverbindlich &amp; kostenlos · Antwort in 24&nbsp;h</p>
-            </form>
-          </div>
+            <p class="ff-note">Oder per Mail: <a href="mailto:info@duerr-elektrotechnik.de">info@duerr-elektrotechnik.de</a> · unverbindlich &amp; kostenlos · Antwort in 24&nbsp;h</p>
+          </form>
         </div>
       </div>
     </div>
