@@ -1343,9 +1343,9 @@ a.ref-card{text-decoration:none;color:inherit;}
 
 /* ===== v42 — CTA-Portrait 'full': ganzes Bild (kein Crop), Box auf Formularhöhe gestreckt ===== */
 .cta-band.cta-img-full{grid-template-columns:1fr 1.18fr;align-items:stretch;}
-.cta-portrait.full{align-self:stretch;min-height:0;position:relative;overflow:hidden;border-radius:var(--r-xl);box-shadow:var(--sh-lg);background:#0b1310;}
-.cta-portrait.full .cp-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;filter:blur(22px) brightness(.5);transform:scale(1.15);}
-.cta-portrait.full img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;}
+.cta-portrait.full{align-self:stretch;min-height:0;position:relative;overflow:hidden;border-radius:var(--r-xl);box-shadow:var(--sh-lg);border:1px solid rgba(255,255,255,.10);background:linear-gradient(160deg,#16241e,#0c1411 70%);}
+.cta-portrait.full .cp-bg{display:none;}
+.cta-portrait.full img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;padding:14px;}
 @media(max-width:768px){.cta-band.cta-img-full{grid-template-columns:1fr;}.cta-portrait.full{align-self:auto;aspect-ratio:16/10;}}
 
 /* ===== v43 — sichtbarer Link-Hinweis auf Leistungs-Slider-Karten (Startseite) ===== */
