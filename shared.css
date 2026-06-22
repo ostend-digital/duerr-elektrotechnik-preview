@@ -1387,14 +1387,17 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 @media(max-width:860px){.cta-band.cta-contact{grid-template-columns:1fr;gap:2.2rem;}.cta-contact .cta-info > p{max-width:none;}}
 
 /* ===== v45 — Kontakt 2-spaltig: Foto frei (links), Formular-Karte (rechts) ===== */
-.contact-split{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;}
-.contact-split .cs-photo img{width:100%;height:auto;display:block;border-radius:var(--r-xl);box-shadow:var(--sh-lg);}
+.contact-split{display:grid;grid-template-columns:1.08fr 1fr;gap:2.5rem;align-items:stretch;}
+.contact-split .cs-photo{align-self:stretch;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);}
+.contact-split .cs-photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;}
 .contact-split .cta-band.cs-card{margin:0;text-align:left;padding:2.6rem;}
 .contact-split .cs-card h2{margin-bottom:.4rem;}
 .contact-split .cs-card p{max-width:none;margin:.6rem 0 1.5rem;}
 .contact-split .cs-card .ff-actions{justify-content:flex-start;}
 @media(max-width:860px){
-  .contact-split{grid-template-columns:1fr;gap:1.8rem;}
+  .contact-split{grid-template-columns:1fr;gap:1.8rem;align-items:stretch;}
+  .contact-split .cs-photo{align-self:auto;}
+  .contact-split .cs-photo img{height:auto;}
   .contact-split .cta-band.cs-card{text-align:center;padding:2rem 1.5rem;}
   .contact-split .cs-card p{margin-left:auto;margin-right:auto;}
   .contact-split .cs-card .ff-actions{justify-content:center;}
