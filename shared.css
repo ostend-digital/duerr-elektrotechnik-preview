@@ -1354,3 +1354,34 @@ a.ref-card{text-decoration:none;color:inherit;}
 /* ===== v43 — sichtbarer Link-Hinweis auf Leistungs-Slider-Karten (Startseite) ===== */
 .scard .card-go{margin-top:1.1rem;font-size:.9rem;font-weight:600;color:var(--brand-glow);letter-spacing:.01em;display:inline-flex;align-items:center;gap:.35rem;transition:gap .3s ease;}
 .dcar-card.scard[data-state="active"] .card-go,.dcar-card.scard:hover .card-go{gap:.6rem;}
+
+/* ===== v44 — Kontakt-Section Redesign: Team-Banner oben + Info-Spalte + Formular-Karte ===== */
+.cta-band.cta-contact{display:block;text-align:left;}
+.cta-band.cta-contact .cta-banner{position:relative;z-index:1;width:100%;aspect-ratio:24/7;border-radius:var(--r-xl);overflow:hidden;margin-bottom:2.4rem;box-shadow:var(--sh-lg);}
+.cta-band.cta-contact .cta-banner img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.cta-contact-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+@media(max-width:860px){.cta-contact-grid{grid-template-columns:1fr;gap:2.2rem;}.cta-band.cta-contact .cta-banner{aspect-ratio:16/9;}}
+.cta-contact .cta-info{position:relative;z-index:1;}
+.cta-contact .cta-info h2{color:#fff;margin:.3rem 0 .7rem;}
+.cta-contact .cta-info > p{color:var(--gray-300);max-width:46ch;margin:0 0 1.8rem;}
+.ci-rows{display:flex;flex-direction:column;gap:.9rem;}
+.ci-row{display:flex;align-items:center;gap:.9rem;color:#fff;text-decoration:none;}
+.ci-row .ci-ic{flex-shrink:0;width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:var(--ease);}
+.ci-row .ci-ic svg{width:20px;height:20px;fill:none;stroke:var(--brand-glow);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ci-row .ci-tx{display:flex;flex-direction:column;}
+.ci-row strong{font-size:1.04rem;line-height:1.2;font-weight:700;}
+.ci-row small{color:var(--gray-400);font-size:.82rem;margin-top:1px;}
+a.ci-row:hover .ci-ic{background:rgba(31,174,116,.2);border-color:var(--brand-primary);}
+a.ci-row:hover strong{color:var(--brand-glow);}
+.ci-meta{display:flex;align-items:center;gap:1.6rem;margin-top:1.9rem;flex-wrap:wrap;}
+.ci-rating{color:#fff;font-weight:600;font-size:.9rem;display:inline-flex;align-items:center;gap:.4rem;}
+.ci-rating .stars{color:#ffb400;letter-spacing:1px;}
+.ci-team{display:flex;align-items:center;gap:.65rem;}
+.ci-avatars{display:flex;}
+.ci-avatars img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:center 25%;border:2px solid #11201b;margin-left:-12px;}
+.ci-avatars img:first-child{margin-left:0;}
+.ci-team span{color:var(--gray-300);font-size:.84rem;}
+.cta-contact .cta-formwrap{position:relative;z-index:1;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:var(--r-xl);padding:1.8rem;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);}
+.cta-contact .cta-formwrap .fw-label{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.16em;color:var(--brand-glow);font-weight:600;margin-bottom:1rem;}
+.cta-contact .cta-form{margin:0;}
+@media(max-width:860px){.cta-band.cta-contact{grid-template-columns:1fr;gap:2.2rem;}.cta-contact .cta-info > p{max-width:none;}}
