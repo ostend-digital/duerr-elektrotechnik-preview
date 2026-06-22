@@ -1342,6 +1342,7 @@ a.ref-card{text-decoration:none;color:inherit;}
 @media(max-width:860px){.split-img{grid-template-columns:1fr;gap:1.6rem;}}
 
 /* ===== v42 — CTA-Portrait 'full': ganzes Bild zeigen (kein Crop), zentriert ===== */
-.cta-portrait.full{align-self:center;min-height:0;}
-.cta-portrait.full img{height:auto;object-fit:contain;object-position:center;}
-@media(max-width:768px){.cta-portrait.full{min-height:0;}}
+.cta-band.cta-img-full{grid-template-columns:1fr 1.18fr;align-items:center;}
+.cta-portrait.full{align-self:center;min-height:0;box-shadow:none;background:transparent;border-radius:0;overflow:visible;}
+.cta-portrait.full img{height:auto;object-fit:contain;object-position:center;border-radius:var(--r-xl);box-shadow:var(--sh-lg);}
+@media(max-width:768px){.cta-band.cta-img-full{grid-template-columns:1fr;}.cta-portrait.full{min-height:0;}.cta-portrait.full img{max-width:520px;margin:0 auto;}}
