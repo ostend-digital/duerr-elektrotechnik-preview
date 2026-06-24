@@ -1442,21 +1442,19 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .warum-sec .values.in .value:nth-child(2)::before{transition-delay:.12s;}
 .warum-sec .values.in .value:nth-child(3)::before{transition-delay:.24s;}
 .warum-sec .values.in .value:nth-child(4)::before{transition-delay:.36s;}
-/* Projektbilder-Strip */
-.warum-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:3.25rem;}
-.warum-gallery figure{position:relative;margin:0;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--sh-md);}
-.warum-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s cubic-bezier(.22,1,.36,1);}
+/* Team-Porträtreihe */
+.warum-gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:3.25rem;}
+.warum-gallery figure{position:relative;margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--sh-sm);background:var(--gray-100);}
+.warum-gallery img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 1s cubic-bezier(.22,1,.36,1);}
 .warum-gallery figure:hover img{transform:scale(1.06);}
-.warum-gallery figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:1.6rem .95rem .85rem;color:#fff;font-size:.92rem;font-weight:600;letter-spacing:-.01em;background:linear-gradient(0deg,rgba(8,11,10,.82),rgba(8,11,10,.25) 55%,transparent);}
 @media(max-width:900px){
   .warum-sec{padding-top:4rem!important;padding-bottom:4rem!important;}
   .warum-sec .values{grid-template-columns:repeat(2,1fr);gap:1.8rem 2rem;}
-  .warum-gallery{margin-top:2.5rem;}
+  .warum-gallery{grid-template-columns:repeat(3,1fr);margin-top:2.5rem;}
 }
 @media(max-width:560px){
   .warum-sec .values{grid-template-columns:1fr;gap:1.5rem;}
   .warum-sec h2{font-size:1.42rem;}
-  .warum-gallery{grid-template-columns:1fr;gap:1rem;}
-  .warum-gallery figure{aspect-ratio:16/10;}
+  .warum-gallery{grid-template-columns:repeat(2,1fr);gap:.75rem;}
 }
 @media(prefers-reduced-motion:reduce){.warum-sec .value::before{transform:scaleX(1)!important;}}
