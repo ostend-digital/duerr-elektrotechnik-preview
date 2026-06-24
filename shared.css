@@ -1443,14 +1443,18 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .warum-sec .values.in .value:nth-child(3)::before{transition-delay:.24s;}
 .warum-sec .values.in .value:nth-child(4)::before{transition-delay:.36s;}
 /* Team-Porträtreihe */
-.warum-gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:3.25rem;}
+.warum-team-intro{margin-top:3.5rem;max-width:62ch;}
+.warum-team-intro h3{font-size:1.35rem;letter-spacing:-.02em;margin-bottom:.45rem;}
+.warum-team-intro p{color:var(--gray-500);font-size:1.02rem;line-height:1.6;}
+.warum-gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:1.6rem;}
 .warum-gallery figure{position:relative;margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--sh-sm);background:var(--gray-100);}
 .warum-gallery img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 1s cubic-bezier(.22,1,.36,1);}
 .warum-gallery figure:hover img{transform:scale(1.06);}
 @media(max-width:900px){
   .warum-sec{padding-top:4rem!important;padding-bottom:4rem!important;}
   .warum-sec .values{grid-template-columns:repeat(2,1fr);gap:1.8rem 2rem;}
-  .warum-gallery{grid-template-columns:repeat(3,1fr);margin-top:2.5rem;}
+  .warum-team-intro{margin-top:2.5rem;}
+  .warum-gallery{grid-template-columns:repeat(3,1fr);margin-top:1.4rem;}
 }
 @media(max-width:560px){
   .warum-sec .values{grid-template-columns:1fr;gap:1.5rem;}
