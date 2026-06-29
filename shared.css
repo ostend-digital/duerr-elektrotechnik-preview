@@ -517,7 +517,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .cta-form textarea{resize:vertical;}
 .ff-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
 .ff-actions{display:flex;gap:.6rem;flex-wrap:nowrap;margin-top:.2rem;}
-.ff-actions .btn{flex:1 1 0;min-width:0;justify-content:center;padding-left:1rem;padding-right:1rem;text-align:center;}
+.ff-actions .btn{flex:1 1 0;min-width:0;justify-content:center;padding:.82rem .8rem;font-size:.85rem;white-space:nowrap;text-align:center;}
 .ff-note{font-size:.82rem;color:var(--gray-400);margin-top:.5rem;}
 .ff-note a{color:var(--brand-glow);}
 @media(max-width:560px){.ff-row{grid-template-columns:1fr;}}
