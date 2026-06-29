@@ -3,6 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Hero-Scroll-Video so früh wie möglich (während HTML-Parse) komplett laden,
+       damit das Scrubbing schon beim ersten Scrollen flüssig ist. Fortschritt -> Ladebalken. -->
+  <script>
+  (function(){
+    try{
+      if(matchMedia('(max-width:860px)').matches) return; // mobil: statischer Standbild-Hero
+      var wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
+      window.__heroSrc = wide ? '/images/hero-nd-1920-s.mp4' : '/images/hero-nd-1600-s.mp4';
+      window.__heroProg = 0;
+      var opt; try{ opt={priority:'high'}; }catch(e){ opt=undefined; }
+      window.__heroBlobURL = fetch(window.__heroSrc, opt).then(function(res){
+        if(!res.ok) throw 0;
+        var total=+res.headers.get('content-length')||0;
+        if(!res.body || !total || !res.body.getReader) return res.blob();
+        var reader=res.body.getReader(), recv=0, chunks=[];
+        return (function pump(){ return reader.read().then(function(r){
+          if(r.done) return new Blob(chunks,{type:'video/mp4'});
+          chunks.push(r.value); recv+=r.value.length;
+          window.__heroProg=recv/total;
+          if(window.__heroOnProgress) window.__heroOnProgress(window.__heroProg);
+          return pump();
+        }); })();
+      }).then(function(b){ return URL.createObjectURL(b); });
+    }catch(e){}
+  })();
+  </script>
   <title>Elektriker-Notdienst Reutlingen &amp; Tübingen | DÜRR Elektrotechnik</title>
   <meta name="description" content="Elektriker-Notdienst in der Region: schnell vor Ort bei Stromausfall &amp; Störungen. Faire Festpreise statt Abzocke. Jetzt anrufen: 07473 9512840.">
   <meta name="robots" content="index, follow">
@@ -61,6 +87,8 @@
         </div>
       </li>
       <li><a href="/#region">Standorte</a></li>
+      <li><a href="/referenzen/">Referenzen</a></li>
+      <li><a href="/ueber-uns/">Über uns</a></li>
       <li><a href="#anfrage">Kontakt</a></li>
     </ul>
     <a href="tel:+4974739512840" class="nav-call"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z" fill="currentColor" stroke="none"/></svg>07473 9512840</a>
@@ -76,6 +104,7 @@
     <div class="vh-sticky">
       <video class="vh-video" muted playsinline preload="auto" poster="/images/hero-nd-start.webp" data-src-l="/images/hero-nd-1920-s.mp4" data-src-m="/images/hero-nd-1600-s.mp4"></video>
       <img class="vh-poster-m" src="/images/hero-nd-mobile-v2.webp" alt="" aria-hidden="true">
+      <div class="vh-load-bar" aria-hidden="true"></div>
       <div class="vh-scrim"></div>
       <div class="vh-grid">
         <div class="vh-copy vh-copy-min">
@@ -259,6 +288,21 @@
     </div>
   </section>
 
+  <!-- elektro-notdienst — Frage-H2 (GEO / AI Overview), Antwort-first -->
+  <section class="section">
+    <div class="container" style="max-width:880px;">
+      <span class="section-label reveal">Kompakt erklärt</span>
+      <div class="reveal" style="margin-top:1.4rem;">
+        <h2>Was kostet ein Notdienst-Einsatz?</h2>
+        <p class="lead" style="margin-top:.7rem;max-width:68ch;">Sie erhalten vorab eine nachvollziehbare Einschätzung – keine überzogenen Pauschalen und keine versteckten Notdienst-Zuschläge. Faire, transparente Preise statt Abzocke.</p>
+      </div>
+      <div class="reveal" style="margin-top:2.6rem;">
+        <h2>Bei welchen Problemen sollte ich den Notdienst rufen?</h2>
+        <p class="lead" style="margin-top:.7rem;max-width:68ch;">Bei komplettem Stromausfall, ständig auslösender Sicherung, defekten Steckdosen oder Verteilern, Ausfällen in Betrieb und Produktion sowie bei sicherheitsrelevanten Störungen wie Geruch, Funken oder Hitze.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA / ANFRAGE (Anruf zuerst, Formular als Alternative) -->
   <section class="section" id="anfrage" style="padding-top:0;">
     <div class="container">
@@ -293,10 +337,8 @@
       <h2 class="reveal" style="transition-delay:.05s;">Gut zu wissen</h2>
       <div style="margin-top:1.5rem;" class="reveal">
         <details class="faq-item" open><summary>Wie schnell sind Sie bei einer Störung vor Ort?</summary><p>Rufen Sie uns an und schildern Sie das Problem – wir schätzen die Dringlichkeit sofort ein und sagen Ihnen verbindlich, wann wir bei Ihnen sein können. Als regionaler Fachbetrieb sind die Wege kurz.</p></details>
-        <details class="faq-item"><summary>Was kostet ein Notdienst-Einsatz?</summary><p>Sie erhalten vorab eine nachvollziehbare Einschätzung – keine überzogenen Pauschalen und keine versteckten Notdienst-Zuschläge. Faire, transparente Preise statt Abzocke.</p></details>
         <details class="faq-item"><summary>In welchen Orten kommen Sie?</summary><p>In Reutlingen, Tübingen, Stuttgart und der gesamten Region – u. a. Esslingen, Nürtingen, Metzingen, Rottenburg und Ofterdingen.</p></details>
         <details class="faq-item"><summary>Was kann ich tun, bis Sie eintreffen?</summary><p>Schalten Sie im Zweifel die Hauptsicherung bzw. den FI-Schutzschalter aus und berühren Sie keine beschädigten Geräte oder Leitungen. Bei Brand- oder Schmorgeruch lüften und Strom abschalten. Bei akuter Gefahr durch Feuer oder Funken wählen Sie den Notruf 112.</p></details>
-        <details class="faq-item"><summary>Bei welchen Problemen sollte ich den Notdienst rufen?</summary><p>Bei komplettem Stromausfall, ständig auslösender Sicherung, defekten Steckdosen oder Verteilern, Ausfällen in Betrieb und Produktion sowie bei sicherheitsrelevanten Störungen wie Geruch, Funken oder Hitze.</p></details>
         <details class="faq-item"><summary>Helfen Sie auch Gewerbe- und Industriebetrieben?</summary><p>Ja. Gerade bei Ausfällen in Betrieb oder Produktion zählt jede Minute – wir kommen schnell und bringen Ihre Anlage sicher wieder ans Netz.</p></details>
         <details class="faq-item"><summary>Reparieren Sie die Störung direkt vor Ort?</summary><p>In den meisten Fällen ja. Wir grenzen den Fehler ein, beheben ihn sicher nach VDE-Norm und stellen den Strom wieder her. Ist ein größerer Umbau nötig, besprechen wir die nächsten Schritte transparent mit Ihnen.</p></details>
         <details class="faq-item"><summary>Sind Sie ein eingetragener Fachbetrieb?</summary><p>Ja. Wir sind ein eingetragener Elektrofachbetrieb aus der Region, arbeiten nach den geltenden VDE-Normen und sind beim Netzbetreiber eingetragen – kein anonymer Notdienst-Vermittler.</p></details>
@@ -372,21 +414,27 @@
     // Mobil/Tablet: statischer Standbild-Hero (kein Video laden, kein Scrub)
     if(matchMedia('(max-width:860px)').matches) return;
     const wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
-    vid.preload="auto";vid.src=wide?vid.dataset.srcL:vid.dataset.srcM;try{vid.load();}catch(e){}
+    vid.preload="auto";sec.classList.add('vh-loading');
+    var srcUrl=window.__heroSrc||(wide?vid.dataset.srcL:vid.dataset.srcM);
+    var bar=sec.querySelector('.vh-load-bar');
+    function setProg(f){ if(bar) bar.style.transform='scaleX('+Math.max(0,Math.min(1,f||0))+')'; }
+    setProg(window.__heroProg||0); window.__heroOnProgress=setProg;
+    (window.__heroBlobURL||Promise.reject()).then(function(u){vid.src=u;try{vid.load();}catch(e){}}).catch(function(){vid.src=srcUrl;try{vid.load();}catch(e){}});
     // sanfte Halte-Pause am Anfang/Ende, sonst linear
     const KF=[[0,0],[0.08,0.05],[0.92,0.95],[1,1]];
     function frac(p){ for(let i=1;i<KF.length;i++){ if(p<=KF[i][0]){ const a=KF[i-1],b=KF[i]; const f=(p-a[0])/((b[0]-a[0])||1); return a[1]+f*(b[1]-a[1]); } } return 1; }
-    let dur=0,ticking=false;
+    let dur=0,ticking=false,scrubReady=false;
     function calc(){
       const total=sec.offsetHeight-innerHeight;
       const p=total>0?Math.min(Math.max(-sec.getBoundingClientRect().top/total,0),1):0;
-      if(dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
+      if(scrubReady&&dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
       ticking=false;
     }
-    function ready(){ dur=vid.duration||5; try{vid.currentTime=0.001;}catch(e){} calc(); }
-    var inited=false; function tryInit(){ if(inited)return; if(vid.readyState>=1&&vid.duration){ inited=true; ready(); } }
-    ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(ev){vid.addEventListener(ev,tryInit);});
-    tryInit(); var _t=0; var _iv=setInterval(function(){ tryInit(); if(inited||++_t>25) clearInterval(_iv); },240);
+    function fullyBuffered(){ if(!vid.duration)return false; for(var i=0;i<vid.buffered.length;i++){ if(vid.buffered.start(i)<=0.15&&vid.buffered.end(i)>=vid.duration-0.3) return true; } return false; }
+    function ready(){ dur=vid.duration||5; scrubReady=true; sec.classList.remove('vh-loading'); try{vid.currentTime=0.001;}catch(e){} calc(); }
+    var inited=false; function tryInit(){ if(inited)return; if(vid.duration&&fullyBuffered()){ inited=true; ready(); } }
+    ['loadeddata','canplay','canplaythrough','progress'].forEach(function(ev){vid.addEventListener(ev,tryInit);});
+    tryInit(); var _t=0; var _iv=setInterval(function(){ tryInit(); if(inited||++_t>80) clearInterval(_iv); },200);
     addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
     addEventListener('resize',calc,{passive:true});
   })();

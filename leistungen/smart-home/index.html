@@ -3,6 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Hero-Scroll-Video so früh wie möglich (während HTML-Parse) komplett laden,
+       damit das Scrubbing schon beim ersten Scrollen flüssig ist. Fortschritt -> Ladebalken. -->
+  <script>
+  (function(){
+    try{
+      if(matchMedia('(max-width:860px)').matches) return; // mobil: statischer Standbild-Hero
+      var wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
+      window.__heroSrc = wide ? '/images/hero-sh-1920-s.mp4' : '/images/hero-sh-1600-s.mp4';
+      window.__heroProg = 0;
+      var opt; try{ opt={priority:'high'}; }catch(e){ opt=undefined; }
+      window.__heroBlobURL = fetch(window.__heroSrc, opt).then(function(res){
+        if(!res.ok) throw 0;
+        var total=+res.headers.get('content-length')||0;
+        if(!res.body || !total || !res.body.getReader) return res.blob();
+        var reader=res.body.getReader(), recv=0, chunks=[];
+        return (function pump(){ return reader.read().then(function(r){
+          if(r.done) return new Blob(chunks,{type:'video/mp4'});
+          chunks.push(r.value); recv+=r.value.length;
+          window.__heroProg=recv/total;
+          if(window.__heroOnProgress) window.__heroOnProgress(window.__heroProg);
+          return pump();
+        }); })();
+      }).then(function(b){ return URL.createObjectURL(b); });
+    }catch(e){}
+  })();
+  </script>
   <title>Smart Home &amp; Sicherheit Reutlingen &amp; Tübingen | DÜRR Elektrotechnik</title>
   <meta name="description" content="Smart Home vom Fachbetrieb: KNX, Lichtsteuerung, Beschattung, Alarm- &amp; Videotechnik – vernetzt &amp; sicher aus einer Hand. Jetzt in der Region beraten lassen.">
   <meta name="robots" content="index, follow">
@@ -65,6 +91,8 @@
         </div>
       </li>
       <li><a href="/#region">Standorte</a></li>
+      <li><a href="/referenzen/">Referenzen</a></li>
+      <li><a href="/ueber-uns/">Über uns</a></li>
       <li><a href="#anfrage">Kontakt</a></li>
     </ul>
     <a href="tel:+4974739512840" class="nav-call"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z" fill="currentColor" stroke="none"/></svg>07473 9512840</a>
@@ -80,6 +108,7 @@
     <div class="vh-sticky">
       <video class="vh-video" muted playsinline preload="auto" poster="/images/hero-sh-start.webp" data-src-l="/images/hero-sh-1920-s.mp4" data-src-m="/images/hero-sh-1600-s.mp4"></video>
       <img class="vh-poster-m" src="/images/hero-sh-mobile.webp" alt="" aria-hidden="true">
+      <div class="vh-load-bar" aria-hidden="true"></div>
       <div class="vh-scrim"></div>
       <div class="vh-grid">
         <div class="vh-copy vh-copy-min">
@@ -148,7 +177,7 @@
       <div class="pv2-inner">
         <div class="pv2-text stagger">
           <span class="section-label">Alles vernetzt</span>
-          <h2>Ein System steuert<br>Ihr ganzes Zuhause</h2>
+          <h2>Ein System steuert <br>Ihr ganzes Zuhause</h2>
           <p>Licht, Beschattung, Heizung und Sicherheit arbeiten zusammen statt nebeneinander. Eine Zentrale steuert alles – per App, Sprachbefehl, Taster oder automatisch nach Ihren Szenen.</p>
           <ul class="checklist pv2-check">
             <li>Eine Bedienung für alle Gewerke</li>
@@ -192,7 +221,7 @@
       <div class="pv2-inner">
         <div class="pv2-text stagger">
           <span class="section-label">Szenen</span>
-          <h2>Ihr Zuhause auf<br>Knopfdruck</h2>
+          <h2>Ihr Zuhause auf <br>Knopfdruck</h2>
           <p>Eine Szene – und Licht, Beschattung, Heizung und Stimmung stellen sich auf einmal richtig ein. Per Taster, App, Zeitplan oder Sprachbefehl.</p>
           <ul class="checklist pv2-check">
             <li>Lieblings-Szenen für jeden Moment</li>
@@ -246,6 +275,21 @@
     </div>
   </section>
 
+  <!-- smart-home — Frage-H2 (GEO / AI Overview), Antwort-first -->
+  <section class="section">
+    <div class="container" style="max-width:880px;">
+      <span class="section-label reveal">Kompakt erklärt</span>
+      <div class="reveal" style="margin-top:1.4rem;">
+        <h2>Kann ich Smart Home auch nachrüsten?</h2>
+        <p class="lead" style="margin-top:.7rem;max-width:68ch;">Ja, vieles lässt sich auch im Bestand nachrüsten. Wir prüfen, was bei Ihrer Elektroinstallation sinnvoll und machbar ist – von einzelnen smarten Funktionen bis zur kompletten Lösung.</p>
+      </div>
+      <div class="reveal" style="margin-top:2.6rem;">
+        <h2>Welches System nutzen Sie – KNX, Loxone und Co.?</h2>
+        <p class="lead" style="margin-top:.7rem;max-width:68ch;">Wir planen herstellerübergreifend und wählen das System, das zu Ihren Wünschen und Ihrem Budget passt – statt Sie an einen Hersteller zu binden.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA / ANFRAGE -->
   <section class="section" id="anfrage" style="padding-top:0;">
     <div class="container">
@@ -279,8 +323,6 @@
       <span class="section-label reveal">Häufige Fragen</span>
       <h2 class="reveal" style="transition-delay:.05s;">Gut zu wissen</h2>
       <div style="margin-top:1.5rem;" class="reveal">
-        <details class="faq-item" open><summary>Kann ich Smart Home auch nachrüsten?</summary><p>Ja, vieles lässt sich auch im Bestand nachrüsten. Wir prüfen, was bei Ihrer Elektroinstallation sinnvoll und machbar ist – von einzelnen smarten Funktionen bis zur kompletten Lösung.</p></details>
-        <details class="faq-item"><summary>Welches System nutzen Sie – KNX, Loxone und Co.?</summary><p>Wir planen herstellerübergreifend und wählen das System, das zu Ihren Wünschen und Ihrem Budget passt – statt Sie an einen Hersteller zu binden.</p></details>
         <details class="faq-item"><summary>Funktioniert das auch lokal ohne Cloud?</summary><p>Ja. Lokale Steuerung über Taster und Automatik lässt sich mit App-Steuerung kombinieren – Sie entscheiden, wie viel Cloud Sie möchten.</p></details>
         <details class="faq-item"><summary>Integrieren Sie Alarm- und Videotechnik?</summary><p>Ja, Sicherheitstechnik wie Alarmanlage, Videoüberwachung und Türkommunikation lässt sich ins Smart Home integrieren – mit Meldungen in Echtzeit aufs Smartphone.</p></details>
         <details class="faq-item"><summary>Planen Sie auch für Gewerbe und Bürogebäude?</summary><p>Ja, von der Lichtsteuerung bis zur Gebäudeautomation für Gewerbeobjekte – herstellerübergreifend und nach VDE-Norm.</p></details>
@@ -354,20 +396,26 @@
     const vid=sec.querySelector('.vh-video');
     if(matchMedia('(max-width:860px)').matches) return;
     const wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
-    vid.preload="auto";vid.src=wide?vid.dataset.srcL:vid.dataset.srcM;try{vid.load();}catch(e){}
+    vid.preload="auto";sec.classList.add('vh-loading');
+    var srcUrl=window.__heroSrc||(wide?vid.dataset.srcL:vid.dataset.srcM);
+    var bar=sec.querySelector('.vh-load-bar');
+    function setProg(f){ if(bar) bar.style.transform='scaleX('+Math.max(0,Math.min(1,f||0))+')'; }
+    setProg(window.__heroProg||0); window.__heroOnProgress=setProg;
+    (window.__heroBlobURL||Promise.reject()).then(function(u){vid.src=u;try{vid.load();}catch(e){}}).catch(function(){vid.src=srcUrl;try{vid.load();}catch(e){}});
     const KF=[[0,0],[0.08,0.05],[0.92,0.95],[1,1]];
     function frac(p){ for(let i=1;i<KF.length;i++){ if(p<=KF[i][0]){ const a=KF[i-1],b=KF[i]; const f=(p-a[0])/((b[0]-a[0])||1); return a[1]+f*(b[1]-a[1]); } } return 1; }
-    let dur=0,ticking=false;
+    let dur=0,ticking=false,scrubReady=false;
     function calc(){
       const total=sec.offsetHeight-innerHeight;
       const p=total>0?Math.min(Math.max(-sec.getBoundingClientRect().top/total,0),1):0;
-      if(dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
+      if(scrubReady&&dur){ const t=frac(p)*(dur-0.05); if(Math.abs((vid.currentTime||0)-t)>0.012){ try{vid.currentTime=t;}catch(e){} } }
       ticking=false;
     }
-    function ready(){ dur=vid.duration||5; try{vid.currentTime=0.001;}catch(e){} calc(); }
-    var inited=false; function tryInit(){ if(inited)return; if(vid.readyState>=1&&vid.duration){ inited=true; ready(); } }
-    ['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(ev){vid.addEventListener(ev,tryInit);});
-    tryInit(); var _t=0; var _iv=setInterval(function(){ tryInit(); if(inited||++_t>25) clearInterval(_iv); },240);
+    function fullyBuffered(){ if(!vid.duration)return false; for(var i=0;i<vid.buffered.length;i++){ if(vid.buffered.start(i)<=0.15&&vid.buffered.end(i)>=vid.duration-0.3) return true; } return false; }
+    function ready(){ dur=vid.duration||5; scrubReady=true; sec.classList.remove('vh-loading'); try{vid.currentTime=0.001;}catch(e){} calc(); }
+    var inited=false; function tryInit(){ if(inited)return; if(vid.duration&&fullyBuffered()){ inited=true; ready(); } }
+    ['loadeddata','canplay','canplaythrough','progress'].forEach(function(ev){vid.addEventListener(ev,tryInit);});
+    tryInit(); var _t=0; var _iv=setInterval(function(){ tryInit(); if(inited||++_t>80) clearInterval(_iv); },200);
     addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(calc);ticking=true;}},{passive:true});
     addEventListener('resize',calc,{passive:true});
   })();

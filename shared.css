@@ -48,11 +48,11 @@ p{line-height:1.65;}
 /* Header */
 .site-header{position:sticky;top:0;z-index:50;background:#f6f4ef;border-bottom:1px solid var(--gray-200);transition:var(--ease);}
 .site-header.scrolled{background:#f6f4ef;border-bottom-color:var(--gray-200);box-shadow:0 6px 24px -18px rgba(17,22,26,.4);}
-.nav{display:flex;align-items:center;gap:2rem;height:80px;transition:var(--ease);}
+.nav{display:flex;align-items:center;gap:1.5rem;height:80px;transition:var(--ease);}
 .site-header.scrolled .nav{height:66px;}
 .nav .logo img{height:26px;transition:var(--ease);}
-.nav-links{display:flex;gap:1.7rem;margin-left:auto;list-style:none;}
-.nav-links a{color:var(--gray-700);font-weight:500;font-size:.95rem;position:relative;}
+.nav-links{display:flex;gap:1.35rem;margin-left:auto;list-style:none;}
+.nav-links a{color:var(--gray-700);font-weight:500;font-size:.95rem;position:relative;white-space:nowrap;}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-4px;width:0;height:2px;background:var(--brand-primary);transition:var(--ease);}
 .nav-links a:hover{color:var(--brand-primary-dark);} .nav-links a:hover::after{width:100%;}
 .nav .nav-cta{margin-left:.4rem;}
@@ -149,7 +149,6 @@ a.chip:hover{border-color:var(--brand-primary);color:var(--brand-primary-dark);}
 @media(max-width:1024px){:root{--pad:1.5rem;--sec:5rem;} .values{grid-template-columns:repeat(2,1fr);} .site-footer .cols{grid-template-columns:1fr 1fr;} .split{gap:2rem;}}
 @media(max-width:768px){
   :root{--sec:3.75rem;}
-  .nav-links,.nav .nav-cta{display:none;} .nav-burger{display:flex;}
   .grid-3,.grid-2,.values,.stats,.split{grid-template-columns:1fr;}
   .stats{gap:2rem 1rem;grid-template-columns:1fr 1fr;}
   .hero{min-height:auto;} .hero .container{padding-top:4.5rem;padding-bottom:4.5rem;}
@@ -300,7 +299,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .scard p{color:var(--gray-300);font-size:.93rem;line-height:1.6;}
 .scard .uline{width:33%;height:2px;margin:1.4rem auto 1rem;background:linear-gradient(90deg,transparent,var(--brand-glow),transparent);transition:width .5s;}
 .scard:hover .uline,.swiper-slide-active .scard .uline{width:56%;}
-.scard .dots{display:flex;gap:.4rem;justify-content:center;opacity:.6;transition:opacity .3s;}
+.scard .dots{display:none;}
 .scard:hover .dots{opacity:1;}
 .scard .dots i{width:7px;height:7px;border-radius:50%;background:var(--brand-glow);display:inline-block;animation:bob 1.3s ease-in-out infinite;}
 .scard .dots i:nth-child(2){animation-delay:.12s;} .scard .dots i:nth-child(3){animation-delay:.24s;}
@@ -517,7 +516,8 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .cta-form input:focus,.cta-form textarea:focus{outline:none;border-color:var(--brand-glow);background:rgba(255,255,255,.1);}
 .cta-form textarea{resize:vertical;}
 .ff-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
-.ff-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:.2rem;}
+.ff-actions{display:flex;gap:.6rem;flex-wrap:nowrap;margin-top:.2rem;}
+.ff-actions .btn{flex:1 1 0;min-width:0;justify-content:center;padding-left:1rem;padding-right:1rem;text-align:center;}
 .ff-note{font-size:.82rem;color:var(--gray-400);margin-top:.5rem;}
 .ff-note a{color:var(--brand-glow);}
 @media(max-width:560px){.ff-row{grid-template-columns:1fr;}}
@@ -930,10 +930,10 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .ts-item .tic{width:44px;height:44px;border-radius:var(--r-md);background:var(--brand-primary-light);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;transition:var(--ease);}
 .ts-item:hover .tic{background:var(--brand-primary);color:#fff;transform:translateY(-2px);}
 .ts-item .tic svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.9;}
-.ts-item strong{color:var(--ink);font-size:1.02rem;line-height:1.25;}
+.ts-item strong{color:var(--ink);font-size:1.02rem;line-height:1.25;min-height:2.5em;}
 .ts-item span{color:var(--gray-500);font-size:.9rem;line-height:1.5;}
 @media(max-width:860px){.trust-strip{grid-template-columns:1fr 1fr;gap:1.6rem 1.4rem;}}
-@media(max-width:520px){.trust-strip{grid-template-columns:1fr;}}
+@media(max-width:520px){.trust-strip{grid-template-columns:1fr;} .ts-item strong{min-height:0;}}
 
 /* ===== v21 — Ablauf-Grafik exakt auf Content-Höhe (Bild füllt, treibt die Zeilenhöhe nicht) ===== */
 .ablauf-media{position:relative;}
@@ -956,7 +956,8 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .mega-item .mi-ic svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.7;}
 .mega-item .mi-tx strong{display:block;color:var(--ink);font-size:.95rem;font-weight:600;margin-bottom:.12rem;}
 .mega-item .mi-tx span{color:var(--gray-500);font-size:.82rem;line-height:1.35;}
-@media(max-width:768px){
+@media(max-width:1180px){
+  .nav-links,.nav .nav-cta{display:none;} .nav-burger{display:flex;}
   .nav-links.open{display:flex;flex-direction:column;align-items:stretch;position:absolute;top:100%;left:0;right:0;margin:0;gap:.1rem;background:#fff;border-bottom:1px solid var(--gray-200);box-shadow:0 22px 44px -22px rgba(17,22,26,.4);padding:.8rem var(--pad) 1.2rem;max-height:82vh;overflow:auto;}
   .nav-links.open > li > a,.nav-links.open .mega-trigger{display:flex;padding:.7rem .3rem;font-size:1rem;}
   .nav-links.open .nav-links a::after{display:none;}
@@ -1462,3 +1463,10 @@ a.ci-row:hover strong{color:var(--brand-glow);}
   .warum-gallery{grid-template-columns:repeat(2,1fr);gap:.75rem;}
 }
 @media(prefers-reduced-motion:reduce){.warum-sec .value::before{transform:scaleX(1)!important;}}
+
+/* Hero-Video Vorlade-Indikator (Scroll-Scrub-Heros) */
+.vhero .vh-load-bar{position:absolute;left:0;top:0;height:3px;width:100%;z-index:6;transform:scaleX(0);transform-origin:left center;transition:transform .2s ease,opacity .4s ease;background:linear-gradient(90deg,var(--brand-primary,#0f7a52),var(--brand-glow,#1fae74));opacity:0;pointer-events:none;}
+.vhero.vh-loading .vh-load-bar{opacity:1;}
+.vhero.vh-loading .st-hint{opacity:.4;}
+.vhero .vh-callouts{transition:opacity .35s ease;}
+.vhero.vh-loading .vh-callouts{opacity:0;}
