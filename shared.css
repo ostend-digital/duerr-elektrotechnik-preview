@@ -936,6 +936,11 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .ts-item span{color:var(--gray-500);font-size:.9rem;line-height:1.5;}
 @media(max-width:860px){.trust-strip{grid-template-columns:1fr 1fr;gap:1.6rem 1.4rem;}}
 @media(max-width:520px){.trust-strip{grid-template-columns:1fr;} .ts-item strong{min-height:0;}}
+/* Card-Variante (z.B. Wallbox-Trust) — fasst die Items in dezente Cards, fuellt die Section optisch aus */
+.trust-strip.cards{border-top:none;padding-top:0;gap:1.4rem;}
+.trust-strip.cards .ts-item{background:#fff;border:var(--hair);border-radius:var(--r-lg);padding:1.6rem 1.5rem;transition:var(--ease);}
+.trust-strip.cards .ts-item:hover{border-color:rgba(15,122,82,.3);box-shadow:0 6px 22px rgba(17,22,26,.06);transform:translateY(-2px);}
+@media(max-width:520px){.trust-strip.cards .ts-item strong{min-height:0;}}
 
 /* ===== v21 — Ablauf-Grafik exakt auf Content-Höhe (Bild füllt, treibt die Zeilenhöhe nicht) ===== */
 .ablauf-media{position:relative;}
