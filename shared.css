@@ -267,6 +267,9 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 /* Logo-Slider: echte Logos als img */
 .marquee img{height:30px;width:auto;opacity:.5;filter:grayscale(1) contrast(.9);transition:var(--ease);}
 .marquee img:hover{opacity:1;filter:none;}
+/* Jura: Badge-Logo (weiss auf Rot) – echte Farbe statt Graukasten, nur dezent gedaempft */
+.marquee img[src*="juratextil"]{filter:none;opacity:.72;border-radius:3px;}
+.marquee img[src*="juratextil"]:hover{opacity:1;}
 
 /* Coverflow Swiper */
 .svc-swiper{padding:1.5rem 0 3.5rem!important;overflow:visible;margin-top:2rem;}
