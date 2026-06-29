@@ -1470,3 +1470,16 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .vhero.vh-loading .st-hint{opacity:.4;}
 .vhero .vh-callouts{transition:opacity .35s ease;}
 .vhero.vh-loading .vh-callouts{opacity:0;}
+
+
+/* ===== Frage-Antwort Editorial-Split (GEO-Sektion, Variante C) ===== */
+.qa-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:start;}
+.qa-head .qa-htitle{font-weight:700;font-size:clamp(1.6rem,2.4vw,2rem);line-height:1.1;letter-spacing:-.022em;color:var(--ink);margin-top:.8rem;}
+.qa-head .qa-hintro{color:var(--gray-600);margin-top:.9rem;font-size:1rem;line-height:1.6;max-width:34ch;}
+.qa-list .qa-row{padding:1.6rem 0;border-top:1px solid rgba(17,22,26,.12);}
+.qa-list .qa-row:first-child{border-top:0;padding-top:.2rem;}
+.qa-tag{display:inline-flex;align-items:center;gap:.45rem;font-weight:600;font-size:.72rem;line-height:1;letter-spacing:.14em;text-transform:uppercase;color:var(--brand-primary);margin-bottom:.7rem;}
+.qa-tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand-primary);}
+.qa-row h2{font-size:1.2rem;margin-bottom:.5rem;color:var(--ink);}
+.qa-row p{color:var(--gray-600);font-size:.97rem;line-height:1.6;}
+@media(max-width:760px){.qa-split{grid-template-columns:1fr;gap:1.8rem;}}
