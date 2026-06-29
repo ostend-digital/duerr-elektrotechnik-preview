@@ -636,8 +636,8 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vh-copy .st-dots i{background:rgba(17,22,26,.2);} .vh-copy .st-dots i.on{background:var(--brand-primary);}
 .vh-copy .btn-on-dark.sec{background:rgba(17,22,26,.04);color:var(--ink);border-color:rgba(17,22,26,.22);}
 .vh-copy .btn-on-dark.sec:hover{background:rgba(17,22,26,.09);border-color:var(--ink);}
-.vh-copy .btn-secondary{background:rgba(255,255,255,.94);border-color:rgba(17,22,26,.14);box-shadow:0 6px 20px -10px rgba(17,22,26,.35);}
-.vh-copy .btn-secondary:hover{background:#fff;border-color:rgba(17,22,26,.28);}
+.vh-copy .btn-secondary{background:rgba(255,255,255,.55);border-color:rgba(17,22,26,.16);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+.vh-copy .btn-secondary:hover{background:rgba(255,255,255,.78);border-color:rgba(17,22,26,.28);}
 .vhero h1{color:#fff;font-size:clamp(2.4rem,4.7vw,3.95rem);line-height:1.04;margin:1.1rem 0 0;letter-spacing:-.022em;}
 .vhero h1 .hl{color:var(--brand-glow);}
 .vhero .btns{display:flex;gap:.8rem;flex-wrap:nowrap;}
