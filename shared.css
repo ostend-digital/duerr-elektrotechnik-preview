@@ -1012,6 +1012,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 
 /* (2) Horizontaler Einsatz-Flow */
 .nd-flow{position:relative;margin-top:3rem;padding:0 1%;}
+.ablauf-airy .nd-flow{margin-top:4.5rem;padding-top:1rem;padding-bottom:1rem;}
 .nd-flow-rail{position:absolute;left:9%;right:9%;top:38px;height:3px;border-radius:3px;z-index:0;background:linear-gradient(90deg,rgba(31,174,116,.1),rgba(31,174,116,.5) 50%,rgba(31,174,116,.1));}
 .nd-flow-pulse{position:absolute;top:38px;width:11px;height:11px;margin-top:-4px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 16px 5px rgba(31,174,116,.6);z-index:1;animation:ndflow 3.6s linear infinite;}
 .nd-flow-pulse.d2{animation-delay:1.8s;}
