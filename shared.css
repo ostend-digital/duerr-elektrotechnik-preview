@@ -974,6 +974,16 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
   .mega::before{display:none;}
   .mega-item{padding:.6rem .3rem;}
 }
+/* v-nav-fix — Burger immer erreichbar: Header-Telefon auf Mobile ausblenden (Action-Bar hat Anrufen),
+   Burger animiert zu X, offenes Menue raeumt die Mobile-Action-Bar frei */
+@media(max-width:768px){
+  .nav-call{display:none;}
+  .nav-links.open{padding-bottom:5.25rem;}
+}
+.nav-burger::before{transition:transform .22s ease,box-shadow .22s ease;}
+.nav-burger::after{content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;background:currentColor;border-radius:2px;transform:translate(-50%,-50%) rotate(-45deg);opacity:0;transition:opacity .2s ease;}
+.nav-links.open ~ .nav-burger::before{transform:rotate(45deg);box-shadow:none;}
+.nav-links.open ~ .nav-burger::after{opacity:1;}
 
 /* ===== v23 — Hero-Variante DUNKEL (.vhero-dark): weiße Schrift + dunkler Links-Scrim,
    für moody Motive wie den Notdienst-Hero (Stromausfall → Licht). ===== */
