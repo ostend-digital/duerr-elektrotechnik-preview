@@ -40,7 +40,7 @@ p{line-height:1.65;}
 .btn-secondary:hover{border-color:var(--ink);}
 .btn-on-dark{background:var(--brand-primary);color:#fff;}
 .btn-on-dark:hover{background:var(--brand-glow);transform:translateY(-1px);}
-.btn-on-dark.sec{background:rgba(255,255,255,.06);color:#fff;border-color:var(--ink-line);}
+.btn-on-dark.sec{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.4);}
 .btn-on-dark.sec:hover{background:rgba(255,255,255,.12);border-color:#fff;}
 @keyframes pulseRing{0%{box-shadow:0 0 0 0 rgba(15,122,82,.45);}70%{box-shadow:0 0 0 14px rgba(15,122,82,0);}100%{box-shadow:0 0 0 0 rgba(15,122,82,0);}}
 .pulse{animation:pulseRing 2.4s infinite;}
@@ -1483,3 +1483,9 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .qa-row h2{font-size:1.2rem;margin-bottom:.5rem;color:var(--ink);}
 .qa-row p{color:var(--gray-600);font-size:.97rem;line-height:1.6;}
 @media(max-width:760px){.qa-split{grid-template-columns:1fr;gap:1.8rem;}}
+
+/* PV: Stromspeicher-Section gespiegelt (Grafik links, Text rechts) – Abwechslung zur PV2-Section darüber */
+#speicher .pv2-inner{grid-template-columns:.95fr 1.05fr;}
+#speicher .pv2-inner .bs-cycle{order:1;}
+#speicher .pv2-inner .pv2-text{order:2;}
+@media(max-width:900px){#speicher .pv2-inner .bs-cycle{order:2;}#speicher .pv2-inner .pv2-text{order:1;}}
