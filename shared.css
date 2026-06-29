@@ -228,10 +228,10 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 
 /* Trustbar als automatischer Slider */
 .trustbar{overflow:hidden;}
-.trustbar .inner{justify-content:flex-start;gap:0;padding:1.35rem 0;flex-wrap:nowrap;max-width:none;}
+.trustbar .inner{justify-content:flex-start;gap:0;padding:1.85rem 0;flex-wrap:nowrap;max-width:none;}
 .tb-label{flex-shrink:0;padding:0 var(--pad);font-size:.72rem;text-transform:uppercase;letter-spacing:.18em;color:var(--gray-400);white-space:nowrap;border-right:var(--hair);}
 .marquee-wrap{overflow:hidden;flex:1;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);}
-.marquee{display:flex;gap:4rem;width:max-content;padding-left:4rem;animation:scrollX 26s linear infinite;}
+.marquee{display:flex;gap:5.5rem;width:max-content;padding-left:5.5rem;animation:scrollX 26s linear infinite;}
 .marquee:hover{animation-play-state:paused;}
 .marquee .wordmark{white-space:nowrap;}
 @keyframes scrollX{from{transform:translateX(0);}to{transform:translateX(-50%);}}
@@ -265,7 +265,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .statement-sec::before{background-image:radial-gradient(rgba(17,22,26,.22) 1.4px,transparent 1.4px)!important;background-size:22px 22px!important;opacity:1!important;-webkit-mask-image:radial-gradient(ellipse 92% 90% at 50% 45%,#000,transparent 82%)!important;mask-image:radial-gradient(ellipse 92% 90% at 50% 45%,#000,transparent 82%)!important;}
 
 /* Logo-Slider: echte Logos als img */
-.marquee img{height:30px;width:auto;opacity:.5;filter:grayscale(1) contrast(.9);transition:var(--ease);}
+.marquee img{height:40px;width:auto;opacity:.5;filter:grayscale(1) contrast(.9);transition:var(--ease);}
 .marquee img:hover{opacity:1;filter:none;}
 /* Jura: Badge-Logo (weiss auf Rot) – echte Farbe statt Graukasten, nur dezent gedaempft */
 .marquee img[src*="juratextil"]{filter:none;opacity:.72;border-radius:3px;}
