@@ -1377,7 +1377,7 @@ a.ref-card{text-decoration:none;color:inherit;}
   .ref-hero-inner{padding:3.6rem 0 3rem;max-width:none;}
 }
 
-/* ===== Animierter Dark-Hero (Über uns) — Strom-Schaltung ===== */
+/* ===== Animierter Dark-Hero (Über uns) — Team-Netzwerk ===== */
 .ref-hero.is-anim{background:radial-gradient(ellipse 82% 92% at 76% 42%,#10231b 0%,#0a130f 46%,#070a0c 100%);}
 .ref-hero .ah-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(70px);will-change:transform;width:480px;height:480px;right:6%;top:-90px;background:radial-gradient(circle,rgba(31,174,116,.24),transparent 70%);animation:pvFloat 15s ease-in-out infinite;}
 .ref-hero .ah-circuit{position:absolute;inset:0;z-index:0;pointer-events:none;-webkit-mask:linear-gradient(90deg,transparent 6%,#000 40%);mask:linear-gradient(90deg,transparent 6%,#000 40%);}
