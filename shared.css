@@ -1377,16 +1377,21 @@ a.ref-card{text-decoration:none;color:inherit;}
   .ref-hero-inner{padding:3.6rem 0 3rem;max-width:none;}
 }
 
-/* ===== Animierter Dark-Hero (Über uns) ===== */
-.ref-hero.is-anim{background:radial-gradient(ellipse 80% 90% at 74% 38%,#10231b 0%,#0a130f 46%,#070a0c 100%);}
-.ref-hero .ah-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;-webkit-mask:radial-gradient(ellipse 66% 82% at 74% 46%,#000,transparent 72%);mask:radial-gradient(ellipse 66% 82% at 74% 46%,#000,transparent 72%);}
-.ref-hero .ah-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(64px);will-change:transform;}
-.ref-hero .ah-glow.g1{width:520px;height:520px;right:3%;top:-130px;background:radial-gradient(circle,rgba(31,174,116,.32),transparent 70%);animation:pvFloat 13s ease-in-out infinite;}
-.ref-hero .ah-glow.g2{width:360px;height:360px;right:26%;bottom:-170px;background:radial-gradient(circle,rgba(31,174,116,.16),transparent 70%);animation:pvFloat 18s ease-in-out infinite reverse;}
-.ref-hero .ah-current{position:absolute;z-index:0;right:13%;top:13%;bottom:13%;width:2px;background:linear-gradient(180deg,transparent,rgba(31,174,116,.28),transparent);pointer-events:none;}
-.ref-hero .ah-current::before{content:"";position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 16px 5px rgba(31,174,116,.6);animation:valuesFlowV 4.6s linear infinite;}
-@media(max-width:860px){.ref-hero .ah-current{right:8%;}.ref-hero .ah-glow.g1{right:-12%;width:440px;height:440px;}.ref-hero .ah-glow.g2{display:none;}}
-@media(prefers-reduced-motion:reduce){.ref-hero .ah-glow,.ref-hero .ah-current::before{animation:none!important;}}
+/* ===== Animierter Dark-Hero (Über uns) — Strom-Schaltung ===== */
+.ref-hero.is-anim{background:radial-gradient(ellipse 82% 92% at 76% 42%,#10231b 0%,#0a130f 46%,#070a0c 100%);}
+.ref-hero .ah-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(70px);will-change:transform;width:480px;height:480px;right:6%;top:-90px;background:radial-gradient(circle,rgba(31,174,116,.24),transparent 70%);animation:pvFloat 15s ease-in-out infinite;}
+.ref-hero .ah-circuit{position:absolute;inset:0;z-index:0;pointer-events:none;-webkit-mask:linear-gradient(90deg,transparent 6%,#000 40%);mask:linear-gradient(90deg,transparent 6%,#000 40%);}
+.ref-hero .ah-circuit svg{position:absolute;right:2%;top:50%;transform:translateY(-50%);width:min(56%,720px);height:86%;}
+.ref-hero .ah-trace{fill:none;stroke:rgba(31,174,116,.16);stroke-width:1.6;}
+.ref-hero .ah-bus{fill:none;stroke:rgba(31,174,116,.30);stroke-width:2;}
+.ref-hero .ah-pulse{fill:none;stroke:var(--brand-glow);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:24 340;filter:drop-shadow(0 0 5px rgba(31,174,116,.85));animation:ahFlow 3.4s linear infinite;}
+.ref-hero .ah-node{fill:var(--brand-glow);filter:drop-shadow(0 0 6px rgba(31,174,116,.8));animation:ahNode 2.6s ease-in-out infinite;}
+.ref-hero .ah-ring{fill:none;stroke:rgba(31,174,116,.55);stroke-width:1.3;transform-box:fill-box;transform-origin:center;animation:ahRing 2.9s ease-out infinite;}
+@keyframes ahFlow{to{stroke-dashoffset:-364;}}
+@keyframes ahNode{0%,100%{opacity:.45;}50%{opacity:1;}}
+@keyframes ahRing{0%{opacity:.6;transform:scale(.5);}70%,100%{opacity:0;transform:scale(2.6);}}
+@media(max-width:860px){.ref-hero .ah-circuit svg{width:64%;right:-4%;}.ref-hero .ah-glow{right:-14%;}}
+@media(prefers-reduced-motion:reduce){.ref-hero .ah-pulse,.ref-hero .ah-node,.ref-hero .ah-ring,.ref-hero .ah-glow{animation:none!important;}}
 
 /* ===== v41 — Über uns / Team ===== */
 .team-banner{position:relative;border-radius:var(--r-xl);overflow:hidden;margin-top:2.2rem;box-shadow:var(--sh-lg);aspect-ratio:16/9;}

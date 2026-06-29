@@ -62,10 +62,29 @@
 
   <!-- HERO (animiert, dunkel) -->
   <section class="ref-hero is-anim">
-    <span class="ah-grid" aria-hidden="true"></span>
-    <span class="ah-glow g1" aria-hidden="true"></span>
-    <span class="ah-glow g2" aria-hidden="true"></span>
-    <span class="ah-current" aria-hidden="true"></span>
+    <span class="ah-glow" aria-hidden="true"></span>
+    <div class="ah-circuit" aria-hidden="true">
+      <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid meet">
+        <path class="ah-trace" d="M110 90 H470"/>
+        <path class="ah-trace" d="M160 170 H470"/>
+        <path class="ah-trace" d="M110 260 H470"/>
+        <path class="ah-trace" d="M180 350 H470"/>
+        <path class="ah-trace" d="M140 430 H470"/>
+        <path class="ah-bus" d="M470 90 V430"/>
+        <path class="ah-trace" d="M470 170 H548"/>
+        <path class="ah-trace" d="M470 350 H520"/>
+        <path class="ah-pulse" d="M110 90 H470" style="animation-delay:0s"/>
+        <path class="ah-pulse" d="M160 170 H470" style="animation-delay:.9s"/>
+        <path class="ah-pulse" d="M110 260 H470" style="animation-delay:1.7s"/>
+        <path class="ah-pulse" d="M180 350 H470" style="animation-delay:.4s"/>
+        <path class="ah-pulse" d="M140 430 H470" style="animation-delay:1.2s"/>
+        <g><circle class="ah-ring" cx="470" cy="90" r="5"/><circle class="ah-node" cx="470" cy="90" r="3.4"/></g>
+        <g><circle class="ah-ring" cx="548" cy="170" r="5"/><circle class="ah-node" cx="548" cy="170" r="3.4"/></g>
+        <g><circle class="ah-ring" cx="470" cy="260" r="5"/><circle class="ah-node" cx="470" cy="260" r="3.4"/></g>
+        <g><circle class="ah-ring" cx="520" cy="350" r="5"/><circle class="ah-node" cx="520" cy="350" r="3.4"/></g>
+        <circle class="ah-node" cx="470" cy="430" r="3.4"/>
+      </svg>
+    </div>
     <div class="container">
       <div class="ref-hero-inner">
         <span class="section-label reveal">Über uns</span>
