@@ -1377,6 +1377,17 @@ a.ref-card{text-decoration:none;color:inherit;}
   .ref-hero-inner{padding:3.6rem 0 3rem;max-width:none;}
 }
 
+/* ===== Animierter Dark-Hero (Über uns) ===== */
+.ref-hero.is-anim{background:radial-gradient(ellipse 80% 90% at 74% 38%,#10231b 0%,#0a130f 46%,#070a0c 100%);}
+.ref-hero .ah-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:46px 46px;-webkit-mask:radial-gradient(ellipse 66% 82% at 74% 46%,#000,transparent 72%);mask:radial-gradient(ellipse 66% 82% at 74% 46%,#000,transparent 72%);}
+.ref-hero .ah-glow{position:absolute;z-index:0;border-radius:50%;pointer-events:none;filter:blur(64px);will-change:transform;}
+.ref-hero .ah-glow.g1{width:520px;height:520px;right:3%;top:-130px;background:radial-gradient(circle,rgba(31,174,116,.32),transparent 70%);animation:pvFloat 13s ease-in-out infinite;}
+.ref-hero .ah-glow.g2{width:360px;height:360px;right:26%;bottom:-170px;background:radial-gradient(circle,rgba(31,174,116,.16),transparent 70%);animation:pvFloat 18s ease-in-out infinite reverse;}
+.ref-hero .ah-current{position:absolute;z-index:0;right:13%;top:13%;bottom:13%;width:2px;background:linear-gradient(180deg,transparent,rgba(31,174,116,.28),transparent);pointer-events:none;}
+.ref-hero .ah-current::before{content:"";position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--brand-glow);box-shadow:0 0 16px 5px rgba(31,174,116,.6);animation:valuesFlowV 4.6s linear infinite;}
+@media(max-width:860px){.ref-hero .ah-current{right:8%;}.ref-hero .ah-glow.g1{right:-12%;width:440px;height:440px;}.ref-hero .ah-glow.g2{display:none;}}
+@media(prefers-reduced-motion:reduce){.ref-hero .ah-glow,.ref-hero .ah-current::before{animation:none!important;}}
+
 /* ===== v41 — Über uns / Team ===== */
 .team-banner{position:relative;border-radius:var(--r-xl);overflow:hidden;margin-top:2.2rem;box-shadow:var(--sh-lg);aspect-ratio:16/9;}
 .team-banner img{width:100%;height:100%;object-fit:cover;display:block;}
