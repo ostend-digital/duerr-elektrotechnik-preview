@@ -1380,12 +1380,23 @@ a.ref-card{text-decoration:none;color:inherit;}
   .ref-hero-inner{padding:3.6rem 0 3rem;max-width:none;}
 }
 
-/* ===== Animierter Dark-Hero (Über uns) — SVG-Netzwerk mit wandernden Punkten ===== */
-.ref-hero.is-anim{background:radial-gradient(ellipse 82% 92% at 76% 42%,#0c1a14 0%,#0a130f 46%,#070a0c 100%);}
-.ref-hero .ah-net{position:absolute;top:50%;right:8%;transform:translateY(-50%);height:80%;width:46%;z-index:0;pointer-events:none;animation:ahBreath 6s ease-in-out infinite;}
-@keyframes ahBreath{0%,100%{filter:brightness(.86)}50%{filter:brightness(1.1)}}
-@media(max-width:860px){.ref-hero .ah-net{width:82%;right:-4%;height:auto;top:auto;bottom:5%;transform:none;opacity:.62;}}
-@media(prefers-reduced-motion:reduce){.ref-hero .ah-net{animation:none;}}
+/* ===== Über-uns Foto-Hero mit animierten Callouts (Aumann-Eco-Stil) ===== */
+.ref-hero.is-photohero{position:relative;overflow:hidden;min-height:clamp(560px,84vh,780px);display:flex;align-items:center;background:#0a0f0d;}
+.ref-hero .ph-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 46%;z-index:0;}
+.ref-hero .ph-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,12,10,.95) 0%,rgba(8,12,10,.88) 28%,rgba(8,12,10,.55) 54%,rgba(8,12,10,.3) 78%,rgba(8,12,10,.42) 100%),linear-gradient(0deg,rgba(8,12,10,.55),transparent 42%);}
+.ref-hero.is-photohero .container{position:relative;z-index:3;}
+.ph-callouts{position:absolute;inset:0;z-index:2;pointer-events:none;}
+.ph-leads{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+.ph-leads .pl{stroke:var(--brand-glow);stroke-width:1.5;vector-effect:non-scaling-stroke;stroke-linecap:round;opacity:0;animation:phLineIn .6s ease forwards;animation-delay:var(--d,0s);}
+@keyframes phLineIn{to{opacity:.9;}}
+.ph-dot{position:absolute;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:var(--brand-glow);opacity:0;animation:phDotIn .5s ease forwards var(--d,0s),calloutPulse 2.2s ease-out infinite var(--d,0s);}
+@keyframes phDotIn{from{opacity:0;transform:scale(.3);}to{opacity:1;transform:scale(1);}}
+.ph-label{position:absolute;background:rgba(13,18,20,.72);-webkit-backdrop-filter:blur(9px);backdrop-filter:blur(9px);border:1px solid rgba(255,255,255,.16);border-radius:var(--r-md);padding:.5rem .82rem;box-shadow:0 14px 32px -18px rgba(0,0,0,.8);max-width:228px;opacity:0;transform:translateY(10px);animation:phLabIn .6s cubic-bezier(.22,1,.36,1) forwards;animation-delay:var(--d,0s);}
+@keyframes phLabIn{to{opacity:1;transform:none;}}
+.ph-label strong{display:block;color:#fff;font-weight:700;font-size:.95rem;letter-spacing:-.01em;line-height:1.14;}
+.ph-label span{color:var(--gray-300);font-size:.79rem;}
+@media(prefers-reduced-motion:reduce){.ph-dot{animation:phDotIn .5s ease forwards;}.ph-leads .pl,.ph-label{animation:none;opacity:1;transform:none;}}
+@media(max-width:860px){.ph-callouts{display:none;}.ref-hero.is-photohero{min-height:auto;}.ref-hero .ph-bg{object-position:60% 36%;}.ref-hero .ph-scrim{background:linear-gradient(180deg,rgba(8,12,10,.78) 0%,rgba(8,12,10,.55) 38%,rgba(8,12,10,.5) 62%,rgba(8,12,10,.86) 100%);}}
 
 /* ===== v41 — Über uns / Team ===== */
 .team-banner{position:relative;border-radius:var(--r-xl);overflow:hidden;margin-top:2.2rem;box-shadow:var(--sh-lg);aspect-ratio:16/9;}
