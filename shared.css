@@ -1340,8 +1340,8 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 }
 
 /* ===== v40 — Referenzen-Karten (echte Projekte) ===== */
-.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem;}
-.ref-card{background:#fff;border:var(--hair);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:var(--ease-smooth);}
+.ref-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem;margin-top:2.6rem;}
+.ref-card{flex:0 1 calc((100% - 2 * 1.4rem) / 3);max-width:calc((100% - 2 * 1.4rem) / 3);background:#fff;border:var(--hair);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:var(--ease-smooth);}
 .ref-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:transparent;}
 .ref-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--gray-100);}
 .ref-media img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.22,1,.36,1);}
@@ -1352,8 +1352,11 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 .ref-loc svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8;}
 .ref-body h3{font-size:1.12rem;color:var(--ink);line-height:1.2;}
 .ref-body p{font-size:.9rem;color:var(--gray-500);line-height:1.56;}
-@media(max-width:900px){.ref-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:600px){.ref-grid{grid-template-columns:1fr;}}
+.ref-more{margin-top:auto;padding-top:1rem;display:inline-flex;align-items:center;gap:.42rem;font-size:.9rem;font-weight:600;color:var(--brand-primary);}
+.ref-more svg{width:16px;height:16px;transition:transform .25s var(--ease-smooth);}
+.ref-card:hover .ref-more svg{transform:translateX(5px);}
+@media(max-width:900px){.ref-card{flex-basis:calc((100% - 1.4rem) / 2);max-width:calc((100% - 1.4rem) / 2);}}
+@media(max-width:600px){.ref-card{flex-basis:100%;max-width:100%;}}
 
 a.ref-card{text-decoration:none;color:inherit;}
 
