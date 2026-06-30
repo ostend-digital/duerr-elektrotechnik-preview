@@ -1377,12 +1377,12 @@ a.ref-card{text-decoration:none;color:inherit;}
   .ref-hero-inner{padding:3.6rem 0 3rem;max-width:none;}
 }
 
-/* ===== Animierter Dark-Hero (Über uns) — Netzwerk-Grafik mit ruhiger Glüh-Atmung ===== */
+/* ===== Animierter Dark-Hero (Über uns) — SVG-Netzwerk mit wandernden Punkten ===== */
 .ref-hero.is-anim{background:radial-gradient(ellipse 82% 92% at 76% 42%,#0c1a14 0%,#0a130f 46%,#070a0c 100%);}
-.ref-hero .ah-still{position:absolute;top:50%;right:11%;transform:translateY(-50%);height:74%;width:42%;object-fit:contain;object-position:center;z-index:0;mix-blend-mode:screen;pointer-events:none;-webkit-mask:linear-gradient(90deg,transparent 6%,#000 44%);mask:linear-gradient(90deg,transparent 6%,#000 44%);animation:ahBreath 6s ease-in-out infinite;}
-@keyframes ahBreath{0%,100%{filter:brightness(.82)}50%{filter:brightness(1.12)}}
-@media(max-width:860px){.ref-hero .ah-still{width:80%;right:-6%;height:auto;top:auto;bottom:7%;transform:none;opacity:.58;-webkit-mask:linear-gradient(90deg,transparent 4%,#000 56%);mask:linear-gradient(90deg,transparent 4%,#000 56%);}}
-@media(prefers-reduced-motion:reduce){.ref-hero .ah-still{animation:none;}}
+.ref-hero .ah-net{position:absolute;top:50%;right:8%;transform:translateY(-50%);height:80%;width:46%;z-index:0;pointer-events:none;animation:ahBreath 6s ease-in-out infinite;}
+@keyframes ahBreath{0%,100%{filter:brightness(.86)}50%{filter:brightness(1.1)}}
+@media(max-width:860px){.ref-hero .ah-net{width:82%;right:-4%;height:auto;top:auto;bottom:5%;transform:none;opacity:.62;}}
+@media(prefers-reduced-motion:reduce){.ref-hero .ah-net{animation:none;}}
 
 /* ===== v41 — Über uns / Team ===== */
 .team-banner{position:relative;border-radius:var(--r-xl);overflow:hidden;margin-top:2.2rem;box-shadow:var(--sh-lg);aspect-ratio:16/9;}

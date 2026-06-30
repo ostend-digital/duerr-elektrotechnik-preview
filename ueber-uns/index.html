@@ -62,7 +62,55 @@
 
   <!-- HERO (animiert, dunkel) -->
   <section class="ref-hero is-anim">
-    <img class="ah-still" src="/images/team/ueber-network-poster.png" alt="" aria-hidden="true" width="1280" height="714">
+    <svg class="ah-net" viewBox="0 0 640 480" fill="none" aria-hidden="true" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="ahglow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="2.6" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+      <g filter="url(#ahglow)">
+        <!-- Verbindungslinien -->
+        <g stroke="#1aa06f" stroke-width="1.8" stroke-opacity="0.5" stroke-linecap="round">
+          <line x1="150" y1="273" x2="330" y2="235"/>
+          <line x1="300" y1="168" x2="330" y2="235"/>
+          <line x1="475" y1="175" x2="330" y2="235"/>
+          <line x1="545" y1="290" x2="330" y2="235"/>
+          <line x1="360" y1="383" x2="330" y2="235"/>
+          <line x1="300" y1="168" x2="475" y2="175"/>
+          <line x1="150" y1="273" x2="360" y2="383"/>
+          <line x1="475" y1="175" x2="545" y2="290"/>
+        </g>
+        <!-- Personen (Kopf + Schultern) -->
+        <g stroke="#2ad08c" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(150,235) scale(1.15)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
+          <g transform="translate(300,135) scale(1)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
+          <g transform="translate(475,140) scale(1.05)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
+          <g transform="translate(545,250) scale(1.2)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
+          <g transform="translate(360,345) scale(1.15)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
+        </g>
+        <!-- Zentraler Knoten -->
+        <circle cx="330" cy="235" r="17" stroke="#2ad08c" stroke-width="2.2" fill="none"/>
+        <!-- statische Knotenpunkte -->
+        <g fill="#bfffdd">
+          <circle cx="330" cy="235" r="3.4"/>
+          <circle cx="150" cy="273" r="3"/>
+          <circle cx="300" cy="168" r="3"/>
+          <circle cx="475" cy="175" r="3"/>
+          <circle cx="545" cy="290" r="3"/>
+          <circle cx="360" cy="383" r="3"/>
+        </g>
+        <!-- wandernde Punkte auf den Linien -->
+        <g fill="#eafff4">
+          <circle r="4"><animateMotion dur="3.2s" begin="0s" repeatCount="indefinite" path="M150,273 L330,235"/></circle>
+          <circle r="4"><animateMotion dur="3.6s" begin="0.7s" repeatCount="indefinite" path="M475,175 L330,235"/></circle>
+          <circle r="4"><animateMotion dur="3.4s" begin="1.3s" repeatCount="indefinite" path="M360,383 L330,235"/></circle>
+          <circle r="4"><animateMotion dur="4s" begin="0.4s" repeatCount="indefinite" path="M300,168 L475,175"/></circle>
+          <circle r="4"><animateMotion dur="3.8s" begin="1.9s" repeatCount="indefinite" path="M475,175 L545,290"/></circle>
+          <circle r="4"><animateMotion dur="4.2s" begin="1s" repeatCount="indefinite" path="M150,273 L360,383"/></circle>
+        </g>
+      </g>
+    </svg>
     <div class="container">
       <div class="ref-hero-inner">
         <span class="section-label reveal">Über uns</span>
