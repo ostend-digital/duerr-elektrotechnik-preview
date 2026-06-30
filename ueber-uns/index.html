@@ -68,46 +68,114 @@
           <feGaussianBlur stdDeviation="2.6" result="b"/>
           <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
         </filter>
+        <filter id="ahglow-soft" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="1.6" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
       </defs>
+
+      <!-- Hintergrund-Ebene: dezente Personen + feines Mesh (Tiefe) -->
+      <g filter="url(#ahglow-soft)">
+        <g stroke="#1f9e6e" stroke-width="1" stroke-opacity="0.32" stroke-linecap="round" stroke-dasharray="2 5">
+          <line x1="220" y1="174" x2="298" y2="173"/>
+          <line x1="220" y1="174" x2="250" y2="250"/>
+          <line x1="600" y1="227" x2="515" y2="293"/>
+          <line x1="600" y1="227" x2="468" y2="185"/>
+          <line x1="250" y1="358" x2="250" y2="250"/>
+          <line x1="250" y1="358" x2="355" y2="398"/>
+          <line x1="298" y1="173" x2="250" y2="250"/>
+        </g>
+        <g stroke="#1f9e6e" stroke-width="1.5" fill="none" stroke-opacity="0.5" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(220,150) scale(0.72)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/></g>
+          <g transform="translate(600,205) scale(0.68)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/></g>
+          <g transform="translate(250,335) scale(0.7)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/></g>
+        </g>
+      </g>
+
+      <!-- Hauptebene -->
       <g filter="url(#ahglow)">
-        <!-- Verbindungslinien -->
-        <g stroke="#1aa06f" stroke-width="1.8" stroke-opacity="0.5" stroke-linecap="round">
-          <line x1="150" y1="273" x2="330" y2="235"/>
-          <line x1="300" y1="168" x2="330" y2="235"/>
-          <line x1="475" y1="175" x2="330" y2="235"/>
-          <line x1="545" y1="290" x2="330" y2="235"/>
-          <line x1="360" y1="383" x2="330" y2="235"/>
-          <line x1="300" y1="168" x2="475" y2="175"/>
-          <line x1="150" y1="273" x2="360" y2="383"/>
-          <line x1="475" y1="175" x2="545" y2="290"/>
+        <!-- Haupt-Verbindungsmesh -->
+        <g stroke="#1aa06f" stroke-width="1.7" stroke-opacity="0.52" stroke-linecap="round">
+          <line x1="150" y1="288" x2="250" y2="250"/>
+          <line x1="150" y1="288" x2="330" y2="268"/>
+          <line x1="150" y1="288" x2="250" y2="358"/>
+          <line x1="330" y1="268" x2="415" y2="250"/>
+          <line x1="330" y1="268" x2="298" y2="173"/>
+          <line x1="330" y1="268" x2="250" y2="250"/>
+          <line x1="330" y1="268" x2="355" y2="398"/>
+          <line x1="298" y1="173" x2="250" y2="250"/>
+          <line x1="468" y1="185" x2="415" y2="250"/>
+          <line x1="468" y1="185" x2="298" y2="173"/>
+          <line x1="515" y1="293" x2="415" y2="250"/>
+          <line x1="515" y1="293" x2="600" y2="227"/>
+          <line x1="515" y1="293" x2="470" y2="320"/>
+          <line x1="515" y1="293" x2="468" y2="185"/>
+          <line x1="600" y1="227" x2="468" y2="185"/>
+          <line x1="415" y1="250" x2="250" y2="250"/>
+          <line x1="415" y1="250" x2="470" y2="320"/>
+          <line x1="355" y1="398" x2="250" y2="358"/>
+          <line x1="355" y1="398" x2="470" y2="320"/>
+          <line x1="250" y1="358" x2="250" y2="250"/>
+          <line x1="560" y1="388" x2="470" y2="320"/>
+          <line x1="560" y1="388" x2="515" y2="293"/>
         </g>
-        <!-- Personen (Kopf + Schultern) -->
-        <g stroke="#2ad08c" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <g transform="translate(150,235) scale(1.15)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
-          <g transform="translate(300,135) scale(1)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
-          <g transform="translate(475,140) scale(1.05)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
-          <g transform="translate(545,250) scale(1.2)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
-          <g transform="translate(360,345) scale(1.15)"><circle cx="0" cy="0" r="13"/><path d="M-24,46 C-24,20 24,20 24,46"/></g>
+
+        <!-- Personen Mittelebene -->
+        <g stroke="#25c483" stroke-width="2.1" fill="none" stroke-opacity="0.9" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(298,140) scale(1)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/></g>
+          <g transform="translate(468,150) scale(1.05)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/></g>
+          <g transform="translate(560,355) scale(1)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/></g>
         </g>
-        <!-- Zentraler Knoten -->
-        <circle cx="330" cy="235" r="17" stroke="#2ad08c" stroke-width="2.2" fill="none"/>
-        <!-- statische Knotenpunkte -->
+
+        <!-- Personen Vordergrund (heller, mit Kragen-Detail) -->
+        <g stroke="#2ad08c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <g transform="translate(150,248) scale(1.2)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/><path d="M-12,44 C-12,34 12,34 12,44" stroke-opacity="0.5"/></g>
+          <g transform="translate(515,250) scale(1.3)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/><path d="M-12,44 C-12,34 12,34 12,44" stroke-opacity="0.5"/></g>
+          <g transform="translate(355,358) scale(1.2)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/><path d="M-12,44 C-12,34 12,34 12,44" stroke-opacity="0.5"/></g>
+          <g transform="translate(330,232) scale(1.1)"><circle cx="0" cy="0" r="12"/><path d="M-23,44 C-23,21 23,21 23,44"/><path d="M-12,44 C-12,34 12,34 12,44" stroke-opacity="0.5"/></g>
+        </g>
+
+        <!-- Knotenpunkte mit pulsierenden Signal-Ringen -->
+        <g fill="none" stroke="#41e892">
+          <circle cx="415" cy="250" r="7" stroke-width="1.4"/>
+          <circle cx="415" cy="250" r="7" stroke-width="1.3" stroke-opacity="0.6">
+            <animate attributeName="r" values="7;28" dur="3.6s" begin="0s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.6;0" dur="3.6s" begin="0s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="415" cy="250" r="7" stroke-width="1.3" stroke-opacity="0.6">
+            <animate attributeName="r" values="7;28" dur="3.6s" begin="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.6;0" dur="3.6s" begin="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="250" cy="250" r="5.5" stroke-width="1.3"/>
+          <circle cx="250" cy="250" r="5.5" stroke-width="1.2" stroke-opacity="0.5">
+            <animate attributeName="r" values="5.5;22" dur="4.2s" begin="0.9s" repeatCount="indefinite"/>
+            <animate attributeName="stroke-opacity" values="0.5;0" dur="4.2s" begin="0.9s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="470" cy="320" r="5" stroke-width="1.2"/>
+        </g>
+
+        <!-- statische Knotenpunkte (Chest-Anker) -->
         <g fill="#2fd584">
-          <circle cx="330" cy="235" r="3.4"/>
-          <circle cx="150" cy="273" r="3"/>
-          <circle cx="300" cy="168" r="3"/>
-          <circle cx="475" cy="175" r="3"/>
-          <circle cx="545" cy="290" r="3"/>
-          <circle cx="360" cy="383" r="3"/>
+          <circle cx="415" cy="250" r="3.4"/><circle cx="250" cy="250" r="3"/><circle cx="470" cy="320" r="3"/>
+          <circle cx="150" cy="288" r="3"/><circle cx="515" cy="293" r="3.2"/><circle cx="355" cy="398" r="3"/>
+          <circle cx="330" cy="268" r="3"/><circle cx="298" cy="173" r="2.6"/><circle cx="468" cy="185" r="2.6"/>
+          <circle cx="560" cy="388" r="2.6"/><circle cx="600" cy="227" r="2.2" fill-opacity="0.6"/><circle cx="250" cy="358" r="2.4" fill-opacity="0.7"/>
         </g>
-        <!-- wandernde Punkte auf den Linien -->
+
+        <!-- wandernde Punkte auf den Linien (variierende Tempi/Größen) -->
         <g fill="#41e892">
-          <circle r="4"><animateMotion dur="3.2s" begin="0s" repeatCount="indefinite" path="M150,273 L330,235"/></circle>
-          <circle r="4"><animateMotion dur="3.6s" begin="0.7s" repeatCount="indefinite" path="M475,175 L330,235"/></circle>
-          <circle r="4"><animateMotion dur="3.4s" begin="1.3s" repeatCount="indefinite" path="M360,383 L330,235"/></circle>
-          <circle r="4"><animateMotion dur="4s" begin="0.4s" repeatCount="indefinite" path="M300,168 L475,175"/></circle>
-          <circle r="4"><animateMotion dur="3.8s" begin="1.9s" repeatCount="indefinite" path="M475,175 L545,290"/></circle>
-          <circle r="4"><animateMotion dur="4.2s" begin="1s" repeatCount="indefinite" path="M150,273 L360,383"/></circle>
+          <circle r="4"><animateMotion dur="3s" begin="0s" repeatCount="indefinite" path="M150,288 L250,250"/></circle>
+          <circle r="4.3"><animateMotion dur="3.4s" begin="0.6s" repeatCount="indefinite" path="M330,268 L415,250"/></circle>
+          <circle r="3.4"><animateMotion dur="3.2s" begin="1.1s" repeatCount="indefinite" path="M298,173 L330,268"/></circle>
+          <circle r="4"><animateMotion dur="3.6s" begin="0.3s" repeatCount="indefinite" path="M468,185 L415,250"/></circle>
+          <circle r="4.5"><animateMotion dur="4s" begin="1.5s" repeatCount="indefinite" path="M515,293 L415,250"/></circle>
+          <circle r="3.6"><animateMotion dur="3s" begin="0.9s" repeatCount="indefinite" path="M415,250 L470,320"/></circle>
+          <circle r="4"><animateMotion dur="3.8s" begin="0.2s" repeatCount="indefinite" path="M355,398 L470,320"/></circle>
+          <circle r="3.4"><animateMotion dur="4.2s" begin="1.7s" repeatCount="indefinite" path="M250,358 L150,288"/></circle>
+          <circle r="3.2"><animateMotion dur="3.4s" begin="0.5s" repeatCount="indefinite" path="M298,173 L468,185"/></circle>
+          <circle r="3.8"><animateMotion dur="3.6s" begin="1.2s" repeatCount="indefinite" path="M600,227 L515,293"/></circle>
+          <circle r="3.4"><animateMotion dur="3.8s" begin="0.4s" repeatCount="indefinite" path="M560,388 L470,320"/></circle>
+          <circle r="4"><animateMotion dur="4.4s" begin="2s" repeatCount="indefinite" path="M250,250 L415,250"/></circle>
         </g>
       </g>
     </svg>
