@@ -1379,9 +1379,9 @@ a.ref-card{text-decoration:none;color:inherit;}
 
 /* ===== Animierter Dark-Hero (Über uns) — Netzwerk-Video ===== */
 .ref-hero.is-anim{background:radial-gradient(ellipse 82% 92% at 76% 42%,#0c1a14 0%,#0a130f 46%,#070a0c 100%);}
-.ref-hero .ah-video,.ref-hero .ah-still{position:absolute;top:0;right:0;height:100%;width:64%;object-fit:cover;object-position:center;z-index:0;mix-blend-mode:screen;pointer-events:none;-webkit-mask:linear-gradient(90deg,transparent 2%,#000 40%);mask:linear-gradient(90deg,transparent 2%,#000 40%);}
+.ref-hero .ah-video,.ref-hero .ah-still{position:absolute;top:50%;right:3%;transform:translateY(-50%);height:74%;width:42%;object-fit:contain;object-position:center;z-index:0;mix-blend-mode:screen;pointer-events:none;-webkit-mask:linear-gradient(90deg,transparent 8%,#000 46%);mask:linear-gradient(90deg,transparent 8%,#000 46%);}
 .ref-hero .ah-still{display:none;}
-@media(max-width:860px){.ref-hero .ah-video,.ref-hero .ah-still{width:122%;right:-12%;opacity:.72;-webkit-mask:linear-gradient(90deg,transparent 0%,#000 52%);mask:linear-gradient(90deg,transparent 0%,#000 52%);}}
+@media(max-width:860px){.ref-hero .ah-video,.ref-hero .ah-still{width:80%;right:-6%;height:auto;top:auto;bottom:7%;transform:none;opacity:.58;-webkit-mask:linear-gradient(90deg,transparent 4%,#000 56%);mask:linear-gradient(90deg,transparent 4%,#000 56%);}}
 @media(prefers-reduced-motion:reduce){.ref-hero .ah-video{display:none;}.ref-hero .ah-still{display:block;}}
 
 /* ===== v41 — Über uns / Team ===== */
