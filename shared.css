@@ -1490,6 +1490,8 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .cta-band.cta-bg h2{color:#fff;}
 .cta-band.cta-bg p{color:var(--gray-200);max-width:48ch;margin:.6rem 0 1.6rem;}
 .cta-band.cta-bg .ff-actions{justify-content:flex-start;}
+/* Kontaktbox-Buttons (Desktop): inhaltsbreit statt gestreckt + mehr Luft links/rechts */
+@media(min-width:521px){.cta-band .ff-actions .btn{flex:0 1 auto;padding-left:1.7rem;padding-right:1.7rem;}}
 @media(max-width:768px){
   .cta-band.cta-bg{padding:2.2rem 1.5rem;text-align:center;}
   .cta-band.cta-bg .cta-bg-inner{max-width:none;}

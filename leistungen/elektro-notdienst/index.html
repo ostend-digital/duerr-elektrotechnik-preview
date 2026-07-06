@@ -9,7 +9,7 @@
   (function(){
     try{
       if(matchMedia('(max-width:860px)').matches) return; // mobil: statischer Standbild-Hero
-      var wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
+      var wide=(innerWidth*(window.devicePixelRatio||1))>1600;
       window.__heroSrc = wide ? '/images/hero-nd-1920-s.mp4' : '/images/hero-nd-1600-s.mp4';
       window.__heroProg = 0;
       var opt; try{ opt={priority:'high'}; }catch(e){ opt=undefined; }
@@ -418,7 +418,7 @@
     const vid=sec.querySelector('.vh-video');
     // Mobil/Tablet: statischer Standbild-Hero (kein Video laden, kein Scrub)
     if(matchMedia('(max-width:860px)').matches) return;
-    const wide=(innerWidth*(window.devicePixelRatio||1))>=2400||innerWidth>=1800;
+    const wide=(innerWidth*(window.devicePixelRatio||1))>1600;
     vid.preload="auto";sec.classList.add('vh-loading');
     var srcUrl=window.__heroSrc||(wide?vid.dataset.srcL:vid.dataset.srcM);
     var bar=sec.querySelector('.vh-load-bar');
