@@ -330,7 +330,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 @media(max-width:768px){.svc-arrow{display:none;}}
 
 /* Region — neues Design (City-Cards mit Map-Pin) */
-.region-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem;}
+.region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2.5rem;}
 .citycard{position:relative;display:block;background:var(--white);border:var(--hair);border-radius:var(--r-lg);padding:1.6rem;text-decoration:none;transition:var(--ease-smooth);overflow:hidden;}
 .citycard:hover{transform:translateY(-4px);box-shadow:var(--sh-md);border-color:var(--brand-primary);}
 .citycard .pin{width:42px;height:42px;border-radius:var(--r-md);background:var(--brand-primary-light);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
