@@ -556,7 +556,8 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .scrolly .btns{display:flex;gap:.8rem;flex-wrap:nowrap;}
 .scrolly .btns .btn{white-space:nowrap;}
 .st-foot{display:flex;align-items:center;gap:1.4rem;margin-top:1.7rem;flex-wrap:wrap;}
-.st-rating{color:var(--gray-300);font-size:.95rem;} .st-rating .stars{color:#ffce5a;letter-spacing:1px;} .st-rating strong{color:#fff;}
+.st-rating{color:var(--gray-300);font-size:.95rem;display:inline-flex;align-items:center;gap:.45rem;} .st-rating .stars{color:#ffce5a;letter-spacing:1px;} .st-rating strong{color:#fff;}
+.g-ic{width:15px;height:15px;flex:0 0 auto;display:block;}
 .st-dots{display:inline-flex;gap:.45rem;}
 .st-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);transition:width .35s,background .35s;}
 .st-dots i.on{background:var(--brand-glow);width:24px;border-radius:4px;}
