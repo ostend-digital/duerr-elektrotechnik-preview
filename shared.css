@@ -46,8 +46,36 @@ p{line-height:1.65;}
 .pulse{animation:pulseRing 2.4s infinite;}
 
 /* Header */
-.site-header{position:sticky;top:0;z-index:50;background:#f6f4ef;border-bottom:1px solid var(--gray-200);transition:var(--ease);}
-.site-header.scrolled{background:#f6f4ef;border-bottom-color:var(--gray-200);box-shadow:0 6px 24px -18px rgba(17,22,26,.4);}
+/* Header: transparent ueber dem Hero, weiss sobald gescrollt wird.
+   .over-dark  -> Seite hat dunklen Hero: helle Nav-Schrift + weisses Logo im transparenten Zustand
+   .nav-solid  -> Seite ohne Hero (Impressum/Datenschutz): Nav immer weiss und im Layout-Fluss */
+.site-header{position:fixed;left:0;right:0;top:0;z-index:50;background:transparent;border-bottom:1px solid transparent;transition:var(--ease);}
+.site-header.scrolled{background:#fff;border-bottom-color:var(--gray-200);box-shadow:0 6px 24px -18px rgba(17,22,26,.4);}
+
+/* Transparent ueber dunklem Hero -> helle Schrift, Logo invertiert (schwarzes PNG -> weiss) */
+.site-header.over-dark:not(.scrolled) .nav-links > li > a,
+.site-header.over-dark:not(.scrolled) .nav-call,
+.site-header.over-dark:not(.scrolled) .nav-burger{color:#fff;}
+.site-header.over-dark:not(.scrolled) .logo img{filter:brightness(0) invert(1);}
+
+/* Mobil sind ALLE Heroes dunkel gestylt -> im transparenten Zustand immer helle Nav */
+@media(max-width:860px){
+  .site-header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
+  .site-header:not(.scrolled):not(.nav-solid) .nav-call,
+  .site-header:not(.scrolled):not(.nav-solid) .nav-burger{color:#fff;}
+  .site-header:not(.scrolled):not(.nav-solid) .logo img{filter:brightness(0) invert(1);}
+}
+
+/* Geoeffnetes Mobile-Menue: Header solide, damit Burger/Links lesbar bleiben */
+.site-header:has(.nav-links.open){background:#fff;border-bottom-color:var(--gray-200);}
+.site-header:has(.nav-links.open) .nav-links > li > a,
+.site-header:has(.nav-links.open) .nav-call,
+.site-header:has(.nav-links.open) .nav-burger{color:var(--ink);}
+.site-header:has(.nav-links.open) .logo img{filter:none;}
+
+/* Seiten ohne Hero: Nav sofort weiss und im Fluss (kein Overlay) */
+.site-header.nav-solid{position:sticky;background:#fff;border-bottom-color:var(--gray-200);}
+.site-header.nav-solid .logo img{filter:none;}
 .nav{display:flex;align-items:center;gap:1.5rem;height:80px;transition:var(--ease);}
 .site-header.scrolled .nav{height:66px;}
 .nav .logo img{height:26px;transition:var(--ease);}
@@ -1362,7 +1390,7 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 a.ref-card{text-decoration:none;color:inherit;}
 
 /* Referenzen-Hero (Bild + dunkles Scrim) */
-.ref-hero{position:relative;overflow:hidden;background:#080b0d;isolation:isolate;}
+.ref-hero{position:relative;overflow:hidden;background:#080b0d;isolation:isolate;padding-top:80px;}
 .ref-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 44%;z-index:0;}
 .ref-hero-scrim{position:absolute;inset:0;z-index:1;background:
   linear-gradient(90deg,rgba(8,11,13,.94) 0%,rgba(8,11,13,.8) 32%,rgba(8,11,13,.46) 58%,rgba(8,11,13,.18) 80%,rgba(8,11,13,.34) 100%),
@@ -1382,7 +1410,7 @@ a.ref-card{text-decoration:none;color:inherit;}
 }
 
 /* ===== Über-uns Hero (Aumann-Eco-Split-Stil, dunkel: schwebendes Team-Foto) ===== */
-.uhero{position:relative;overflow:hidden;background:var(--ink);padding:clamp(2rem,4vw,3.4rem) 0 clamp(2.4rem,4.5vw,4rem);}
+.uhero{position:relative;overflow:hidden;background:var(--ink);padding:calc(80px + clamp(2rem,4vw,3.4rem)) 0 clamp(2.4rem,4.5vw,4rem);}
 .uhero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(ellipse 64% 92% at 82% 42%,#000 6%,rgba(0,0,0,.35) 42%,transparent 76%);mask-image:radial-gradient(ellipse 64% 92% at 82% 42%,#000 6%,rgba(0,0,0,.35) 42%,transparent 76%);pointer-events:none;}
 .uhero::after{content:'';position:absolute;top:-10%;right:-6%;width:62%;height:120%;background:radial-gradient(ellipse 50% 50% at 70% 42%,rgba(31,174,116,.20),transparent 70%);pointer-events:none;}
 .uhero-grid{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:1.18fr 1fr;gap:clamp(2rem,4vw,3.6rem);align-items:center;}
