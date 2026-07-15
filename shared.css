@@ -670,6 +670,17 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
   .vhero-steps .vh-layer[data-i="0"]{opacity:0;}
   .vhero-steps .vh-layer[data-i="3"]{opacity:1;}
 }
+/* Foto-Hero: dunkler Verlauf links + weisse Copy fuer Lesbarkeit (Haus rechts bleibt hell) */
+.vhero-steps .vh-scrim{background:
+  linear-gradient(90deg,rgba(8,11,13,.88) 0%,rgba(8,11,13,.7) 24%,rgba(8,11,13,.38) 46%,rgba(8,11,13,.1) 62%,transparent 74%),
+  linear-gradient(0deg,rgba(8,11,13,.5),transparent 42%);}
+.vhero-steps .vh-copy h1{color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.5);}
+.vhero-steps .vh-copy h1 .hl{color:#3fe36a;}
+.vhero-steps .vh-sub{color:#eef2ef;text-shadow:0 1px 14px rgba(0,0,0,.55);}
+.vhero-steps .st-eyebrow{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);}
+.vhero-steps .st-rating{color:#e6ebe8;} .vhero-steps .st-rating strong{color:#fff;}
+.vhero-steps .vh-copy .btn-on-dark.sec{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5);}
+.vhero-steps .vh-copy .btn-on-dark.sec:hover{background:rgba(255,255,255,.2);border-color:#fff;}
 /* heller Verlauf mit Transparenz (statt Glaskasten): links aufgehellt → nach rechts transparent */
 .vh-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(214,219,216,.94) 0%,rgba(214,219,216,.74) 20%,rgba(214,219,216,.4) 40%,rgba(214,219,216,.12) 56%,transparent 70%),linear-gradient(0deg,rgba(210,216,213,.46),transparent 28%);}
 .vh-grid{position:absolute;inset:0;z-index:2;max-width:var(--max);margin:0 auto;width:100%;padding:0 var(--pad);display:flex;align-items:center;}
