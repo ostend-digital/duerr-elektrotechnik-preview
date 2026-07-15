@@ -1,6 +1,14 @@
 {
   "redirects": [
-    { "source": "/elektriker-reutlingen", "destination": "/", "permanent": true },
-    { "source": "/elektriker-reutlingen/", "destination": "/", "permanent": true }
+    {
+      "source": "/elektriker-tuebingen",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/elektriker-tuebingen/",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
