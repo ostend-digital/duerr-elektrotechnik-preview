@@ -40,24 +40,6 @@
   ]}
   </script>
   <style>
-    /* Callout-Variante: kein Verlauf, Headline schwarz — nur Desktop (Mobil: helles Standbild-Layout aus shared.css) */
-    @media(min-width:861px){
-      .vhero .vh-scrim{display:none;}
-      .vhero .vh-copy{transform:translateY(-6%);}
-      .vhero .vh-copy h1{color:#000;}
-      .vhero .vh-sub{color:#0a0c0d;text-shadow:0 1px 16px rgba(248,249,247,.9);}
-      .vhero .st-rating{color:#0a0c0d;text-shadow:0 1px 14px rgba(248,249,247,.9);}
-      .vhero .st-rating strong{color:#000;}
-    }
-    /* Hero-Video puffert vor: Callouts/Scroll-Hinweis erst einblenden, wenn Scrubbing flüssig läuft */
-    .vhero .vh-callouts{transition:opacity .35s ease;}
-    .vhero.vh-loading .vh-callouts{opacity:0;}
-    .vhero.vh-loading .st-hint{opacity:.4;}
-    /* schlanker Lade-Fortschrittsbalken (nur sichtbar während das Hero-Video vorlädt) */
-    .vhero .vh-load-bar{position:absolute;left:0;top:0;height:3px;width:100%;z-index:6;
-      transform:scaleX(0);transform-origin:left center;transition:transform .2s ease,opacity .4s ease;
-      background:linear-gradient(90deg,var(--brand-primary,#1fa528),var(--brand-glow,#1fa528));opacity:0;pointer-events:none;}
-    .vhero.vh-loading .vh-load-bar{opacity:1;}
     /* einheitliches, symmetrisches Section-Spacing (oben = unten) */
     main section.section{padding-top:5rem;padding-bottom:5rem;}
     @media(max-width:860px){main section.section{padding-top:3.25rem;padding-bottom:3.25rem;}}

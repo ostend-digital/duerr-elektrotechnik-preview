@@ -677,8 +677,8 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vhero-steps .vh-copy h1{color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.5);}
 .vhero-steps .vh-copy h1 .hl{color:#3fe36a;}
 .vhero-steps .vh-sub{color:#eef2ef;text-shadow:0 1px 14px rgba(0,0,0,.55);}
-.vhero-steps .st-eyebrow{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);}
-.vhero-steps .st-rating{color:#e6ebe8;} .vhero-steps .st-rating strong{color:#fff;}
+.vhero-steps .vh-copy .st-eyebrow{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);}
+.vhero-steps .vh-copy .st-rating{color:#e6ebe8;} .vhero-steps .vh-copy .st-rating strong{color:#fff;}
 .vhero-steps .vh-copy .btn-on-dark.sec{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5);}
 .vhero-steps .vh-copy .btn-on-dark.sec:hover{background:rgba(255,255,255,.2);border-color:#fff;}
 /* heller Verlauf mit Transparenz (statt Glaskasten): links aufgehellt → nach rechts transparent */
