@@ -1631,3 +1631,17 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 #speicher .pv2-inner .bs-cycle{order:1;}
 #speicher .pv2-inner .pv2-text{order:2;}
 @media(max-width:900px){#speicher .pv2-inner .bs-cycle{order:2;}#speicher .pv2-inner .pv2-text{order:1;}}
+
+/* ============================================================
+   GNX-STANDARDISIERUNG: Ostend-Signatur-Elemente entfernt
+   (Karo-/Grid-Raster, Punkte-Pattern, Glow-Orbs). Dunkle
+   Sections = ruhiges GNX-Grau #201C1C mit dezenter radialer
+   Aufhellung. Gruene Icons bleiben (GNX-CI: #1FA528 / #EDF8EE).
+   ============================================================ */
+.dotbg{display:none!important;}                                   /* Punkte-Raster helle Sections */
+.pv2-gridbg,.cta-band.cta-pv2 .cta-gridbg{display:none!important;}/* Karo-Raster dunkle Sections */
+.gpat::after,.cta-band.gpat::after{background-image:none!important;}
+.uhero::before{display:none!important;}                           /* Grid im Ueber-uns-Hero */
+.hsplit .hero-grid{display:none!important;}
+.pv2-orb,.cta-band.cta-pv2 .cta-orb{display:none!important;}      /* Glow-Orbs */
+.pv2,.cta-band.cta-pv2{background:radial-gradient(ellipse at 50% 38%,#262121 0%,#201c1c 55%,#1a1717 100%)!important;}
