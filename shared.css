@@ -659,6 +659,17 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vh-sticky{position:sticky;top:0;height:100vh;overflow:hidden;background:#080b0d;}
 .vh-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;background:#080b0d;}
 .vh-poster-m{display:none;}/* mobiles Standbild (Endframe) – nur ≤860px sichtbar */
+/* Hero 3-Schritt-Aufbau (Crossfade zwischen 4 Standbildern) */
+.vhero-steps{height:300vh;}
+.vhero-steps .vh-stage{position:absolute;inset:0;z-index:0;overflow:hidden;background:#080b0d;}
+.vhero-steps .vh-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .6s ease;will-change:opacity;}
+.vhero-steps .vh-layer[data-i="0"]{opacity:1;}
+@media(max-width:860px){
+  .vhero-steps{height:auto;}
+  .vhero-steps .vh-layer{transition:none;object-position:70% center;}
+  .vhero-steps .vh-layer[data-i="0"]{opacity:0;}
+  .vhero-steps .vh-layer[data-i="3"]{opacity:1;}
+}
 /* heller Verlauf mit Transparenz (statt Glaskasten): links aufgehellt → nach rechts transparent */
 .vh-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(214,219,216,.94) 0%,rgba(214,219,216,.74) 20%,rgba(214,219,216,.4) 40%,rgba(214,219,216,.12) 56%,transparent 70%),linear-gradient(0deg,rgba(210,216,213,.46),transparent 28%);}
 .vh-grid{position:absolute;inset:0;z-index:2;max-width:var(--max);margin:0 auto;width:100%;padding:0 var(--pad);display:flex;align-items:center;}
