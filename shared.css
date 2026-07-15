@@ -56,14 +56,18 @@ p{line-height:1.65;}
 .site-header.over-dark:not(.scrolled) .nav-links > li > a,
 .site-header.over-dark:not(.scrolled) .nav-call,
 .site-header.over-dark:not(.scrolled) .nav-burger{color:#fff;}
-.site-header.over-dark:not(.scrolled) .logo img{filter:brightness(0) invert(1);}
+/* Logo-Varianten: .lg-d dunkler Text (hell-BG), .lg-l weisser Text (dunkel-BG); Icon bleibt gruen */
+.nav .logo .lg-l{display:none;}
+.site-header.over-dark:not(.scrolled) .logo .lg-d{display:none;}
+.site-header.over-dark:not(.scrolled) .logo .lg-l{display:block;}
 
 /* Mobil sind ALLE Heroes dunkel gestylt -> im transparenten Zustand immer helle Nav */
 @media(max-width:860px){
   .site-header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
   .site-header:not(.scrolled):not(.nav-solid) .nav-call,
   .site-header:not(.scrolled):not(.nav-solid) .nav-burger{color:#fff;}
-  .site-header:not(.scrolled):not(.nav-solid) .logo img{filter:brightness(0) invert(1);}
+  .site-header:not(.scrolled):not(.nav-solid) .logo .lg-d{display:none;}
+  .site-header:not(.scrolled):not(.nav-solid) .logo .lg-l{display:block;}
 }
 
 /* Geoeffnetes Mobile-Menue: Header solide, damit Burger/Links lesbar bleiben */
@@ -71,11 +75,11 @@ p{line-height:1.65;}
 .site-header:has(.nav-links.open) .nav-links > li > a,
 .site-header:has(.nav-links.open) .nav-call,
 .site-header:has(.nav-links.open) .nav-burger{color:var(--ink);}
-.site-header:has(.nav-links.open) .logo img{filter:none;}
+.site-header:has(.nav-links.open) .logo .lg-d{display:block;}
+.site-header:has(.nav-links.open) .logo .lg-l{display:none;}
 
 /* Seiten ohne Hero: Nav sofort weiss und im Fluss (kein Overlay) */
 .site-header.nav-solid{position:sticky;background:#fff;border-bottom-color:var(--gray-200);}
-.site-header.nav-solid .logo img{filter:none;}
 .nav{display:flex;align-items:center;gap:1.5rem;height:80px;transition:var(--ease);}
 .site-header.scrolled .nav{height:66px;}
 .nav .logo img{height:26px;transition:var(--ease);}
