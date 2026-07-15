@@ -58,6 +58,7 @@ p{line-height:1.65;}
 .site-header.over-dark:not(.scrolled) .nav-links > li > a,
 .site-header.over-dark:not(.scrolled) .nav-call,
 .site-header.over-dark:not(.scrolled) .nav-burger{color:#fff;}
+.site-header.over-dark:not(.scrolled) .nav-call svg{color:#fff;}
 /* Logo-Varianten: .lg-d dunkler Text (hell-BG), .lg-l weisser Text (dunkel-BG); Icon bleibt gruen */
 .nav .logo .lg-l{display:none;}
 .site-header.over-dark:not(.scrolled) .logo .lg-d{display:none;}
@@ -68,6 +69,7 @@ p{line-height:1.65;}
   .site-header:not(.scrolled):not(.nav-solid) .nav-links > li > a,
   .site-header:not(.scrolled):not(.nav-solid) .nav-call,
   .site-header:not(.scrolled):not(.nav-solid) .nav-burger{color:#fff;}
+  .site-header:not(.scrolled):not(.nav-solid) .nav-call svg{color:#fff;}
   .site-header:not(.scrolled):not(.nav-solid) .logo .lg-d{display:none;}
   .site-header:not(.scrolled):not(.nav-solid) .logo .lg-l{display:block;}
 }
@@ -672,13 +674,14 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 }
 /* Foto-Hero: dunkler Verlauf links + weisse Copy fuer Lesbarkeit (Haus rechts bleibt hell) */
 .vhero-steps .vh-scrim{background:
+  radial-gradient(ellipse 44% 54% at 20% 47%,rgba(8,11,13,.46),rgba(8,11,13,.2) 58%,transparent 76%),
   linear-gradient(90deg,rgba(8,11,13,.72) 0%,rgba(8,11,13,.54) 24%,rgba(8,11,13,.28) 46%,rgba(8,11,13,.07) 62%,transparent 74%),
   linear-gradient(0deg,rgba(8,11,13,.38),transparent 40%);}
 .vhero-steps .vh-copy-min{max-width:600px;}
 .vhero-steps .vh-sub{max-width:46ch;}
-.vhero-steps .vh-copy h1{color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.5);}
-.vhero-steps .vh-copy h1 .hl{color:#3fe36a;}
-.vhero-steps .vh-sub{color:#eef2ef;text-shadow:0 1px 14px rgba(0,0,0,.55);}
+.vhero-steps .vh-copy h1{color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.7),0 1px 3px rgba(0,0,0,.5);}
+.vhero-steps .vh-copy h1 .hl{color:#3fe36a;text-shadow:0 2px 22px rgba(0,0,0,.7),0 1px 3px rgba(0,0,0,.45);}
+.vhero-steps .vh-sub{color:#f4f7f4;text-shadow:0 1px 12px rgba(0,0,0,.75),0 1px 2px rgba(0,0,0,.5);}
 .vhero-steps .vh-copy .st-eyebrow{color:#fff;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.08);}
 .vhero-steps .vh-copy .st-rating{color:#e6ebe8;} .vhero-steps .vh-copy .st-rating strong{color:#fff;}
 .vhero-steps .vh-copy .btn-on-dark.sec{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.5);}
