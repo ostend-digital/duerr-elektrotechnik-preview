@@ -97,6 +97,19 @@
           <div class="st-foot"><span class="st-rating"><svg class="g-ic" viewBox="0 0 48 48" aria-hidden="true"><path fill="#ea4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285f4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#fbbc05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34a853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <strong>5,0</strong> bei Google</span></div>
         </div>
       </div>
+      <div class="vh-callouts" aria-hidden="true">
+        <svg class="vh-leads" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <line class="vl" data-cap="1" data-key="pv"/>
+          <line class="vl" data-cap="2" data-key="sp"/>
+          <line class="vl" data-cap="3" data-key="wb"/>
+        </svg>
+        <span class="vh-dot" data-cap="1" data-key="pv"></span>
+        <span class="vh-dot" data-cap="2" data-key="sp"></span>
+        <span class="vh-dot" data-cap="3" data-key="wb"></span>
+        <div class="vh-label lab-c" data-cap="1" data-key="pv"><strong>Photovoltaik</strong><span>Eigenen Strom erzeugen</span></div>
+        <div class="vh-label" data-cap="2" data-key="sp"><strong>Stromspeicher</strong><span>Tags&uuml;ber speichern, abends nutzen</span></div>
+        <div class="vh-label lab-c" data-cap="3" data-key="wb"><strong>Wallbox &amp; E-Mobilit&auml;t</strong><span>E-Auto g&uuml;nstig zuhause laden</span></div>
+      </div>
       <div class="st-hint"><span>Scrollen</span><span class="ar"></span></div>
     </div>
   </section>
@@ -450,17 +463,45 @@
     const sec=document.querySelector('.vhero-steps'); if(!sec)return;
     const layers=[...sec.querySelectorAll('.vh-layer')];
     if(matchMedia('(max-width:860px)').matches) return; // mobil: statisches Endbild (CSS)
+    // Beschriftungen: Bildpunkte als Anteil des 1920x1072-Frames (object-fit:cover-Mapping)
+    const sticky=sec.querySelector('.vh-sticky');
+    const calls=[...sec.querySelectorAll('.vh-callouts [data-cap]')];
+    const VAR=1920/1072;
+    const TARGET={pv:[0.72,0.23], sp:[0.647,0.615], wb:[0.705,0.598]};
+    const dotEl={}, labEl={}, lnEl={}, P={};
+    sec.querySelectorAll('.vh-dot').forEach(d=>dotEl[d.dataset.key]=d);
+    sec.querySelectorAll('.vh-label').forEach(l=>labEl[l.dataset.key]=l);
+    sec.querySelectorAll('.vl').forEach(l=>lnEl[l.dataset.key]=l);
+    function mapPt(fx,fy){ const Cw=sticky.clientWidth,Ch=sticky.clientHeight;
+      if(Cw/Ch>=VAR){ const vh=Cw/VAR,oY=(Ch-vh)/2; return [fx*100,(oY+fy*vh)/Ch*100]; }
+      const vw=Ch*VAR,oX=(Cw-vw)/2; return [(oX+fx*vw)/Cw*100, fy*100]; }
+    function layout(){
+      for(const k in TARGET){ const m=mapPt(TARGET[k][0],TARGET[k][1]); P[k]=m; dotEl[k].style.left=m[0]+'%'; dotEl[k].style.top=m[1]+'%'; }
+      labEl.pv.style.left=P.pv[0]+'%'; labEl.pv.style.top='13.5%';
+      labEl.sp.style.left='30%';       labEl.sp.style.top='78%';
+      labEl.wb.style.left=P.wb[0]+'%'; labEl.wb.style.top='86%';
+      const sr=sticky.getBoundingClientRect();
+      function line(key,edge){ const lr=labEl[key].getBoundingClientRect(); const ln=lnEl[key]; let x1,y1;
+        if(edge==='bottom'){ x1=P[key][0]; y1=(lr.bottom-sr.top)/sr.height*100; }
+        else if(edge==='top'){ x1=P[key][0]; y1=(lr.top-sr.top)/sr.height*100; }
+        else { x1=(lr.right-sr.left)/sr.width*100; y1=((lr.top+lr.bottom)/2-sr.top)/sr.height*100; }
+        ln.setAttribute('x1',x1.toFixed(2)); ln.setAttribute('y1',y1.toFixed(2));
+        ln.setAttribute('x2',P[key][0].toFixed(2)); ln.setAttribute('y2',P[key][1].toFixed(2)); }
+      line('pv','bottom'); line('sp','right'); line('wb','top');
+    }
     // Halte-Zonen: Haus (0) -> +PV (1) -> +Speicher (2) -> +Wallbox (3)
     function stepAt(p){ return p>=0.62?3 : p>=0.40?2 : p>=0.17?1 : 0; }
     let cur=-1, ticking=false;
     function apply(s){ if(s===cur)return; cur=s; sec.dataset.step=s;
-      layers.forEach((l,i)=>{ l.style.opacity=(i<=s)?'1':'0'; }); }
+      layers.forEach((l,i)=>{ l.style.opacity=(i<=s)?'1':'0'; });
+      calls.forEach(c=>c.classList.toggle('on',+c.dataset.cap<=s)); }
     function calc(){ const total=sec.offsetHeight-innerHeight;
       const p=total>0?Math.min(Math.max(-sec.getBoundingClientRect().top/total,0),1):0;
       apply(stepAt(p)); ticking=false; }
     addEventListener('scroll',()=>{ if(!ticking){ requestAnimationFrame(calc); ticking=true; } },{passive:true});
-    addEventListener('resize',calc,{passive:true});
-    calc();
+    addEventListener('resize',()=>{layout();calc();},{passive:true});
+    addEventListener('load',layout);
+    layout(); calc();
   })();
 </script>
 </body>
