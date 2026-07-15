@@ -75,45 +75,23 @@
 <main>
 
   <!-- HERO — Standort Stuttgart mit animierter Region-Karte -->
-  <section class="geo-hero" id="hero">
-    <div class="pv2-gridbg"></div>
-    <span class="pv2-orb pv2-orb-a"></span>
-    <span class="pv2-orb pv2-orb-b"></span>
-    <div class="container">
-      <div class="geo-hero-inner">
-        <div class="geo-copy">
+  <!-- HERO — Standard-Foto-Hero (einheitlich auf allen Elektriker-Startseiten) -->
+  <section class="vhero vhero-steps vhero-onepic" id="hero">
+    <div class="vh-sticky">
+      <div class="vh-stage">
+        <img class="vh-layer" data-i="0" src="/images/hero-house-3.webp" alt="Einfamilienhaus mit Photovoltaik, Stromspeicher und Wallbox – DÜRR Elektrotechnik, Elektriker in Stuttgart" fetchpriority="high" width="2560" height="1430">
+      </div>
+      <div class="vh-scrim"></div>
+      <div class="vh-grid">
+        <div class="vh-copy vh-copy-min">
           <span class="st-eyebrow"><span class="dot"></span>Standort · Großraum Stuttgart</span>
           <h1>Elektriker in <span class="hl">Stuttgart</span> –<br>Privat, Gewerbe &amp; Industrie</h1>
-          <p class="geo-sub">Von der Steckdose bis zur Photovoltaik – Ihr regionaler Elektrofachbetrieb. Vom Sitz in Ofterdingen sind wir schnell im gesamten Großraum Stuttgart vor Ort: termintreu, fair und alles aus einer Hand.</p>
+          <p class="vh-sub">Von der Steckdose bis zur Photovoltaik – Ihr regionaler Elektrofachbetrieb. Vom Sitz in Ofterdingen sind wir schnell im gesamten Großraum Stuttgart vor Ort: termintreu, fair und alles aus einer Hand.</p>
           <div class="btns">
             <a href="#anfrage" class="btn btn-primary pulse">Kostenloses Erstgespr&auml;ch</a>
             <a href="tel:+4974739512840" class="btn btn-on-dark sec"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" style="margin-right:-.1rem"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.5 11.5 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.5 11.5 0 0 0 .58 3.6 1 1 0 0 1-.24 1z" fill="currentColor" stroke="none"/></svg>07473 9512840</a>
           </div>
           <div class="st-foot"><span class="st-rating"><svg class="g-ic" viewBox="0 0 48 48" aria-hidden="true"><path fill="#ea4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285f4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#fbbc05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34a853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span class="stars">★★★★★</span> <strong>5,0</strong> bei Google</span></div>
-        </div>
-
-        <div class="geo-map" role="img" aria-label="Karte: Einsatzgebiet von DÜRR Elektrotechnik im Großraum Stuttgart – Anfahrt aus Ofterdingen">
-          <span class="geo-streets" aria-hidden="true"></span>
-          <svg class="geo-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <path class="river" d="M82 4 C66 24 60 38 46 50 C36 60 54 78 56 100"/>
-            <path class="spoke" d="M50 31 L32 19 M50 31 L66 21 M50 31 L29 46 M50 31 L60 48"/>
-            <path class="route" d="M50 84 C46 68 55 48 50 32"/>
-          </svg>
-          <span class="geo-rings" aria-hidden="true"><span></span><span></span><span></span></span>
-          <span class="geo-travel" aria-hidden="true"></span>
-
-          <div class="geo-dot" style="left:32%;top:19%;"><i style="animation-delay:.2s"></i><span>Feuerbach</span></div>
-          <div class="geo-dot" style="left:66%;top:21%;"><i style="animation-delay:.9s"></i><span>Bad Cannstatt</span></div>
-          <div class="geo-dot" style="left:29%;top:46%;"><i style="animation-delay:1.5s"></i><span>Vaihingen</span></div>
-          <div class="geo-dot" style="left:60%;top:48%;"><i style="animation-delay:2.1s"></i><span>Degerloch</span></div>
-
-          <div class="geo-pin" style="left:50%;top:32%;">
-            <span class="pin-ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-5.6 7-11.4A7 7 0 0 0 5 10.6C5 16.4 12 22 12 22z"/><circle cx="12" cy="10.4" r="2.6" fill="#06100c" stroke="none"/></svg></span>
-            <span class="pin-lbl">Stuttgart</span>
-          </div>
-
-          <div class="geo-hq" style="left:50%;top:85%;"><i></i><span>Sitz Ofterdingen</span></div>
-          <span class="geo-legend"><b></b> Einsatzgebiet Großraum Stuttgart</span>
         </div>
       </div>
     </div>

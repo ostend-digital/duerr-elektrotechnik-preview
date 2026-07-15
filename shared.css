@@ -1652,3 +1652,12 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .hsplit .hero-grid{display:none!important;}
 .pv2-orb,.cta-band.cta-pv2 .cta-orb{display:none!important;}      /* Glow-Orbs */
 .pv2,.cta-band.cta-pv2{background:radial-gradient(ellipse at 50% 38%,#262121 0%,#201c1c 55%,#1a1717 100%)!important;}
+
+/* Statischer Standard-Hero (Staedteseiten): gleiche Optik wie Startseiten-Hero, ohne Scroll-Steps */
+.vhero-onepic{height:auto!important;}
+.vhero-onepic .vh-sticky{position:relative;height:auto;min-height:clamp(600px,88vh,960px);}
+.vhero-onepic .vh-layer{opacity:1!important;transition:none;}
+@media(max-width:860px){
+  .vhero-onepic .vh-sticky{min-height:clamp(500px,76vh,640px);}
+  .vhero-onepic .vh-layer{object-position:70% center;}
+}
