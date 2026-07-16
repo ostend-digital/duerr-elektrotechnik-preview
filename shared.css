@@ -1661,3 +1661,13 @@ a.ci-row:hover strong{color:var(--brand-glow);}
   .vhero-onepic .vh-sticky{min-height:clamp(500px,76vh,640px);}
   .vhero-onepic .vh-layer{object-position:70% center;}
 }
+
+/* Video-Testimonials (Standard-Section) */
+.vt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.4rem;}
+.vt-card{background:#fff;border:var(--hair);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);transition:var(--ease-smooth);}
+.vt-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);}
+.vt-card video{display:block;width:100%;aspect-ratio:16/9;background:#0b0f12;object-fit:cover;}
+.vt-body{padding:1.1rem 1.3rem 1.25rem;}
+.vt-body strong{display:block;font-size:1.02rem;color:var(--ink);}
+.vt-body span{display:block;font-size:.86rem;color:var(--gray-500);margin-top:.15rem;line-height:1.45;}
+@media(max-width:900px){.vt-grid{grid-template-columns:1fr;}}
