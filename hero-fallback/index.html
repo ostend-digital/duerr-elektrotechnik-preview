@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Hero: 3-Schritt-Bild-Aufbau (Crossfade) — kein Scroll-Video mehr -->
-  <link rel="preload" as="image" href="/images/hero-house-0.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/hero-craft.webp" fetchpriority="high">
   <title>Elektriker Tübingen | DÜRR Elektrotechnik (Elektro Dürr)</title>
   <meta name="description" content="Elektro Dürr – Ihr Elektriker in Tübingen: Elektroinstallation, Photovoltaik, Wallbox & Notdienst. Fachbetrieb aus Ofterdingen. Jetzt anfragen.">
-  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://duerr-elektrotechnik.de/">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -47,12 +46,6 @@
     main section.section{padding-top:5rem;padding-bottom:5rem;}
     @media(max-width:860px){main section.section{padding-top:3.25rem;padding-bottom:3.25rem;}}
   </style>
-<style>
-  /* Fallback-Video-Hero */
-  .vhero-video .vh-stage{position:absolute;inset:0;z-index:0;overflow:hidden;background:#080b0d;}
-  .vhero-video .vh-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;}
-  @media(max-width:860px){ .vhero-video .vh-video{object-position:65% center;} }
-</style>
 </head>
 <body>
 
@@ -83,14 +76,11 @@
 
 <main>
 
-    <!-- HERO — Video-Loop (Fallback v2: Handwerk-Nahaufnahme, Higgsfield/Nanobanana) -->
-  <section class="vhero vhero-steps vhero-onepic vhero-video" id="hero">
+    <!-- HERO — Standbild (Fallback: Handwerk-Nahaufnahme, Higgsfield/Nanobanana) -->
+  <section class="vhero vhero-steps vhero-onepic" id="hero">
     <div class="vh-sticky">
       <div class="vh-stage">
-        <video class="vh-video" autoplay muted loop playsinline preload="auto" poster="/images/hero-loop-poster.webp" aria-hidden="true">
-          <source src="/videos/hero-loop.webm" type="video/webm">
-          <source src="/videos/hero-loop.mp4" type="video/mp4">
-        </video>
+        <img class="vh-layer" data-i="0" src="/images/hero-craft.webp" alt="Elektriker von DÜRR Elektrotechnik verdrahtet einen Sicherungsverteiler – Elektriker in Tübingen" fetchpriority="high" width="2560" height="1427">
       </div>
       <div class="vh-scrim"></div>
       <div class="vh-grid">
