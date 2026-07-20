@@ -171,6 +171,15 @@ a.chip:hover{border-color:var(--brand-primary);color:var(--brand-primary-dark);}
 .site-footer .logo img{height:40px;margin-bottom:1rem;}
 .site-footer .desc{font-size:.9rem;color:var(--gray-400);max-width:32ch;}
 .footer-bottom{border-top:1px solid var(--ink-line);margin-top:2.75rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.85rem;color:var(--gray-500);}
+.fb-meta{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;}
+.fb-partners{display:inline-flex;align-items:center;gap:1.4rem;}
+.fb-partners a{display:inline-flex;margin:0;opacity:.8;transition:opacity .2s ease;}
+.fb-partners a:hover{opacity:1;}
+.fb-partners img{width:auto;display:block;}
+.fb-lg-greenox{height:30px;}
+.fb-lg-hwr{height:22px;}
+.fb-legal a{display:inline;}
+@media(max-width:600px){ .fb-meta{gap:1rem;} .fb-lg-greenox{height:26px;} .fb-lg-hwr{height:19px;} }
 
 /* Scroll-Reveal Animationen */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);}
