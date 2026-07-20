@@ -1403,6 +1403,7 @@ a.feature:hover .f-go{color:var(--brand-primary-dark);}
 
 /* ===== v40 — Referenzen-Karten (echte Projekte) ===== */
 .ref-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem;margin-top:2.6rem;}
+.ref-grid--all{justify-content:flex-start;}
 .ref-card{flex:0 1 calc((100% - 2 * 1.4rem) / 3);max-width:calc((100% - 2 * 1.4rem) / 3);background:#fff;border:var(--hair);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;transition:var(--ease-smooth);}
 .ref-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);border-color:transparent;}
 .ref-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--gray-100);}
