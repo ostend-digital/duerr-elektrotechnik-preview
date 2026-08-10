@@ -1683,3 +1683,32 @@ a.ci-row:hover strong{color:var(--brand-glow);}
 .vt-body strong{display:block;font-size:1.02rem;color:var(--ink);}
 .vt-body span{display:block;font-size:.86rem;color:var(--gray-500);margin-top:.15rem;line-height:1.45;}
 @media(max-width:900px){.vt-grid{grid-template-columns:1fr;}}
+
+/* ===== v20 — od-band: Full-bleed Bild-Buehne + Content + Schritt-Chips (Design-Variante D) ===== */
+/* Verlauf zentral tunebar ueber --band-scrim (entschaerftes Gruen). */
+.od-band{
+  --band-scrim:linear-gradient(100deg,rgba(13,17,20,.95) 0%,rgba(15,20,23,.72) 50%,rgba(26,54,32,.18) 100%);
+  position:relative;border-radius:var(--r-2xl);overflow:hidden;box-shadow:var(--sh-lg);
+  min-height:520px;display:flex;align-items:center;margin-top:2.2rem;
+}
+.od-band-bg{position:absolute;inset:0;}
+.od-band-bg img{width:100%;height:100%;object-fit:cover;display:block;}
+.od-band-bg::after{content:"";position:absolute;inset:0;background:var(--band-scrim);}
+.od-band-inner{position:relative;z-index:2;padding:3rem 3.2rem;width:100%;min-width:0;max-width:100%;}
+.od-band .section-label{color:#b2db27;margin-bottom:.9rem;}
+.od-band .section-label::before{background:#b2db27;}
+.od-band h2{color:#fff;max-width:18ch;}
+.od-band-lead{color:rgba(255,255,255,.82);margin-top:.7rem;max-width:56ch;font-size:1.05rem;line-height:1.6;}
+.od-band-chips{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:2rem;max-width:960px;}
+.od-band-chip{flex:1 1 195px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:1.05rem 1.15rem;min-width:0;}
+.od-band-chip b{color:#b2db27;font-size:.8rem;font-weight:700;letter-spacing:.04em;display:block;}
+.od-band-chip h3{color:#fff;font-size:1rem;margin:.35rem 0 .25rem;letter-spacing:-.01em;line-height:1.2;}
+.od-band-chip p{color:rgba(255,255,255,.64);font-size:.85rem;line-height:1.45;}
+.od-band-cta{margin-top:1.9rem;display:flex;gap:.8rem;flex-wrap:wrap;}
+@media(max-width:900px){
+  .od-band{min-height:0;}
+  .od-band-inner{padding:2rem 1.35rem;}
+  .od-band h2{max-width:none;}
+  .od-band-chip{flex-basis:100%;}
+}
