@@ -888,6 +888,7 @@ details.faq-item p{padding:0 0 1.3rem;color:var(--gray-600);font-size:.97rem;}
 .vhero-light .vh-copy{max-width:520px;}
 .vhero-light .vh-copy h1{color:var(--ink);text-shadow:0 1px 22px rgba(247,249,246,.65);font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.05;margin:.55rem 0 0;}
 .vhero-light .vh-copy h1 .hl{color:var(--brand-primary);}
+@media(min-width:861px){.vhero-light .vh-copy h1 .hl{filter:none;text-shadow:none;}}
 .vhero-light .vh-sub{color:#0c1416;max-width:38ch;}
 .vhero-light .breadcrumb{margin-bottom:.4rem;color:var(--gray-500);text-shadow:0 1px 10px rgba(247,249,246,.7);}
 .vhero-light .breadcrumb a{color:var(--gray-600);} .vhero-light .breadcrumb a:hover{color:var(--ink);}
