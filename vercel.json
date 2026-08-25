@@ -9,6 +9,86 @@
       "source": "/elektriker-tuebingen/",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/reiff",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/reiff/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/ebner-stolz",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/ebner-stolz/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/greiner-kantine",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/greiner-kantine/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/greiner-led-produktion",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/greiner-led-produktion/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/greiner-umkleide-reinraum",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/greiner-umkleide-reinraum/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/wendler-pv-anlgen",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/wendler-pv-anlgen/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/jura-pv-anlage",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/jura-pv-anlage/",
+      "destination": "/referenzen/",
+      "permanent": true
+    },
+    {
+      "source": "/duerr-elektrotechnik-firma",
+      "destination": "/ueber-uns/",
+      "permanent": true
+    },
+    {
+      "source": "/duerr-elektrotechnik-firma/",
+      "destination": "/ueber-uns/",
+      "permanent": true
     }
   ]
 }
