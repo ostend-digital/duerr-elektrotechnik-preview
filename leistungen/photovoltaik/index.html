@@ -390,7 +390,12 @@
           <h2>Lohnt sich Photovoltaik bei Ihnen?</h2>
           <p>Schicken Sie uns kurz ein paar Eckdaten zu Ihrem Dach oder Objekt – wir melden uns innerhalb von 24&nbsp;Stunden mit einer ehrlichen Ersteinschätzung.</p>
           <!-- Hinweis: action vor Launch auf echtes Formspree-/Formular-Backend setzen -->
-          <form class="cta-form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+          <form class="cta-form" action="https://formsubmit.co/ajax/s.eldem@ostend.digital" method="POST" novalidate>
+              <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0"><label>Bitte leer lassen <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+              <input type="hidden" name="_subject" value="Neue Anfrage über duerr-elektrotechnik.de">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_cc" value="info@duerr-elektrotechnik.de">
             <div class="ff-row">
               <input type="text" name="name" placeholder="Ihr Name" required aria-label="Ihr Name">
               <input type="text" name="kontakt" placeholder="Telefon oder E-Mail" required aria-label="Telefon oder E-Mail">
@@ -547,6 +552,45 @@
     const vio=new IntersectionObserver((es)=>es.forEach(e=>e.isIntersecting?start():stop()),{threshold:.2});vio.observe(root);
     update();
   })();
+</script>
+<script>
+/* Kontaktformular: FormSubmit via AJAX, mit Inline-Erfolgsmeldung */
+(function(){
+  var forms = document.querySelectorAll('form.cta-form');
+  Array.prototype.forEach.call(forms, function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+      }).then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+        .then(function(){
+          form.innerHTML = '<div class="ff-success" style="text-align:center;padding:1.5rem 0">'
+            + '<p style="font-size:1.15rem;font-weight:500;margin:0 0 .4rem">Vielen Dank, Ihre Anfrage ist angekommen.</p>'
+            + '<p class="ff-note" style="margin:0">Wir melden uns in der Regel innerhalb von 24 Stunden. '
+            + 'Dringend? <a href="tel:+4974739512840">07473 9512840</a></p></div>';
+        })
+        .catch(function(){
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          var err = form.querySelector('.ff-error');
+          if (!err) {
+            err = document.createElement('p');
+            err.className = 'ff-note ff-error';
+            err.style.marginTop = '.6rem';
+            form.appendChild(err);
+          }
+          err.innerHTML = 'Das hat gerade nicht geklappt. Schreiben Sie uns bitte direkt an '
+            + '<a href="mailto:info@duerr-elektrotechnik.de">info@duerr-elektrotechnik.de</a> '
+            + 'oder rufen Sie an: <a href="tel:+4974739512840">07473 9512840</a>.';
+        });
+    });
+  });
+})();
 </script>
 </body>
 </html>
