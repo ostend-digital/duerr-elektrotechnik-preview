@@ -382,12 +382,11 @@
             <label class="ff-field"><span class="ff-label">Name / Unternehmen<span class="ff-req">*</span></span>
               <input type="text" name="name" required autocomplete="name" placeholder="Vor- und Nachname / Firma"></label>
             <div class="ff-row">
-              <label class="ff-field"><span class="ff-label">Telefon</span>
+              <label class="ff-field"><span class="ff-label">Telefon <span class="ff-opt">(optional)</span></span>
                 <input type="tel" name="telefon" inputmode="tel" autocomplete="tel" placeholder="z. B. 07473 9512840"></label>
-              <label class="ff-field"><span class="ff-label">E-Mail</span>
-                <input type="email" name="email" autocomplete="email" placeholder="z. B. name@firma.de"></label>
+              <label class="ff-field"><span class="ff-label">E-Mail<span class="ff-req">*</span></span>
+                <input type="email" name="email" required autocomplete="email" placeholder="z. B. name@firma.de"></label>
             </div>
-            <p class="ff-hint">Telefon <strong>oder</strong> E-Mail genügt – darüber melden wir uns zurück.</p>
             <textarea name="anliegen" rows="2" placeholder="Worum geht es? (z. B. Hallenbeleuchtung, Schaltschrank, Datennetz, E-Check)" aria-label="Ihr Anliegen"></textarea>
             <label class="ff-consent">
               <input type="checkbox" name="datenschutz" required>
@@ -573,23 +572,9 @@
 
   var forms = document.querySelectorAll('form.cta-form');
   Array.prototype.forEach.call(forms, function(form){
-    var tel  = form.querySelector('input[name="telefon"]');
-    var mail = form.querySelector('input[name="email"]');
-
-    function checkReach(){
-      if (!tel || !mail) return;
-      var msg = (tel.value.trim() || mail.value.trim()) ? ''
-              : 'Bitte Telefon oder E-Mail angeben, damit wir antworten können.';
-      tel.setCustomValidity(msg); mail.setCustomValidity(msg);
-    }
-    if (tel && mail){
-      tel.addEventListener('input', checkReach);
-      mail.addEventListener('input', checkReach);
-    }
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      checkReach();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
       var data = Object.fromEntries(new FormData(form).entries());
