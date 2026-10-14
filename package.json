@@ -1,0 +1,9 @@
+{
+  "name": "duerr-elektrotechnik-preview",
+  "private": true,
+  "description": "Statische Seite + Vercel-Funktion api/contact (Kontaktformular über SMTP)",
+  "engines": { "node": "24.x" },
+  "dependencies": {
+    "nodemailer": "6.9.16"
+  }
+}

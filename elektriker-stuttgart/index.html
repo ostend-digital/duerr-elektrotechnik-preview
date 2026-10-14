@@ -334,12 +334,8 @@
           <span class="section-label" style="color:var(--gray-300);">Kostenloses Erstgespräch</span>
           <h2>Ihr Elektriker-Projekt in Stuttgart</h2>
           <p>Schildern Sie uns kurz Ihr Vorhaben – ob Installation, Photovoltaik, Wallbox oder Notfall. Wir melden uns zeitnah mit dem nächsten Schritt.</p>
-          <!-- Hinweis: action vor Launch auf echtes Formspree-/Formular-Backend setzen -->
-          <form class="cta-form" action="https://formsubmit.co/ajax/info@duerr-elektrotechnik.de" method="POST" novalidate>
+          <form class="cta-form" action="/api/contact" method="POST" novalidate>
               <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0"><label>Bitte leer lassen <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
-              <input type="hidden" name="_subject" value="Neue Anfrage über duerr-elektrotechnik.de">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="false">
             <label class="ff-field"><span class="ff-label">Ihr Name<span class="ff-req">*</span></span>
               <input type="text" name="name" required autocomplete="name" placeholder="Vor- und Nachname"></label>
             <div class="ff-row">
@@ -446,13 +442,16 @@
     document.querySelectorAll('.dotbg').forEach(el=>{const f=+(el.dataset.parallax||12);el.style.transform=`translate(${mx*f}px,${my*f}px)`;});},{passive:true});
 </script>
 <script>
-/* Kontaktformular: FormSubmit via AJAX. Die Erfolgsmeldung erscheint nach GRACE ms,
-   der Versand laeuft im Hintergrund weiter (FormSubmit antwortet traege, teils >15 s).
-   Schlaegt der Versand doch fehl, wird die Meldung durch einen Hinweis mit
-   vorausgefuelltem Mail-Link ersetzt — die Eingaben gehen nicht verloren. */
+/* Kontaktformular: schickt die Anfrage an die eigene Vercel-Funktion /api/contact
+   (Versand per SMTP an info@). Die Erfolgsmeldung erscheint erst, wenn der Mailserver
+   die Mail angenommen hat. Schlaegt der Versand fehl, wird ein Hinweis mit
+   vorausgefuelltem Mail-Link gezeigt — die Eingaben gehen nicht verloren.
+   t0 (Ladezeitpunkt) und _honey dienen der Bot-Erkennung auf dem Server. */
 (function(){
-  var GRACE = 700;
   var TEL = '07473 9512840', TELH = '+4974739512840', MAIL = 'info@duerr-elektrotechnik.de';
+  var T0 = Date.now();
+  var params = new URLSearchParams(location.search);
+  var TRACK = ['gclid','gbraid','wbraid','utm_source','utm_medium','utm_campaign','utm_term','utm_content'];
 
   function successHTML(){
     return '<div class="ff-success" style="text-align:center;padding:1.5rem 0">'
@@ -483,30 +482,24 @@
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
       var data = Object.fromEntries(new FormData(form).entries());
+      data.datenschutz = !!data.datenschutz;
+      data.t0 = T0;
+      data.page = location.pathname;
+      TRACK.forEach(function(k){ if (params.get(k)) data[k] = params.get(k); });
+
       var btn = form.querySelector('button[type="submit"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet …'; }
 
-      var state = 'pending';
-      var grace = setTimeout(function(){
-        if (state !== 'pending') return;
-        state = 'optimistic';
-        form.innerHTML = successHTML();
-      }, GRACE);
-
       fetch(form.action, {
         method: 'POST',
-        keepalive: true,
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
-      }).then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
-        .then(function(){
-          clearTimeout(grace);
-          if (state === 'pending') { form.innerHTML = successHTML(); }
-          state = 'success';
+      }).then(function(r){ return r.json().catch(function(){ return {}; }); })
+        .then(function(res){
+          if (!res || res.ok !== true) throw new Error('send');
+          form.innerHTML = successHTML();
         })
         .catch(function(){
-          clearTimeout(grace);
-          state = 'error';
           form.innerHTML = failHTML(data);
         });
     });
