@@ -17,7 +17,9 @@ function originAllowed(req) {
   if (!src) return true; // manche Browser senden keinen Origin bei same-origin
   try {
     const host = new URL(src).hostname;
-    return ALLOWED_HOSTS.includes(host) || host.endsWith("-pascals-projects-58bc7dee.vercel.app");
+    return ALLOWED_HOSTS.includes(host)
+      || host.endsWith("-pascals-projects-58bc7dee.vercel.app")
+      || /^duerr-elektrotechnik-preview-[a-z0-9]+\.vercel\.app$/.test(host);
   } catch (e) {
     return false;
   }
